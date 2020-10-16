@@ -36,3 +36,27 @@ Un projet comporte un nom, une date de début, une date de fin estimé (possibli
 - Importance: 1
 - Difficulté: 1
 - NewFeature
+
+7- En tant qu’utilisateur, je souhaite pouvoir ajouter une issue dans un sprint
+
+- Importance: 1
+- Difficulté: 2
+- NewFeature
+
+8- En tant qu’utilisateur je souhaite pouvoir créer un Pert pour le projet global et un pour chaque sprint
+
+- Importance: 2
+- Difficulté: 5
+- NewFeature
+
+9- En tant qu’utilisateur je souhaite pouvoir organiser mes tâches chronologiquement dans un diagramme
+
+- Importance: 2
+- Difficulté: 3
+- NewFeature
+
+10- En tant qu’utilisateur je souhaite pouvoir créer un profil (nom, prénom, mail)
+
+- Importance: 2
+- Difficulté: 1
+- NewFeature
