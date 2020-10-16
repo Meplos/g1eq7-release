@@ -60,3 +60,28 @@ Un projet comporte un nom, une date de début, une date de fin estimé (possibli
 - Importance: 2
 - Difficulté: 1
 - NewFeature
+
+11-En tant qu'utilisateur, je souhaite pouvoir enregistrer des tests E2E.
+Importance: 1
+Difficulté: 2
+NewFeature
+
+12-En tant qu'utilisateur, je souhaite pouvoir créer une page release qui contiendrait le nom, la version, lien vers le fichier, la vidéo, la page d'installation et la liste des issues présentent dans la release et la date.
+Importance: 1
+Difficulté: 2
+NewFeature
+
+13-En tant qu'utilisateur, je souhaite pouvoir signaler un bug présent sur livrable release directement sur l'application.
+Importance: 2
+Difficulté: 1
+NewFeature
+
+14-En tant qu'utilisateur, je souhaite pouvoir uploader une vidéo de démo sur une release pour l'expliquer
+Importance: 3
+Difficulté: 1
+NewFeature
+
+15-En tant qu'utilisateur je souhaite pourvoir télécharger une feature
+Importance: 1
+Difficulté: 1
+NewFeature
