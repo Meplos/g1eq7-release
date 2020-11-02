@@ -10,7 +10,7 @@
 
 - Front: Vue || React
 - Backend: Node
-- BDD: Mongo || MySQL
+- BDD: MySQL
 
 ## Organisation des fichiers
 
