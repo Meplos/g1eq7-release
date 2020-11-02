@@ -8,7 +8,7 @@
 
 3 tiers:
 
-- Front: Vue || React
+- Front: Vue
 - Backend: Node
 - BDD: MySQL
 
