@@ -4,6 +4,16 @@
 
 # Architecture
 
+## Physique
+
+3 tiers:
+
+- Front: Vue || React
+- Backend: Node
+- BDD: Mongo || MySQL
+
+## Organisation des fichiers
+
 // TODO décrire architecture Hexagonale
 
 ```
