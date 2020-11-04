@@ -1,4 +1,4 @@
-# Définition
+# Définitions
 
 - **Un utilisateur** est une personne physique capable de créer et gérer des projet.
 
