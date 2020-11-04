@@ -14,8 +14,6 @@
 
 ## Organisation des fichiers
 
-// TODO décrire architecture Hexagonale
-
 ```
 src
 |- Domain
