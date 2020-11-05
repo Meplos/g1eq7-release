@@ -64,3 +64,4 @@ src
 | 23 | **En tant qu'** Membre du projet **je souhaite** visualiser sur la page d'accueil du projet son avancement (tâches à effectuer cette semaine, % de complétion du sprint, des tâches, des User Story, des tests) **afin d'** avoir une vision globale de l'avancement du projet | 1 | 2| |
 | 24 | **En tant qu'** Scrum master **je souhaite** ajouter une note (titre, description) à la page d'accueil du projet **afin de** servir comme mémo ou message important à faire passer aux autres developpeurs | 2 | 3| |
 | 25 | **En tant qu'** Scrum master **je souhaite** pouvoir générer une burndown chart **afin de** pouvoir suivre l'évolution de la quantité de travail du projet. | 3 | 2| |
+
