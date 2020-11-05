@@ -7,6 +7,7 @@
 ```
 
 |- /project (Accueil avec liste des projets)
+|   |- /burndownChart
 |   |- /create (Formulaire de création de projet)
 |   |- /delete
 |   |- /:idProject (Accueil du projet : liste US, liste Tasks, Kanban, Pert, Sprints)
@@ -36,7 +37,7 @@
 
 1. Requête de listage des projets US:1
 
-   - [ ] Ajouter à app/index.js une route GET vers /project qui appelle un useCase qui renvoie au front les projets déjà existants si il y en a
+   - [ ] Ajouter à app/index.js une route GET vers /project qui appelle un useCase getProjects.js qui renvoie au front les projets déjà existants si il y en a
    - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données au front (rien si il n'y a pas de projets en BD et les bons si ils y en a)
 
 2. Affichage des projets US:1
@@ -68,15 +69,24 @@
 4. Requetes de création d'un projet US:1
 
    - [ ] Creer un fichier useCase/CreateProject.js qui va récupérer les données du projet à créer et les ajouter le projet à la base de données
-   - [ ] 
    - [ ] Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
    - [ ] Implémenter un test qui vérifie que le projet ,avec les bonnes informations, a bien été créer.
 
-5. Requete d'ajout d'une US  US:2
+X. Requêtes de modification d'un projet
+   - [ ] Creer un fichier useCase/ModifyProject.js qui va récupérer les données du projet à modifier et les répercuter dans la base de données
+   - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/modify qui appelle un useCase/ModifyProject.js
+   - [ ] Implémenter un test qui vérifie que le projet à été modifié correctement
 
-   - [ ] Creer un fichier useCase/CreateUS.js qui va ajouter l'issue à la base de donées et l'ajouter au projet correspondant.
+5. Requetes d'ajout d'une US  US:2
+
+   - [ ] Creer un fichier useCase/CreateUS.js qui va ajouter l'US à la base de donées et l'ajouter au projet correspondant.
    - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/us/create qui appelle un useCase/createUS.js
    - [ ] Implémenter un test qui vérifie que l'US avec les bonnes information à bien était créée. et qu'elle a bien était ajouté au bon projet.
+
+X. Requêtes de modification d'une US
+   - [ ] Creer un fichier useCase/ModifyUS.js qui va récupérer les données de l'US à modifier et les répercuter dans la base de données
+   - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/us/:idUS/modify qui appelle un useCase/ModifyUS.js
+   - [ ] Implémenter un test qui vérifie que le projet à été modifié correctement
 
 6. Formulaire de création/modification d'une US US:2 et 3
 
@@ -96,6 +106,12 @@
    - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/us/:idUS/modify
    - [ ] Vérifier qu'on entre bien dans l'état modification quand on passe des paramètre à notre composant et dans l'état ajout sinon.
 
+X. Récupération des données d'un projet
+   - [ ] Créer une route GET sur /project/:idProject qui renvoie sur useCase/getProjectInfo.js
+   - [ ] Créer le fichier getProjectInfo.js dans /useCase
+   - [ ] Implémenter dans getProjectInfo.js la récupération des champs du projet ayant pour id : idProject dans la BD
+   - [ ] Envoyer les données au front
+
 7. Affichage d'un projet US:1
    - [ ] Créer un composant Project.vue
    - [ ] Afficher les champs : nom, date de début, état
@@ -103,6 +119,12 @@
    - [ ] Ajouter un bouton de modification qui revoie un GET vers la route /project/:idProject/modify
    - [ ] Implémenter un test qui vérifie que les champs du projets sont bien affichés
    - [ ] Implémenter un test qui vérifie qu'après un clic sur le bouton "Modifier" on revoie bien un GET avec l'id du projet
+
+X. Récupération des US d'un projet
+   - [ ] Créer une route GET sur /project/:idProject qui renvoie sur useCase/getUS.js
+   - [ ] Créer le fichier getUS.js dans /useCase
+   - [ ] Implémenter dans getUS.js la récupération des US du projet d'id idProject dans la BD
+   - [ ] Envoyer les données au front
 
 8. Affichage des US dans le projet US:2
    - [ ] Créer un composant USList.vue
@@ -113,7 +135,30 @@
    - [ ] Ajouter en bas du tableau un bouton "Ajouter" qui renvoie un GET vers la route /project/:idProject/us/createUS
    - [ ] Ajouter le composant USList.vue à Project.vue
 
-9. Affichage des Tasks dans le projet
+X. Requête d'ajout d'une tâche
+   - [ ] Creer un fichier useCase/CreateTask.js qui va ajouter la tâche à la base de donées et l'ajouter au projet correspondant.
+   - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/task/create qui appelle un useCase/createTask.js
+   - [ ] Implémenter un test qui vérifie que l'US avec les bonnes information à bien était créée. et qu'elle a bien était ajouté au bon projet.
+
+X. Formulaire de création des tâches US 4
+   - [ ] Creer un composant TaskForm.js.
+   - [ ] Creer dedans un formulaire avec les chapms:
+      -id (string)
+      -description (string)
+      -lien avec userStory (string)
+      -état (par default en TODO)
+   - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Task/create les données du formulaire.
+   - [ ] Implémenter un test qui vérifie qu'on ne peut pas rentrer de caractères illégaux dans notre formulaire
+   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/task
+   - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
+
+X. Récupération des Tâches d'un projet US 4
+   - [ ] Créer une route GET sur /project/:idProject qui renvoie sur useCase/getTasks.js
+   - [ ] Créer le fichier getTasks.js dans /useCase
+   - [ ] Implémenter dans getTasks.js la récupération des Tâches du projet d'id idProject dans la BD
+   - [ ] Envoyer les données au front
+
+9. Affichage des Tasks dans le projet US 4
    - [ ] Créer un composant TasksList.vue
    - [ ] Récupérer la liste des Tâches envoyées par le back
    - [ ] Afficher sous forme de tableau les Tâches (id,us,temps,dépendences,développeurs et état)
@@ -165,7 +210,7 @@
    - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
 
 - Ajouter une US dans un sprint US 7
-   - [ ] Ajouter l'api de drag and drop à l'application.
+   - [ ] Ajouter l'api Drag/Drop de html5 de drag and drop à l'application.
    - [ ] Utiliser l'Api de drag and drop sur les objets de type US
    - [ ] Implémenter un test qui vérifie que les objets de type US sont bien drag and dropable.
    - [ ] Implémenter un test qui vérifie que le drag and drop ajoute bien à l'objet sprint correspondant un objet de type US.
@@ -175,18 +220,6 @@
    - [ ] Ajouter une liste déroulante pour l'importance, contenant high, medium, low pour chaque US.
    - [ ] Ajouter une liste déroulante pour la difficulté, contenant 1, 2 , 3, 5, 8 pour chaque US.
    - [ ] Implémenter un test qui vérifie que lorqu'il y a modification de la valeur des listes, celle-ci est bien sauvegardé et enregistré en BDD.
-
-- Formulaire de création des tâches US 4
-   - [ ] Creer un composant TaskForm.js.
-   - [ ] Creer dedans un formulaire avec les chapms:
-      -id (string)
-      -description (string)
-      -lien avec userStory (string)
-      -état (par default en TODO)
-   - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Task/create les données du formulaire.
-   - [ ] Implémenter un test qui vérifie qu'on ne peut pas rentrer de caractères illégaux dans notre formulaire
-   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/task
-   - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
    
 
 - Organisation des tâches chronologiquement via drag and drop US 9
@@ -197,7 +230,20 @@
 
 - % de complétion des US US 23
 
-- Burndown Chart US 25
+- Creation de la vue et de la droite "Ideal task remaining" d'un Burndown Chart avec les données d'un projet test US 25
+   - [ ] Ajout d'un bouton "Génerer Burndown Chart" en bas de la page d'affichage d'un projet
+   - [ ] Créer un composant burndownChart.vue où sera affiché le burndown chart généré
+   - [ ] Utilisation de l'api Chartjs pour générer un graphique sur deux axes:
+      - En x: Iteration Timeline (days)
+      - En y: Sum of task estimates (days)
+   - [ ] Tracer la ligne "Ideal Tasks Remaining" correspondant à une droite du point de départ du projet jusqu'au nombre de jours final du projet. 
+
+- Ajout de la ligne "Actual task remaining" au Burndown Chart avec les données d'un projet test
+   - [ ] Pour chaques jours que le projet a commencé, calculer en jour la durée de toutes les tâches restantes.
+   - [ ] Tracer la ligne "Actual task remaining" qui prend en x le chiffre calculé precedement, et en y le jours d'avancement correspondant.
+   
+   
+- Ajout des données de la base de données pour le Burndown Chart 
 
 
 ## Organisation
