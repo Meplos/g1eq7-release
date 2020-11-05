@@ -156,15 +156,18 @@
 ###RAF :
 
 - Créer des sprints US 6
-   - [ ] Creer un composant SprintVue.js.
+   - [ ] Creer un composant SprintForm.js.
    - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Sprint/create les données du formulaire.
-   - [ ] Creer un formulaire avec les champs date de début et date de fin (l'id doit être généré automatiquement).
+   - [ ] Creer un formulaire avec les champs date de début (date) et date de fin (date) (l'id doit être généré automatiquement).
    - [ ] Creer deux boutons, Valider et Annuler en fin de formulaire.
    - [ ] Implémenter un test qui vérifie qu'on ne peut pas mettre autre chose que des dates dans les deux champs.
    - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/Sprint/create.
    - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
 
 - Ajouter une US dans un sprint US 7
+   - [ ] Ajouter l'api de drag and drop à l'application.
+   - [ ] Utiliser l'Api de drag and drop sur les objets de type US
+   - [ ] Implémenter un test qui vérifie que les objets de type US sont bien drag and dropable.
    - [ ] Implémenter un test qui vérifie que le drag and drop ajoute bien à l'objet sprint correspondant un objet de type US.
    - [ ] Implémenter un test qui vérifie que l'objet ajouté au sprint est bien l'objet US correspondant à l'objet dragé and dropé dans le sprint voulu.
 
@@ -174,6 +177,17 @@
    - [ ] Implémenter un test qui vérifie que lorqu'il y a modification de la valeur des listes, celle-ci est bien sauvegardé et enregistré en BDD.
 
 - Créer des tâches US 4
+   - [ ] Creer un composant TaskForm.js.
+   - [ ] Creer dedans un formulaire avec les chapms:
+      -id (string)
+      -description (string)
+      -lien avec userStory (string)
+      -état (par default en TODO)
+   - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Task/create les données du formulaire.
+   - [ ] Implémenter un test qui vérifie qu'on ne peut pas rentrer de caractères illégaux dans notre formulaire
+   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/task
+   - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
+   
 
 - Organisation des tâches chronologiquement via drag and drop US 9
 
