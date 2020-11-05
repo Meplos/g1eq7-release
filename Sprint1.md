@@ -231,12 +231,14 @@ X. Récupération des Tâches d'un projet US 4
 - % de complétion des US US 23
 
 - Creation de la vue et de la droite "Ideal task remaining" d'un Burndown Chart avec les données d'un projet test US 25
-   - [ ] Ajout d'un bouton "Génerer Burndown Chart" en bas de la page d'affichage d'un projet
+   - [ ] Ajout d'un bouton "Génerer Burndown Chart" en bas de la page d'affichage d'un projet, qui renvoie un GET vers la route /project/:idProject/burndownChart
    - [ ] Créer un composant burndownChart.vue où sera affiché le burndown chart généré
    - [ ] Utilisation de l'api Chartjs pour générer un graphique sur deux axes:
       - En x: Iteration Timeline (days)
       - En y: Sum of task estimates (days)
-   - [ ] Tracer la ligne "Ideal Tasks Remaining" correspondant à une droite du point de départ du projet jusqu'au nombre de jours final du projet. 
+   - [ ] Tracer la ligne "Ideal Tasks Remaining" correspondant à une droite du point de départ du projet jusqu'au nombre de jours final du projet.
+   - [ ] Implémenter un test qui vérifie que la droite tracée commen
+   - [ ] Implémenter un test qui
 
 - Ajout de la ligne "Actual task remaining" au Burndown Chart avec les données d'un projet test
    - [ ] Pour chaques jours que le projet a commencé, calculer en jour la durée de toutes les tâches restantes.
