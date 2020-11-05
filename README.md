@@ -48,7 +48,7 @@ src
 | 7 | **En tant qu’** Scrum master, **je souhaite** pouvoir ajouter une user story dans un sprint à l'aide d'un drag & drop ou à l'aide d'une liste **afin de** plannifier mes User Story. | 1 | 1 | 1 |
 | 22 | **En tant qu'** Scrum master **je souhaite** pouvoir modifier la difficulté et l'importance d'une User Story à l'aide de listes déroulantes **afin de** pouvoir gérer la difficulté et l'importance de chaque user story | 2 | 1 | 1 |
 | 8 | **En tant qu’** Scrum master **je souhaite** pouvoir générer automatiquement un Pert pour le projet global et un pour chaque sprint **afin de** pouvoir organiser le développement | 5 | 2 | |
-| 9 | **En tant qu'** Scrum master **je souhaite** pouvoir organiser mes tâches chronologiquement dans un diagramme via un drag and drop **afin de** visualiser un calendrier des tâches | 3 |2| |
+| 9 | **En tant qu'** Scrum master **je souhaite** pouvoir organiser mes tâches chronologiquement dans un diagramme via un drag and drop **afin de** visualiser un calendrier des tâches | 3 |3| |
 | 10 | **En tant qu’** Scrum master **je souhaite** pouvoir créer un profil (nom, prénom, mail, rôle) **afin de** pouvoir assigner un profil à des tâches | 1 | 3| |
 | 11 | **En tant qu'** Developpeur, **je souhaite** pouvoir uploader pour chaque test une vidéo de son exécution **afin de** permettre aux autres membres du projet de voir en un coup d'oeil ce qui est testé | 2 | 3| |
 | 12 | **En tant qu'** Scrum master, **je souhaite** pouvoir créer une page release qui contiendrait le nom*, la version*, lien vers le fichier\*, la vidéo de démo des fonctionnalités, les instructions d'installation / documentation, la liste des User Story présentes dans la release, la date **afin de** pouvoir les integrer | 2 | 3| |
