@@ -155,7 +155,7 @@
 
 ###RAF :
 
-- Créer des sprints US 6
+- Formulaire de création des sprints US 6
    - [ ] Creer un composant SprintForm.js.
    - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Sprint/create les données du formulaire.
    - [ ] Creer un formulaire avec les champs date de début (date) et date de fin (date) (l'id doit être généré automatiquement).
@@ -176,7 +176,7 @@
    - [ ] Ajouter une liste déroulante pour la difficulté, contenant 1, 2 , 3, 5, 8 pour chaque US.
    - [ ] Implémenter un test qui vérifie que lorqu'il y a modification de la valeur des listes, celle-ci est bien sauvegardé et enregistré en BDD.
 
-- Créer des tâches US 4
+- Formulaire de création des tâches US 4
    - [ ] Creer un composant TaskForm.js.
    - [ ] Creer dedans un formulaire avec les chapms:
       -id (string)
