@@ -11,6 +11,8 @@
 |   |- /delete
 |   |- /:idProject (Accueil du projet : liste US, liste Tasks, Kanban, Pert, Sprints)
 |   |   |- /modify (Formulaire modif de projet)
+|   |   |- /sprint
+|   |   |   |- /create
 |   |   |- /us
 |   |   |   |- /:idUS
 |   |   |   |   |- /modify (Formulaire modif d'US)
@@ -154,13 +156,22 @@
 ###RAF :
 
 - Créer des sprints US 6
+   - [ ] Creer un composant SprintVue.js.
+   - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Sprint/create les données du formulaire.
+   - [ ] Creer un formulaire avec les champs date de début et date de fin (l'id doit être généré automatiquement).
+   - [ ] Creer deux boutons, Valider et Annuler en fin de formulaire.
+   - [ ] Implémenter un test qui vérifie qu'on ne peut pas mettre autre chose que des dates dans les deux champs.
+   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/Sprint/create.
+   - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
 
 - Ajouter une US dans un sprint US 7
+   - [ ] Implémenter un test qui vérifie que le drag and drop ajoute bien à l'objet sprint correspondant un objet de type US.
+   - [ ] Implémenter un test qui vérifie que l'objet ajouté au sprint est bien l'objet US correspondant à l'objet dragé and dropé dans le sprint voulu.
 
 - Modif de l'importance et difficulté de l'US via liste déroulante US 22
-   - [ ] Ajouter une liste déroulante pour l'importance, contenant high, medium, low.
-   - [ ] Lorsque 
-   - [ ] Ajouter une liste déroulante pour la difficulté, contenant 1, 2 , 3, 5, 8.
+   - [ ] Ajouter une liste déroulante pour l'importance, contenant high, medium, low pour chaque US.
+   - [ ] Ajouter une liste déroulante pour la difficulté, contenant 1, 2 , 3, 5, 8 pour chaque US.
+   - [ ] Implémenter un test qui vérifie que lorqu'il y a modification de la valeur des listes, celle-ci est bien sauvegardé et enregistré en BDD.
 
 - Créer des tâches US 4
 
