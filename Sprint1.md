@@ -193,7 +193,7 @@ Routes de l'appli
    - [ ] Ajouter une liste déroulante pour la difficulté, contenant 1, 2 , 3, 5, 8 pour chaque US.
 <p></p>
 
-- T14. Test modification de l'importance et de la difficulté d'une tâche
+- T14. Test modification de l'importance et de la difficulté d'une US
    - [ ] Implémenter un test qui vérifie que lorqu'il y a modification de la valeur des listes, celle-ci est bien sauvegardé et enregistré en BDD.
 <p></p>
 
@@ -248,7 +248,7 @@ Routes de l'appli
    - [ ] Implémenter un test qui vérifie qu'on affiche bien toute les tâche associé aux projet idProjet
 <p></p>
    
--NF19. Affichage du Pert dans le projet US 8,23
+- NF19. Affichage du Pert dans le projet US 8,23
    - [ ] Créer un composant Pert.vue
    - [ ] Ajouter un bouton d'ajout de fichier (png,jpeg)
    - [ ] Afficher l'image du Pert
@@ -298,7 +298,7 @@ Routes de l'appli
 <p></p>
 
 - NF23 Formulaire de création des sprints US 6
-   - [ ] Creer un composant SprintForm.js.
+   - [ ] Creer un composant SprintForm.vue.
    - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Sprint/create les données du formulaire.
    - [ ] Creer un formulaire avec les champs date de début (date) et date de fin (date) (l'id doit être généré automatiquement).
    - [ ] Creer deux boutons, Valider et Annuler en fin de formulaire.
@@ -341,7 +341,7 @@ Routes de l'appli
       - Un pour les Sprints
 <p></p>
 
-- T26. Test composant de complétion d'une US
+- T26. Test composant de complétion
    - [ ] Implémentation d'un test qui vérifie que le pourcentage afficher est correct
 <p></p>
 
@@ -364,8 +364,7 @@ Routes de l'appli
 <p></p>
 
 - T28. Test de réccupération de l'avancement d'une Task
-   - [ ] Implémenter un test qui vérifie que l'avancement d'une US est égale au nombre de task d'un projet terminé idProject terminé /au nombre de task total d'un projet idProject 
-   * 100.
+   - [ ] Implémenter un test qui vérifie que l'avancement d'une US est égale au nombre de task d'un projet terminé idProject terminé /au nombre de task total d'un projet idProject x 100.
 <p></p>
 
 - NF29. Récupération de l'avancement des Sprints US 23
@@ -375,9 +374,8 @@ Routes de l'appli
    - [ ] Envoyer ces 2 paramètres au front
 <p></p>
 
-- T29. Test de réccupération de l'avancement d'un Sprint
-   - [ ] Implémenter un test qui vérifie que l'avancement d'une US est égale au nombre de task terminées lié a une US d'un sprint idSprint terminé /au nombre de task total task lié a une US d'un sprint  d'un projet idProject 
-   * 100.
+- T29. Test de récupération de l'avancement d'un Sprint
+   - [ ] Implémenter un test qui vérifie que l'avancement d'une US est égale au nombre de task terminées lié a une US d'un sprint idSprint terminé /au nombre de task total task lié a une US d'un sprint  d'un projet idProject x 100.
 <p></p>
 
 - NF30. Creation de la vue basique d'un Burndown Chart avec les données d'un projet test US 25
@@ -403,16 +401,111 @@ Routes de l'appli
    - [ ] Implémenter un test qui vérifie que chaque jour de la courbe dispose d'un point et qu'il a la bonne valeur
    - [ ] Implémenter un test qui vérifie l'actualisation de la courbe après un changement dans la BD
 
+- NF32. Récupération des Sprints d'un projet US 4
+   - [ ] Créer une route GET sur /project/:idProject qui renvoie sur useCase/getSprints.js
+   - [ ] Créer le fichier getSprints.js dans /useCase
+   - [ ] Implémenter dans getSprints.js la récupération des SPrints du projet d'id idProject dans la BD
+   - [ ] Envoyer les données au front
+<p></p>
+
+- T32. Test de réccupération des Sprints.
+   - [ ]  Implémenter un test qui vérifie qu'on réccupére bien touts les sprints liés à un projet d'id idProject
+<p></p>
+
+- NF33. Affichage des Sprints dans le projet US 4
+   - [ ] Créer un composant SprintsList.vue
+   - [ ] Récupérer la liste des Sprints et leurs US associées envoyées par le back
+   - [ ] Afficher chaque sprint sous forme de liste d'US associée au sprint.
+<p></p>
+
+- T33. Test de l'affichage des tâche d'un projet
+   - [ ] Implémenter un test qui vérifie qu'on affiche bien tous les sprints si il en existe ou zero si il n'y en a pas
+   - [ ] Implémenter un test qui vérifie que les US affichées dans un sprint appartiennent bien à ce sprint.
+<p></p>
+
 ###RAF :
    
 - Liaison avec la base de données pour le Burndown Chart
    
 - Créer la BD
 
+- Passer les accès en mémoire de inMemory à la BD ?
+
+- Modif des sprints ?
+
 
 
 ## Organisation
 
-| id  | US  | Temps | Dépendances | dévelloppeur | état |
-| --- | --- | ----- | ----------- | ------------ | ---- |
+3 principales dépendences :
+T1 : squelette node (index.js) existe et testé
+NF22 : définition des données en BD
+T11 : Project.vue existe et est testé
 
+| id  | US  | Temps (hm) | Dépendances | développeur | état |
+| --- | --- | ----- | ----------- | ------------ | ---- |
+| NF1 | US1 |       | /            |              |      |
+| T1  | US1 |       | NF1            |              |      |
+| NF2 | US1 |       | T1,NF22            |              |      |
+| T2  | US1 |       | NF2            |              |      |
+| NF3 | US1 |       | NF22            |              |      |
+| T3  | US1 |       | NF3            |              |      |
+| NF4 | US1 |       | NF22            |              |      |
+| T4  | US1 |       | NF4            |              |      |
+| NF5 | US1 |       | T1,NF22            |              |      |
+| T5  | US1 |       | NF5            |              |      |
+| NF6 | US1 |       | T1,NF22            |              |      |
+| T6  | US1 |       | NF6            |              |      |
+| NF7 | US2 |       | T1,NF22            |              |      |
+| T7  | US2 |       | NF7            |              |      |
+| NF8 | US3 |       | T1,NF22            |              |      |
+| T8  | US3 |       | NF8            |              |      |
+| NF9 | US2 US3 |       | NF22            |              |      |
+| T9  | US2 US3 |       | NF9            |              |      |
+| NF10 | US1 |       | T1,NF22            |              |      |
+| T10  | US1 |       | NF10            |              |      |
+| NF11 | US1 |       | NF22            |              |      |
+| T11  | US1 |       | NF11            |              |      |
+| NF12 | US3 |       | T1,NF22            |              |      |
+| T12  | US3 |       | NF12            |              |      |
+| NF13 | US3 |       | NF22,T11            |              |      |
+| T13  | US3 |       | NF13            |              |      |
+| NF14 | US3 |       | T13            |              |      |
+| T14  | US3 |       | NF14            |              |      |
+| NF15 | US4 |       | T1,NF22            |              |      |
+| T15  | US4 |       | NF15            |              |      |
+| NF16 | US4 |       | NF22            |              |      |
+| T16  | US4 |       | NF16            |              |      |
+| NF17 | US4 |       | T1,NF22            |              |      |
+| T17  | US4 |       | NF17            |              |      |
+| NF18 | US4 |       | NF22,T11            |              |      |
+| T18  | US4 |       | NF18            |              |      |
+| NF19 | US8 |       | T11            |              |      |
+| T19  | US8 |       | NF19            |              |      |
+| NF20 | US5 |       | T11            |              |      |
+| T20  | US5 |       | NF20            |              |      |
+| NF21 | US5 |       | T18            |              |      |
+| T21  | US5 |       | NF21            |              |      |
+| NF22 | US1 |       |             |              |      |
+| NF23 | US6 |       | NF22            |              |      |
+| T23  | US6 |       | NF23            |              |      |
+| NF24 | US6 |       | T1,NF22            |              |      |
+| T24  | US6 |       | NF24            |              |      |
+| NF25 | US7 |       | T13,T33            |              |      |
+| T25  | US7 |       | NF25            |              |      |
+| NF26 | US23 |       | T11            |              |      |
+| T26  | US23 |       | NF26            |              |      |
+| NF27 | US23 |       | T26,T12            |              |      |
+| T27  | US23 |       | NF27            |              |      |
+| NF28 | US23 |       | T26,T17            |              |      |
+| T28  | US23 |       | NF28            |              |      |
+| NF29 | US23 |       | T26,T32            |              |      |
+| T29  | US23 |       | NF29            |              |      |
+| NF30 | US25 |       | T11            |              |      |
+| T30  | US25 |       | NF30            |              |      |
+| NF31 | US25 |       | T30,T17            |              |      |
+| T31  | US25 |       | NF31            |              |      |
+| NF32 | US25 |       | T1,NF22            |              |      |
+| T32  | US25 |       | NF32            |              |      |
+| NF33 | US25 |       | T32            |              |      |
+| T33  | US25 |       | NF33            |              |      |
