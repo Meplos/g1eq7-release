@@ -16,6 +16,7 @@ const routes = [
     path: "/createProject",
     name: "CreateProject",
     component: ProjectForm,
+    props: { isEdit: false },
   },
   {
     path: "/",
