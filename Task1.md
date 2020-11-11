@@ -492,70 +492,70 @@ T1 : squelette node (index.js) existe et testé
 NF22 : définition des données en BD
 T11 : Project.vue existe et est testé
 
-| id   | US      | Temps (hm) | Dépendances | développeur | état |
-| ---- | ------- | ---------- | ----------- | ----------- | ---- |
-| NF1  | US1     | 1          | /           |             | TODO     |
-| T1   | US1     | 1          | NF1         |             | TODO     |
-| NF2  | US1     | 1          | T1,NF22     |             | TODO     |
-| T2   | US1     | 1          | NF2         |             | TODO     |
-| NF3  | US1     | 1          | NF22        |             | TODO     |
-| T3   | US1     | 2          | NF3         |             | TODO     |
-| NF4  | US1     | 1          | NF22        |             | TODO     |
-| T4   | US1     | 2          | NF4         |             | TODO     |
-| NF5  | US1     | 1          | T1,NF22     |             | TODO     |
-| T5   | US1     | 1          | NF5         |             | TODO     |
-| NF6  | US1     | 1          | T1,NF22     |             | TODO     |
-| T6   | US1     | 1          | NF6         |             | TODO     |
-| NF7  | US2     | 1          | T1,NF22     |             | TODO     |
-| T7   | US2     | 1          | NF7         |             | TODO     |
-| NF8  | US3     | 1          | T1,NF22     |             | TODO     |
-| T8   | US3     | 1          | NF8         |             | TODO     |
-| NF9  | US2 US3 | 1          | NF22        |             | TODO     |
-| T9   | US2 US3 | 2          | NF9         |             | TODO     |
-| NF10 | US1     | 1          | T1,NF22     |             | TODO     |
-| T10  | US1     | 1          | NF10        |             | TODO     |
-| NF11 | US1     | 2          | NF22        |             | TODO     |
-| T11  | US1     | 2          | NF11        |             | TODO     |
-| NF12 | US3     | 1          | T1,NF22     |             | TODO     |
-| T12  | US3     | 1          | NF12        |             | TODO     |
-| NF13 | US3     | 3          | NF22,T11    |             | TODO     |
-| T13  | US3     | 2          | NF13        |             | TODO     |
-| NF14 | US3     | 1          | T13         |             | TODO     |
-| T14  | US3     | 1          | NF14        |             | TODO     |
-| NF15 | US4     | 1          | T1,NF22     |             | TODO     |
-| T15  | US4     | 1          | NF15        |             | TODO     |
-| NF16 | US4     | 1          | NF22        |             | TODO     |
-| T16  | US4     | 1          | NF16        |             | TODO     |
-| NF17 | US4     | 1          | T1,NF22     |             | TODO     |
-| T17  | US4     | 1          | NF17        |             | TODO     |
-| NF18 | US4     | 2          | NF22,T11    |             | TODO     |
-| T18  | US4     | 1          | NF18        |             | TODO     |
-| NF19 | US8     | 1          | T11         |             | TODO     |
-| T19  | US8     | 1          | NF19        |             | TODO     |
-| NF20 | US5     | 4          | T11         |             | TODO     |
-| T20  | US5     | 3          | NF20        |             | TODO     |
-| NF21 | US5     | 2          | T18         |             | TODO     |
-| T21  | US5     | 1          | NF21        |             | TODO     |
-| NF22 | US1     | 1          |             |             | TODO     |
-| NF23 | US6     | 1          | NF22        |             | TODO     |
-| T23  | US6     | 2          | NF23        |             | TODO     |
-| NF24 | US6     | 1          | T1,NF22     |             | TODO     |
-| T24  | US6     | 1          | NF24        |             | TODO     |
-| NF25 | US7     | 2          | T13,T33     |             | TODO     |
-| T25  | US7     | 2          | NF25        |             | TODO     |
-| NF26 | US23    | 1          | T11         |             | TODO     |
-| T26  | US23    | 1          | NF26        |             | TODO     |
-| NF27 | US23    | 1          | T26,T12     |             | TODO     |
-| T27  | US23    | 1          | NF27        |             | TODO     |
-| NF28 | US23    | 1          | T26,T17     |             | TODO     |
-| T28  | US23    | 1          | NF28        |             | TODO     |
-| NF29 | US23    | 1          | T26,T32     |             | TODO     |
-| T29  | US23    | 1          | NF29        |             | TODO     |
-| NF30 | US25    | 3          | T11         |             | TODO     |
-| T30  | US25    | 2          | NF30        |             | TODO     |
-| NF31 | US25    | 3          | T30,T17     |             | TODO     |
-| T31  | US25    | 2          | NF31        |             | TODO     |
-| NF32 | US25    | 1          | T1,NF22     |             | TODO     |
-| T32  | US25    | 1          | NF32        |             | TODO     |
-| NF33 | US25    | 3          | T32         |             | TODO     |
-| T33  | US25    | 1          | NF33        |             | TODO     |
+| id   | US      | Temps (hm) | Dépendances | développeur     | état |
+| ---- | ------- | ---------- | ----------- | --------------- | ---- |
+| NF1  | US1     | 1          | /           | Alexandre Erard | TODO |
+| T1   | US1     | 1          | NF1         |                 | TODO |
+| NF2  | US1     | 1          | T1,NF22     |                 | TODO |
+| T2   | US1     | 1          | NF2         |                 | TODO |
+| NF3  | US1     | 1          | NF22        | Alexandre Erard | TODO |
+| T3   | US1     | 2          | NF3         |                 | TODO |
+| NF4  | US1     | 1          | NF22        | Alexandre Erard | TODO |
+| T4   | US1     | 2          | NF4         |                 | TODO |
+| NF5  | US1     | 1          | T1,NF22     |                 | TODO |
+| T5   | US1     | 1          | NF5         |                 | TODO |
+| NF6  | US1     | 1          | T1,NF22     |                 | TODO |
+| T6   | US1     | 1          | NF6         |                 | TODO |
+| NF7  | US2     | 1          | T1,NF22     |                 | TODO |
+| T7   | US2     | 1          | NF7         |                 | TODO |
+| NF8  | US3     | 1          | T1,NF22     |                 | TODO |
+| T8   | US3     | 1          | NF8         |                 | TODO |
+| NF9  | US2 US3 | 1          | NF22        | Alexandre Erard | TODO |
+| T9   | US2 US3 | 2          | NF9         |                 | TODO |
+| NF10 | US1     | 1          | T1,NF22     |                 | TODO |
+| T10  | US1     | 1          | NF10        |                 | TODO |
+| NF11 | US1     | 2          | NF22        |                 | TODO |
+| T11  | US1     | 2          | NF11        |                 | TODO |
+| NF12 | US3     | 1          | T1,NF22     |                 | TODO |
+| T12  | US3     | 1          | NF12        |                 | TODO |
+| NF13 | US3     | 3          | NF22,T11    |                 | TODO |
+| T13  | US3     | 2          | NF13        |                 | TODO |
+| NF14 | US3     | 1          | T13         |                 | TODO |
+| T14  | US3     | 1          | NF14        |                 | TODO |
+| NF15 | US4     | 1          | T1,NF22     |                 | TODO |
+| T15  | US4     | 1          | NF15        |                 | TODO |
+| NF16 | US4     | 1          | NF22        |                 | TODO |
+| T16  | US4     | 1          | NF16        |                 | TODO |
+| NF17 | US4     | 1          | T1,NF22     |                 | TODO |
+| T17  | US4     | 1          | NF17        |                 | TODO |
+| NF18 | US4     | 2          | NF22,T11    |                 | TODO |
+| T18  | US4     | 1          | NF18        |                 | TODO |
+| NF19 | US8     | 1          | T11         |                 | TODO |
+| T19  | US8     | 1          | NF19        |                 | TODO |
+| NF20 | US5     | 4          | T11         |                 | TODO |
+| T20  | US5     | 3          | NF20        |                 | TODO |
+| NF21 | US5     | 2          | T18         |                 | TODO |
+| T21  | US5     | 1          | NF21        |                 | TODO |
+| NF22 | US1     | 1          |             |                 | TODO |
+| NF23 | US6     | 1          | NF22        |                 | TODO |
+| T23  | US6     | 2          | NF23        |                 | TODO |
+| NF24 | US6     | 1          | T1,NF22     |                 | TODO |
+| T24  | US6     | 1          | NF24        |                 | TODO |
+| NF25 | US7     | 2          | T13,T33     |                 | TODO |
+| T25  | US7     | 2          | NF25        |                 | TODO |
+| NF26 | US23    | 1          | T11         |                 | TODO |
+| T26  | US23    | 1          | NF26        |                 | TODO |
+| NF27 | US23    | 1          | T26,T12     |                 | TODO |
+| T27  | US23    | 1          | NF27        |                 | TODO |
+| NF28 | US23    | 1          | T26,T17     |                 | TODO |
+| T28  | US23    | 1          | NF28        |                 | TODO |
+| NF29 | US23    | 1          | T26,T32     |                 | TODO |
+| T29  | US23    | 1          | NF29        |                 | TODO |
+| NF30 | US25    | 3          | T11         |                 | TODO |
+| T30  | US25    | 2          | NF30        |                 | TODO |
+| NF31 | US25    | 3          | T30,T17     |                 | TODO |
+| T31  | US25    | 2          | NF31        |                 | TODO |
+| NF32 | US25    | 1          | T1,NF22     |                 | TODO |
+| T32  | US25    | 1          | NF32        |                 | TODO |
+| NF33 | US25    | 3          | T32         |                 | TODO |
+| T33  | US25    | 1          | NF33        |                 | TODO |
