@@ -36,8 +36,8 @@ Routes de l'appli
 
   - [x] Créer un fichier app/index.js
   - [x] Implémenter un serveur Express basique
-  - [ ] Créer un composant Main.vue
-  - [ ] Faire pointer notre serveur vers Main.vue
+  - [x] Créer un composant Main.vue
+  - [x] Faire pointer notre serveur vers Main.vue
   <p></p>
 
 - T1. Test squelete d'App
