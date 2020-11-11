@@ -47,7 +47,7 @@ Routes de l'appli
 
 - NF2. Requête de listage des projets US:1
 
-  - [ ] Ajouter à app/index.js une route GET vers /project qui appelle un useCase getProjects.js qui renvoie au front les projets déjà existants si il y en a
+  - [x] Ajouter à app/index.js une route GET vers /project qui appelle un useCase getProjects.js qui renvoie au front les projets déjà existants si il y en a
   <p></p>
 
 - T2. Test listage des projet
@@ -93,8 +93,8 @@ Routes de l'appli
 
 - NF5. Requetes de création d'un projet US:1
 
-  - [ ] Creer un fichier useCase/CreateProject.js qui va récupérer les données du projet à créer et les ajouter le projet à la base de données
-  - [ ] Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
+  - [x] Creer un fichier useCase/CreateProject.js qui va récupérer les données du projet à créer et les ajouter le projet à la base de données
+  - [x] Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
   <p></p>
 
 - T5. Test requête de création d'une us
@@ -104,8 +104,8 @@ Routes de l'appli
 
 - NF6. Requêtes de modification d'un projet
 
-  - [ ] Creer un fichier useCase/ModifyProject.js qui va récupérer les données du projet à modifier et les répercuter dans la base de données
-  - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/modify qui appelle un useCase/ModifyProject.js
+  - [x] Creer un fichier useCase/ModifyProject.js qui va récupérer les données du projet à modifier et les répercuter dans la base de données
+  - [x] Ajouter à app/index.js une route POST vers /project/:idProject/modify qui appelle un useCase/ModifyProject.js
   <p></p>
 
 - T6. Test requete de modification d'un projet
