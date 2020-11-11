@@ -322,16 +322,16 @@ Routes de l'appli
 
 - NF22. Définir les données en BD
 
-  - [ ] Créer un fichier txt
-  - [ ] Lister les paramètres d'une projet et leur type
+  - [x] Créer un fichier txt
+  - [x] Lister les paramètres d'une projet et leur type
     - nom\* (String)
     - date de début\* (String)
     - une date de fin estimé (String)
     - url vers un dépot git (String)
     - une description (String)
     - un état\* (String)
-  - [ ] Lister les paramètres d'une tâche et leur type
-  - [ ] Lister les paramètres d'une US et leur type - description\* (String) - type (String) - un état (String) - un état\* (String)
+  - [x] Lister les paramètres d'une tâche et leur type
+  - [x] Lister les paramètres d'une US et leur type - description\* (String) - type (String) - un état (String) - un état\* (String)
   <p></p>
 
 - NF23 Formulaire de création des sprints US 6
