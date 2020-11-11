@@ -57,10 +57,10 @@ Routes de l'appli
 
 - NF3. Affichage des projets US:1
 
-  - [ ] Creer un composant vue ListProjet.vue
-  - [ ] Afficher les projets reçus par le back sous forme de liste.
-  - [ ] Ajouter à la liste un bouton menant à la page de création d'un projet via un GET sur /project/create.
-  - [ ] Pour chaque projet renvoyer un GET sur /projet/:idProject lors d'un clic sur le projet
+  - [x] Creer un composant vue ListProjet.vue
+  - [x] Afficher les projets reçus par le back sous forme de liste.
+  - [x] Ajouter à la liste un bouton menant à la page de création d'un projet via un GET sur /project/create.
+  - [x] Pour chaque projet renvoyer un GET sur /projet/:idProject lors d'un clic sur le projet
   <p></p>
 
 - T3. Test affichage des projet
