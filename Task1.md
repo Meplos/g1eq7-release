@@ -34,8 +34,8 @@ Routes de l'appli
 
 - NF1. Créer un squelette d'app JS/Express/Vue
 
-  - [ ] Créer un fichier app/index.js
-  - [ ] Implémenter un serveur Express basique
+  - [x] Créer un fichier app/index.js
+  - [x] Implémenter un serveur Express basique
   - [ ] Créer un composant Main.vue
   - [ ] Faire pointer notre serveur vers Main.vue
   <p></p>
