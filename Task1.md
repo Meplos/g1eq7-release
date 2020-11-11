@@ -47,7 +47,7 @@ Routes de l'appli
 
 - NF2. Requête de listage des projets US:1
 
-  - [ ] Ajouter à app/index.js une route GET vers /project qui appelle un useCase getProjects.js qui renvoie au front les projets déjà existants si il y en a
+  - [x] Ajouter à app/index.js une route GET vers /project qui appelle un useCase getProjects.js qui renvoie au front les projets déjà existants si il y en a
   <p></p>
 
 - T2. Test listage des projet
@@ -93,8 +93,8 @@ Routes de l'appli
 
 - NF5. Requetes de création d'un projet US:1
 
-  - [ ] Creer un fichier useCase/CreateProject.js qui va récupérer les données du projet à créer et les ajouter le projet à la base de données
-  - [ ] Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
+  - [x] Creer un fichier useCase/CreateProject.js qui va récupérer les données du projet à créer et les ajouter le projet à la base de données
+  - [x] Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
   <p></p>
 
 - T5. Test requête de création d'une us
@@ -104,8 +104,8 @@ Routes de l'appli
 
 - NF6. Requêtes de modification d'un projet
 
-  - [ ] Creer un fichier useCase/ModifyProject.js qui va récupérer les données du projet à modifier et les répercuter dans la base de données
-  - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/modify qui appelle un useCase/ModifyProject.js
+  - [x] Creer un fichier useCase/ModifyProject.js qui va récupérer les données du projet à modifier et les répercuter dans la base de données
+  - [x] Ajouter à app/index.js une route POST vers /project/:idProject/modify qui appelle un useCase/ModifyProject.js
   <p></p>
 
 - T6. Test requete de modification d'un projet
@@ -496,15 +496,15 @@ T11 : Project.vue existe et est testé
 | ---- | ------- | ---------- | ----------- | --------------- | ----- |
 | NF1  | US1     | 1          | /           | Alexandre Erard | DONE  |
 | T1   | US1     | 1          | NF1         |                 | TODO  |
-| NF2  | US1     | 1          | T1,NF22     |                 | TODO  |
+| NF2  | US1     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T2   | US1     | 1          | NF2         |                 | TODO  |
 | NF3  | US1     | 1          | NF22        | Alexandre Erard | DONE  |
 | T3   | US1     | 2          | NF3         |                 | TODO  |
 | NF4  | US1     | 1          | NF22        | Alexandre Erard | DOING |
 | T4   | US1     | 2          | NF4         |                 | TODO  |
-| NF5  | US1     | 1          | T1,NF22     |                 | TODO  |
+| NF5  | US1     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T5   | US1     | 1          | NF5         |                 | TODO  |
-| NF6  | US1     | 1          | T1,NF22     |                 | TODO  |
+| NF6  | US1     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T6   | US1     | 1          | NF6         |                 | TODO  |
 | NF7  | US2     | 1          | T1,NF22     |                 | TODO  |
 | T7   | US2     | 1          | NF7         |                 | TODO  |
@@ -536,7 +536,7 @@ T11 : Project.vue existe et est testé
 | T20  | US5     | 3          | NF20        |                 | TODO  |
 | NF21 | US5     | 2          | T18         |                 | TODO  |
 | T21  | US5     | 1          | NF21        |                 | TODO  |
-| NF22 | US1     | 1          |             |                 | TODO  |
+| NF22 | US1     | 1          |             |                 | DONE  |
 | NF23 | US6     | 1          | NF22        |                 | TODO  |
 | T23  | US6     | 2          | NF23        |                 | TODO  |
 | NF24 | US6     | 1          | T1,NF22     |                 | TODO  |
