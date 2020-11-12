@@ -80,8 +80,8 @@ Routes de l'appli
     - url vers un dépot git
     - une description
     - un état\* (par défaut OUVERT)
-  - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/create les données du formulaire si il s'agit d'un nouveau projet.
-  - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/modify les données du formulaire si il s'agit d'une modification.
+  - [x] Créer un script qui renvoie via une requete POST à l'adresse /project/create les données du formulaire si il s'agit d'un nouveau projet.
+  - [x] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/modify les données du formulaire si il s'agit d'une modification.
   <p></p>
 
 - T4. Test formulaire projet
@@ -138,15 +138,17 @@ Routes de l'appli
 - NF9. Formulaire de création/modification d'une US US:2 et 3
 
   - [x] Créer un composant UserStoryForm.vue
-  - [ ] Créer dedans un formulaire avec les champs :
+  - [x] Créer dedans un formulaire avec les champs :
     - description\*
     - une liste déroulant type (new feature, bugfix, test)
     - un état\* (par défaut OUVERT)
-  - [ ] Créer des boutons "Valider", "Annuler" et "Modifier"
+    - importance
+    - difficulté
+  - [x] Créer des boutons "Valider", "Annuler" et "Modifier"
     - Si il s'agit d'une création on affiche le bouton Valider
     - Si il s'agit d'une modification on affiche le bouton Modifier
-  - [ ] Envoie via par POST à l'addresse /project/:idProject/us/create les données du formulaire s'il s'agit d'une nouvelle US.
-  - [ ] Envoie via par POST à l'addresse /project/:idProject/us/:idUS/modify les données du formulaire s'il s'agit d'une US déjà existante.
+  - [x] Envoie via par POST à l'addresse /project/:idProject/us/create les données du formulaire s'il s'agit d'une nouvelle US.
+  - [x] Envoie via par POST à l'addresse /project/:idProject/us/:idUS/modify les données du formulaire s'il s'agit d'une US déjà existante.
   <p></p>
 
 - T9. Test Formulaire de création/ modification d'une US
@@ -199,10 +201,10 @@ Routes de l'appli
 
 - NF13. Affichage des US dans le projet US:2
 
-  - [ ] Créer un composant USList.vue
+  - [x] Créer un composant USList.vue
   - [ ] Récupérer la liste des US envoyées par le back
-  - [ ] Afficher sous forme de tableau les US (id,description,difficulté,importance,sprint)
-  - [ ] Ajouter pour chaque US un bouton "Modifier" qui renvoie un GET vers la route /project/:idProject/us/:idUS/modify
+  - [x] Afficher sous forme de tableau les US (id,description,difficulté,importance,sprint)
+  - [x] Ajouter pour chaque US un bouton "Modifier" qui renvoie un GET vers la route /project/:idProject/us/:idUS/modify
   - [ ] Ajouter à côté du bouton "Modifier" un bouton "Supprimer" qui renvoie un GET vers /project/:idProject/us/delete
   - [ ] Ajouter en bas du tableau un bouton "Ajouter" qui renvoie un GET vers la route /project/:idProject/us/createUS
   - [ ] Ajouter le composant USList.vue à Project.vue

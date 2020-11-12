@@ -62,6 +62,8 @@ export default {
           difficulty: 1,
           importance: 1,
           sprint: 1,
+          state: "OPEN",
+          type: "NewFeature",
         },
         {
           id: 2,
@@ -70,6 +72,8 @@ export default {
           difficulty: 2,
           importance: 1,
           sprint: 1,
+          state: "OPEN",
+          type: "NewFeature",
         },
         {
           id: 3,
@@ -78,6 +82,8 @@ export default {
           difficulty: 1,
           importance: 1,
           sprint: 2,
+          state: "OPEN",
+          type: "NewFeature",
         },
         {
           id: 4,
@@ -86,6 +92,8 @@ export default {
           difficulty: 1,
           importance: 1,
           sprint: 2,
+          state: "OPEN",
+          type: "NewFeature",
         },
       ],
     };
