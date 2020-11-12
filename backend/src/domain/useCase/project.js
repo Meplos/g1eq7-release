@@ -41,3 +41,12 @@ exports.modifyProject = (req,res) => {
     });
     res.status('200').send({projectList});
 }
+
+exports.getProject = (req,res) => {
+    let project = projectList.find( projet => projet.id==req.params.idProject)
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+    });
+    res.send(project);
+}
