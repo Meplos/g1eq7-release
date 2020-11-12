@@ -32,3 +32,14 @@ let usList = [
       us_at_modify.sprint_link = req.body.sprint_link
       res.status("200").send({ usList });
   };
+
+  exports.getAllUS = (req,res) => {
+      let idProject = req.params.idProject;
+      let projectUS = [];
+      for(let i=0;i<usList.length;i++){
+        if(usList[i].project_link==idProject){
+            projectUS.push(usList[i]);
+        }
+      }
+      res.status('200').send(projectUS);
+  }

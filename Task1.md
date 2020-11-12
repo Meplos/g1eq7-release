@@ -515,7 +515,7 @@ T11 : Project.vue existe et est testé
 | T10  | US1     | 1          | NF10        |                 | TODO  |
 | NF11 | US1     | 2          | NF22        | Alix            | TODO  |
 | T11  | US1     | 2          | NF11        |                 | TODO  |
-| NF12 | US3     | 1          | T1,NF22     |                 | TODO  |
+| NF12 | US3     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T12  | US3     | 1          | NF12        |                 | TODO  |
 | NF13 | US3     | 3          | NF22,T11    | Alexandre Erard | TODO  |
 | T13  | US3     | 2          | NF13        |                 | TODO  |
