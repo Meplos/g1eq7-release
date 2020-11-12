@@ -19,13 +19,11 @@
                 {{ project.name }}
               </v-card-title>
               <v-card-text>
-                <div class="start">
-                  Start : {{ project.start | dateFormat("DD/MM/YYYY") }}
+                <div class="start">Start : {{ project.start_date }}</div>
+                <div class="end" v-if="project.end_date">
+                  End : {{ project.end_date }}
                 </div>
-                <div class="end">
-                  End : {{ project.end | dateFormat("DD/MM/YYYY") }}
-                </div>
-                <div class="state">
+                <div clas s="state">
                   {{ project.state }}
                 </div>
               </v-card-text>
@@ -43,13 +41,13 @@ import axios from "axios";
 export default {
   data() {
     return {
-      projects: [],
+      projects: null,
     };
   },
 
   mounted() {
     axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
-      this.projects = res;
+      this.projects = res.data.projectList;
       console.log(this.projects);
     });
   },

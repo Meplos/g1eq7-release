@@ -48,15 +48,19 @@
 export default {
   props: {
     isEdit: Boolean,
+    us: Object,
   },
   data() {
     return {
-      description: "",
-      type: "NewFeature",
-      state: "OPEN",
+      description: this.us ? this.us.description : "",
+      type: this.us ? this.us.type : "NewFeature",
+      state: this.us ? this.us.state : "OPEN",
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
       typeList: ["NewFeature", "BugFix", "Test"],
     };
+  },
+  mounted() {
+    console.log(this.us);
   },
   methods: {
     create() {
