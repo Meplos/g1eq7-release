@@ -14,7 +14,7 @@ Routes de l'appli
 |   |- /burndownChart
 |   |- /create (Formulaire de création de projet)
 |   |- /delete
-|   |- /:idProject (Accueil du projet : liste US, liste Tasks, Kanban, Pert, Sprints)
+|   |- /display/:idProject (Accueil du projet : liste US, liste Tasks, Kanban, Pert, Sprints)
 |   |   |- /modify (Formulaire modif de projet)
 |   |   |- /sprint
 |   |   |   |- /create
@@ -159,10 +159,10 @@ Routes de l'appli
 
 - NF10. Récupération des données d'un projet
 
-  - [ ] Créer une route GET sur /project/:idProject qui renvoie sur useCase/getProjectInfo.js
-  - [ ] Créer le fichier getProjectInfo.js dans /useCase
-  - [ ] Implémenter dans getProjectInfo.js la récupération des champs du projet ayant pour id : idProject dans la BD
-  - [ ] Envoyer les données au front
+  - [x] Créer une route GET sur /project/:idProject qui renvoie sur useCase/getProjectInfo.js
+  - [x] Créer le fichier getProjectInfo.js dans /useCase
+  - [x] Implémenter dans getProjectInfo.js la récupération des champs du projet ayant pour id : idProject dans la BD
+  - [x] Envoyer les données au front
   <p></p>
 
 - T10. Test récupération des données d'un projet.
@@ -512,7 +512,7 @@ T11 : Project.vue existe et est testé
 | NF9  | US2 US3 | 1          | NF22        | Alexandre Erard | TODO  |
 | T9   | US2 US3 | 2          | NF9         |                 | TODO  |
 | NF10 | US1     | 1          | T1,NF22     |                 | TODO  |
-| T10  | US1     | 1          | NF10        |                 | TODO  |
+| T10  | US1     | 1          | NF10        | Maxime Gresse   | DONE  |
 | NF11 | US1     | 2          | NF22        |                 | TODO  |
 | T11  | US1     | 2          | NF11        |                 | TODO  |
 | NF12 | US3     | 1          | T1,NF22     |                 | TODO  |

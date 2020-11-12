@@ -28,7 +28,7 @@ exports.addProject = (req,res) => {
 }
 
 exports.modifyProject = (req,res) => {
-    let projet_at_modify = projectList.find( projet => projet.id==req.body.id);
+    let projet_at_modify = projectList.find( projet => projet.id==req.params.idProject)
     projet_at_modify.name = req.body.name
     projet_at_modify.start_date = req.body.start_date
     projet_at_modify.state = req.body.state
@@ -40,4 +40,13 @@ exports.modifyProject = (req,res) => {
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
     });
     res.status('200').send({projectList});
+}
+
+exports.getProject = (req,res) => {
+    let project = projectList.find( projet => projet.id==req.params.idProject)
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+    });
+    res.send(project);
 }
