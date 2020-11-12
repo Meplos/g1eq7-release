@@ -39,10 +39,10 @@
 
 <script>
 export default {
-  props: {
+  props: { 
     id: Number
   },
-  
+
 };
 </script>
 
