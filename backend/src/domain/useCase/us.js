@@ -18,5 +18,17 @@ let usList = [
         req.body.id = 1;
     }
     usList.push(req.body);
-    res.status("200").send({ usList });
+    res.status("201").send({ usList });
+  };
+
+  exports.modifyUS = (req, res) => {
+      let us_at_modify = usList.find(us => us.id==req.params.idUS);
+      us_at_modify.desc = req.body.desc
+      us_at_modify.type = req.body.type
+      us_at_modify.state = req.body.state
+      us_at_modify.project_link = req.body.project_link
+      us_at_modify.priority = req.body.priority
+      us_at_modify.difficulty = req.body.difficulty
+      us_at_modify.sprint_link = req.body.sprint_link
+      res.status("200").send({ usList });
   };

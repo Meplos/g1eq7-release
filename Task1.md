@@ -126,8 +126,8 @@ Routes de l'appli
 
 - NF8 . Requêtes de modification d'une US
 
-  - [ ] Creer un fichier useCase/ModifyUS.js qui va récupérer les données de l'US à modifier et les répercuter dans la base de données
-  - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/us/:idUS/modify qui appelle un useCase/ModifyUS.js
+  - [x] Creer un fichier useCase/ModifyUS.js qui va récupérer les données de l'US à modifier et les répercuter dans la base de données
+  - [x] Ajouter à app/index.js une route POST vers /project/:idProject/us/:idUS/modify qui appelle un useCase/ModifyUS.js
   <p></p>
 
 - T8. Test requete de modification d'une US
@@ -507,7 +507,7 @@ T11 : Project.vue existe et est testé
 | T6   | US1     | 1          | NF6         |                 | TODO  |
 | NF7  | US2     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T7   | US2     | 1          | NF7         |                 | TODO  |
-| NF8  | US3     | 1          | T1,NF22     | Maxime Gresse   | TODO  |
+| NF8  | US3     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T8   | US3     | 1          | NF8         |                 | TODO  |
 | NF9  | US2 US3 | 1          | NF22        | Alexandre Erard | TODO  |
 | T9   | US2 US3 | 2          | NF9         |                 | TODO  |
