@@ -4,6 +4,8 @@ import ListProject from "../components/ListProject.vue";
 import Project from "../components/Project.vue";
 import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
+import USList from "../components/USList.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -19,10 +21,15 @@ const routes = [
     ],
   },
   {
+    path: "/project/:idProject/us/",
+    name: "USList",
+    component: USList,
+  },
+  {
     path: "/project/:idProject/us/:idUS/modify",
     name: "ModifyUS",
     component: USForm,
-    props: { isEdit: true },
+    props: true,
   },
   {
     path: "/project/:idProject/us/createUS",
@@ -36,6 +43,7 @@ const routes = [
     component: ProjectForm,
     props: { isEdit: false },
   },
+
   {
     path: "/",
     name: "Home",
