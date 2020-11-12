@@ -5,9 +5,9 @@ const useCaseProject = require('../../domain/useCase/project');
 
 router.post('/create', useCaseProject.addProject);
 
-router.post('/modify', useCaseProject.modifyProject);
+router.post('/:idProject/modify', useCaseProject.modifyProject);
 
-router.get('/display/:idProject', useCaseProject.getProject);
+router.get('/:idProject', useCaseProject.getProject);
 
 router.get('/', useCaseProject.getProjects);
 
