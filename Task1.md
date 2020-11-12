@@ -14,7 +14,7 @@ Routes de l'appli
 |   |- /burndownChart
 |   |- /create (Formulaire de création de projet)
 |   |- /delete
-|   |- /display/:idProject (Accueil du projet : liste US, liste Tasks, Kanban, Pert, Sprints)
+|   |- /:idProject (Accueil du projet : liste US, liste Tasks, Kanban, Pert, Sprints)
 |   |   |- /modify (Formulaire modif de projet)
 |   |   |- /sprint
 |   |   |   |- /create
@@ -97,7 +97,7 @@ Routes de l'appli
   - [x] Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
   <p></p>
 
-- T5. Test requête de création d'une us
+- T5. Test requête de création d'un projet
 
   - [ ] Implémenter un test qui vérifie que le projet ,avec les bonnes informations, a bien été créer.
   <p></p>
@@ -115,8 +115,8 @@ Routes de l'appli
 
 - NF7. Requetes d'ajout d'une US US:2
 
-  - [ ] Creer un fichier useCase/CreateUS.js qui va ajouter l'US à la base de donées et l'ajouter au projet correspondant.
-  - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/us/create qui appelle un useCase/createUS.js
+  - [x] Creer un fichier useCase/CreateUS.js qui va ajouter l'US à la base de donées et l'ajouter au projet correspondant.
+  - [x] Ajouter à app/index.js une route POST vers /project/:idProject/us/create qui appelle un useCase/createUS.js
   <p></p>
 
 - T7. Test requete d'ajout d'un US
@@ -126,8 +126,8 @@ Routes de l'appli
 
 - NF8 . Requêtes de modification d'une US
 
-  - [ ] Creer un fichier useCase/ModifyUS.js qui va récupérer les données de l'US à modifier et les répercuter dans la base de données
-  - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/us/:idUS/modify qui appelle un useCase/ModifyUS.js
+  - [x] Creer un fichier useCase/ModifyUS.js qui va récupérer les données de l'US à modifier et les répercuter dans la base de données
+  - [x] Ajouter à app/index.js une route POST vers /project/:idProject/us/:idUS/modify qui appelle un useCase/ModifyUS.js
   <p></p>
 
 - T8. Test requete de modification d'une US
@@ -507,17 +507,17 @@ T11 : Project.vue existe et est testé
 | T5   | US1     | 1          | NF5         |                 | TODO  |
 | NF6  | US1     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T6   | US1     | 1          | NF6         |                 | TODO  |
-| NF7  | US2     | 1          | T1,NF22     |                 | TODO  |
+| NF7  | US2     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T7   | US2     | 1          | NF7         |                 | TODO  |
-| NF8  | US3     | 1          | T1,NF22     |                 | TODO  |
+| NF8  | US3     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T8   | US3     | 1          | NF8         |                 | TODO  |
 | NF9  | US2 US3 | 1          | NF22        | Alexandre Erard | TODO  |
 | T9   | US2 US3 | 2          | NF9         |                 | TODO  |
-| NF10 | US1     | 1          | T1,NF22     |                 | TODO  |
-| T10  | US1     | 1          | NF10        | Maxime Gresse   | DONE  |
+| NF10 | US1     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
+| T10  | US1     | 1          | NF10        |                 | TODO  |
 | NF11 | US1     | 2          | NF22        | Alix            | TODO  |
 | T11  | US1     | 2          | NF11        |                 | TODO  |
-| NF12 | US3     | 1          | T1,NF22     |                 | TODO  |
+| NF12 | US3     | 1          | T1,NF22     | Maxime Gresse   | DONE  |
 | T12  | US3     | 1          | NF12        |                 | TODO  |
 | NF13 | US3     | 3          | NF22,T11    | Alexandre Erard | TODO  |
 | T13  | US3     | 2          | NF13        |                 | TODO  |
