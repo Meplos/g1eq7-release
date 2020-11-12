@@ -10,12 +10,20 @@ let projectList = [
 ];
 
 exports.getProjects = (req,res) => {
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+    });
     res.status('200').send({projectList});
 }
 
 exports.addProject = (req,res) => {
     req.body.id=projectList[projectList.length-1].id+1;
     projectList.push(req.body);
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+    });
     res.status('201').send({projectList});
 }
 
@@ -27,5 +35,9 @@ exports.modifyProject = (req,res) => {
     projet_at_modify.end_date = req.body.end_date
     projet_at_modify.git_repo = req.body.git_repo
     projet_at_modify.desc = req.body.desc
+    res.set({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+    });
     res.status('200').send({projectList});
 }
