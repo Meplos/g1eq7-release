@@ -513,17 +513,17 @@ T11 : Project.vue existe et est testé
 | T9   | US2 US3 | 2          | NF9         |                 | TODO  |
 | NF10 | US1     | 1          | T1,NF22     |                 | TODO  |
 | T10  | US1     | 1          | NF10        | Maxime Gresse   | DONE  |
-| NF11 | US1     | 2          | NF22        |     Alix        | TODO  |
+| NF11 | US1     | 2          | NF22        | Alix            | TODO  |
 | T11  | US1     | 2          | NF11        |                 | TODO  |
 | NF12 | US3     | 1          | T1,NF22     |                 | TODO  |
 | T12  | US3     | 1          | NF12        |                 | TODO  |
-| NF13 | US3     | 3          | NF22,T11    |                 | TODO  |
+| NF13 | US3     | 3          | NF22,T11    | Alexandre Erard | TODO  |
 | T13  | US3     | 2          | NF13        |                 | TODO  |
 | NF14 | US3     | 1          | T13         |                 | TODO  |
 | T14  | US3     | 1          | NF14        |                 | TODO  |
 | NF15 | US4     | 1          | T1,NF22     |                 | TODO  |
 | T15  | US4     | 1          | NF15        |                 | TODO  |
-| NF16 | US4     | 1          | NF22        |   Alix          | TODO  |
+| NF16 | US4     | 1          | NF22        | Alix            | TODO  |
 | T16  | US4     | 1          | NF16        |                 | TODO  |
 | NF17 | US4     | 1          | T1,NF22     |                 | TODO  |
 | T17  | US4     | 1          | NF17        |                 | TODO  |
@@ -542,7 +542,7 @@ T11 : Project.vue existe et est testé
 | T24  | US6     | 1          | NF24        |                 | TODO  |
 | NF25 | US7     | 2          | T13,T33     |                 | TODO  |
 | T25  | US7     | 2          | NF25        |                 | TODO  |
-| NF26 | US23    | 1          | T11         |       Alix      | TODO  |
+| NF26 | US23    | 1          | T11         | Alix            | TODO  |
 | T26  | US23    | 1          | NF26        |                 | TODO  |
 | NF27 | US23    | 1          | T26,T12     |                 | TODO  |
 | T27  | US23    | 1          | NF27        |                 | TODO  |
@@ -550,7 +550,7 @@ T11 : Project.vue existe et est testé
 | T28  | US23    | 1          | NF28        |                 | TODO  |
 | NF29 | US23    | 1          | T26,T32     |                 | TODO  |
 | T29  | US23    | 1          | NF29        |                 | TODO  |
-| NF30 | US25    | 3          | T11         |        Alix     | TODO  |
+| NF30 | US25    | 3          | T11         | Alix            | TODO  |
 | T30  | US25    | 2          | NF30        |                 | TODO  |
 | NF31 | US25    | 3          | T30,T17     |                 | TODO  |
 | T31  | US25    | 2          | NF31        |                 | TODO  |
