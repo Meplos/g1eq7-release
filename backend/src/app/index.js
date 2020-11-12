@@ -3,11 +3,11 @@ const bodyParser = require("body-parser");
 
 const PORT = 3000;
 
-const stuffProject = require('./routes/stuffProject');
+const stuffProject = require("./routes/stuffProject");
 
 app.use(bodyParser.json());
 
-app.use('/project', stuffProject);
+app.use("/project", stuffProject);
 
 app.get("/", (req, res) => res.send("Hello world ✌"));
 

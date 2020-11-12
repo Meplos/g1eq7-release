@@ -3,11 +3,11 @@
     <v-navigation-drawer v-model="drawer" app>
       <!--  -->
     </v-navigation-drawer>
-
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+      <router-link :to="{ name: 'Home' }">
+        <v-toolbar-title>{{ title }}</v-toolbar-title>
+      </router-link>
     </v-app-bar>
 
     <v-main class="ml-10">
@@ -28,4 +28,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+</style>

@@ -137,11 +137,10 @@ Routes de l'appli
 
 - NF9. Formulaire de création/modification d'une US US:2 et 3
 
-  - [ ] Créer un composant UserStoryForm.vue
+  - [x] Créer un composant UserStoryForm.vue
   - [ ] Créer dedans un formulaire avec les champs :
     - description\*
     - une liste déroulant type (new feature, bugfix, test)
-    - un état (Ouvert par défaut)
     - un état\* (par défaut OUVERT)
   - [ ] Créer des boutons "Valider", "Annuler" et "Modifier"
     - Si il s'agit d'une création on affiche le bouton Valider
