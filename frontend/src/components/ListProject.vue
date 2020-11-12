@@ -2,7 +2,7 @@
   <div class="projectList__container">
     <h1>Projects</h1>
     <router-link :to="{ name: 'CreateProject' }">
-      <v-btn>New project</v-btn>
+      <v-btn color="success"><v-icon left>mdi-plus</v-icon> New project</v-btn>
     </router-link>
     <div
       class="projectList__item"
@@ -38,52 +38,20 @@
 </template>
 
 <script>
-//import axios from "axios";
+import { serverurl, port } from "../config/backend.config";
+import axios from "axios";
 export default {
   data() {
     return {
-      projects: [
-        {
-          id: 1,
-          name: "Project #1",
-          state: "OPEN",
-          start: new Date(),
-          end: new Date(new Date().getDate() + 1),
-        },
-        {
-          id: 2,
-          name: "Project #3",
-          state: "OPEN",
-          start: new Date(),
-          end: new Date(new Date().getDate() + 1),
-        },
-        {
-          id: 4,
-          name: "Project #4",
-          state: "OPEN",
-          start: new Date(),
-          end: new Date(new Date().getDate() + 1),
-        },
-        {
-          id: 5,
-          name: "Project #5",
-          state: "OPEN",
-          start: new Date(),
-          end: new Date(new Date().getDate() + 1),
-        },
-        {
-          id: 6,
-          name: "Project #1",
-          state: "OPEN",
-          start: new Date(),
-          end: new Date(new Date().getDate() + 1),
-        },
-      ],
+      projects: [],
     };
   },
 
-  mouted() {
-    //axios.get("backAddr/projects").then((res) => (this.projects = res));
+  mounted() {
+    axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
+      this.projects = res;
+      console.log(this.projects);
+    });
   },
 };
 </script>

@@ -139,7 +139,7 @@
             @click="create"
             >Create projet</v-btn
           >
-          <v-btn color="error" @click="cancel">Cancel</v-btn>
+          <v-btn color="error" @click="cancel" outlined>Cancel</v-btn>
         </v-col>
       </v-row>
     </v-form>
@@ -222,6 +222,7 @@ export default {
       console.log(`cancel...`);
     },
   },
+  mounted() {},
 };
 </script>
 

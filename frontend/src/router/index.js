@@ -2,15 +2,33 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import ListProject from "../components/ListProject.vue";
 import Project from "../components/Project.vue";
-import ProjectForm from "../components/ProjectForm.vue";
-
+import ProjectForm from "../components/form/ProjectForm.vue";
+import USForm from "../components/form/USForm.vue";
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/project",
+    path: "/project/:idProject",
     name: "Project",
     component: Project,
+    children: [
+      {
+        path: "/:idProject/us",
+        name: "US",
+      },
+    ],
+  },
+  {
+    path: "/project/:idProject/us/:idUS/modify",
+    name: "ModifyUS",
+    component: USForm,
+    props: { isEdit: true },
+  },
+  {
+    path: "/project/:idProject/us/createUS",
+    name: "CreateUS",
+    component: USForm,
+    props: { isEdit: false },
   },
   {
     path: "/createProject",
