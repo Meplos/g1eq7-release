@@ -1,14 +1,14 @@
 <template>
   <div class="projectForm">
     <v-row>
-      <h1 v-if="isEdit">{{ title }}</h1>
+      <h1 v-if="isEdit">{{ name }}</h1>
       <h1 v-else>New project</h1>
     </v-row>
     <v-form ref="form" v-model="valid" lazy-validation justify="center">
       <v-row>
         <v-col col="12" sm="8">
           <v-text-field
-            v-model="title"
+            v-model="name"
             :rules="titleValidator"
             :count="10"
             label="Title"
@@ -147,79 +147,78 @@
 </template>
 
 <script>
-function createPostBody(title, description, start, end, git, state) {
-  const post = {
-    title: title,
-    description: description,
-    start: start,
-    endEstimated: end ? end : "",
-    git: git,
-    state: state,
-  };
-  return post;
-}
-
+import { serverurl, port } from "../../config/backend.config";
+import axios from "axios";
 export default {
   props: {
     isEdit: Boolean,
-    id: Number,
+    project: Object,
   },
   data() {
     return {
-      title: "",
+      id: this.project ? this.project.id : null,
+      name: this.project ? this.project.name : "",
+      description: this.project ? this.project.description : "",
+      git: this.project ? this.project.git : "",
+      start: this.project
+        ? this.project.start_date
+        : new Date().toISOString().substr(0, 10),
+      endEstimated: this.project ? this.project.end_date : null,
+      state: this.project ? this.project.state : "OPEN",
+
+      stateItems: ["OPEN", "CLOSE"],
+
+      menuEnd: false,
+      menuStart: false,
+      valid: false,
       titleValidator: [
         (v) => !!v || "Title is required",
         (v) =>
           (v && v.length <= 10) || "Title  must be less than 10 characters",
       ],
-      description: "",
       descriptionValidator: [
         (v) =>
           (v && v.trim().length <= 0) || "Description can't just contain space",
       ],
-      git: "",
-      start: new Date().toISOString().substr(0, 10),
-      endEstimated: null,
-      state: "OPEN",
-      valid: false,
-      menuStart: false,
-      menuEnd: false,
-      stateItems: ["OPEN", "CLOSE"],
     };
   },
   methods: {
     create() {
       if (this.title === "") {
         alert("you can't create empty project");
-
         return;
       }
 
-      const body = createPostBody(
-        this.title,
-        this.description,
-        this.start,
-        this.endEstimated,
-        this.git,
-        this.state
-      );
-
+      const body = this.createPostBody();
+      axios
+        .post(`http://${serverurl}:${port}/project/create`, body)
+        .then(this.$router.push({ name: "Home" }));
       console.log(`create : ${body}`);
     },
     modify() {
-      const body = createPostBody(
-        this.title,
-        this.description,
-        this.start,
-        this.endEstimated,
-        this.git,
-        this.state
-      );
-      body.id = "";
+      const body = this.createPostBody();
+      axios
+        .post(
+          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
+          body
+        )
+        .then(this.$router.push({ name: "Home" }));
       console.log(`modify : ${this.title}`);
     },
     cancel() {
       console.log(`cancel...`);
+    },
+    createPostBody() {
+      const post = {
+        id: this.id,
+        name: this.name,
+        description: this.description,
+        start_date: this.start,
+        end_date: this.end ? this.end : null,
+        git_repo: this.git,
+        state: this.state,
+      };
+      return post;
     },
   },
   mounted() {},

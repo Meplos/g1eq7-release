@@ -12,7 +12,10 @@
       <v-row>
         <v-col cols="12" sm="4">
           <router-link
-            :to="{ name: 'Project', params: { projectId: project.id } }"
+            :to="{
+              name: 'Project',
+              params: { projectId: project.id, project: project },
+            }"
           >
             <v-card elevation="2" class="projectCard">
               <v-card-title>

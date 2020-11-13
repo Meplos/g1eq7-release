@@ -1,6 +1,15 @@
 <template>
   <div class="usList__container">
-    <h1>User Stories</h1>
+    <h1>
+      User Stories
+      <v-btn
+        class="mx-2 success"
+        fab
+        @click="$router.push({ name: 'CreateUS', params: { isEdit: false } })"
+      >
+        <v-icon> mdi-plus</v-icon></v-btn
+      >
+    </h1>
 
     <v-simple-table class="mt-10 mr-10">
       <template v-slot:default>
@@ -52,6 +61,9 @@
 </template>
 <script>
 export default {
+  props: {
+    idProject: Number,
+  },
   data() {
     return {
       usList: [
