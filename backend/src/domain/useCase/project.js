@@ -1,24 +1,19 @@
-let projectList = [
-  {
-    id: 1,
-    name: "Test",
-    start_date: "2020-11-12",
-    state: "Ouvert",
-    end_date: "2020-11-12",
-    git_repo: null,
-    description: "Projet de test",
-  },
-];
+let projectList = [];
 
 exports.getProjects = (req, res) => {
   res.status("200").send({ projectList });
 };
 
 exports.addProject = (req, res) => {
-  req.body.id = projectList[projectList.length - 1].id + 1;
-  projectList.push(req.body);
+  if (projectList.length === 0) {
+    req.body.id = 0;
+  } else {
+    req.body.id = projectList[projectList.length - 1].id + 1;
+  }
+  const project = req.body;
+  projectList.push(project);
 
-  res.status("201").send({ projectList });
+  res.status("201").send(project);
 };
 
 exports.modifyProject = (req, res) => {

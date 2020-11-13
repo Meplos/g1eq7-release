@@ -17,8 +17,10 @@ exports.createUS = (req, res) => {
   } else {
     req.body.id = 1;
   }
-  usList.push(req.body);
-  res.status("201").send({ usList });
+  const newUS = req.body;
+  usList.push(newUS);
+
+  res.status("201").send(newUS);
 };
 
 exports.modifyUS = (req, res) => {
@@ -30,7 +32,7 @@ exports.modifyUS = (req, res) => {
   us_at_modify.priority = req.body.priority;
   us_at_modify.difficulty = req.body.difficulty;
   us_at_modify.sprintId = req.body.sprintId;
-  res.status("200").send({ usList });
+  res.status("200").send(us_at_modify);
 };
 
 exports.getAllUS = (req, res) => {

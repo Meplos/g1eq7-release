@@ -5,7 +5,8 @@
   "main": "app/index.js",
   "scripts": {
     "start": "nodemon src/app/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "",
+    "integration-test-local": "newman run ./test/local/cdp-g7.postman_collection.json --environment ./test/local/localhost.postman_environment.json"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,10 @@
     "cors": "^2.8.5",
     "eslint": "^7.13.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.6"
-  }
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.6",
+    "qunit": "^2.12.0",
+    "newman": "^5.2.1"
+  },
+  "devDependencies": {}
 }
