@@ -24,30 +24,6 @@
   - [ ] Il est push sur le dépôt
 <p></p>
 
-```
-Routes de l'appli
-|- /project (Accueil avec liste des projets)
-|   |- /burndownChart
-|   |- /create (Formulaire de création de projet)
-|   |- /delete
-|   |- /:idProject (Accueil du projet : liste US, liste Tasks, Kanban, Pert, Sprints)
-|   |   |- /modify (Formulaire modif de projet)
-|   |   |- /sprint
-|   |   |   |- /create
-|   |   |- /us
-|   |   |   |- /:idUS
-|   |   |   |   |- /modify (Formulaire modif d'US)
-|   |   |   |- /create (Formulaire de création d'US)
-|   |   |   |- /delete
-|   |   |- /task/
-|   |   |   |-:idTask
-|   |   |   |   |- /modify (Formulaire modif de tâche)
-|   |   |   |- /create (Formulaire de création d'une tâche)
-|   |   |   |- /delete
-|   |   |- pert
-
-```
-
 - NF1. Créer un squelette d'app JS/Express/Vue
 
   - Créer un fichier app/index.js
