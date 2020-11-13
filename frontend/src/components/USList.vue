@@ -50,9 +50,9 @@
           >
             <td>{{ us.id }}</td>
             <td>{{ us.description.substring(0, 250) }}</td>
-            <td>{{ us.importance }}</td>
+            <td>{{ us.priority }}</td>
             <td>{{ us.difficulty }}</td>
-            <td>{{ us.sprint }}</td>
+            <td>{{ us.sprintId }}</td>
           </tr>
         </tbody>
       </template>
@@ -60,55 +60,29 @@
   </div>
 </template>
 <script>
+import { serverurl, port } from "../config/backend.config";
+import axios from "axios";
+
 export default {
   props: {
     idProject: Number,
   },
   data() {
     return {
-      usList: [
-        {
-          id: 1,
-          description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo ab iste recusandae eaque inventore reiciendis culpa, adipisci unde quaerat, dolore enim quos qui reprehenderit dolor aliquam, illum ut amet omnis?",
-          difficulty: 1,
-          importance: 1,
-          sprint: 1,
-          state: "OPEN",
-          type: "NewFeature",
-        },
-        {
-          id: 2,
-          description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo ab iste recusandae eaque inventore reiciendis culpa, adipisci unde quaerat, dolore enim quos qui reprehenderit dolor aliquam, illum ut amet omnis?",
-          difficulty: 2,
-          importance: 1,
-          sprint: 1,
-          state: "OPEN",
-          type: "NewFeature",
-        },
-        {
-          id: 3,
-          description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo ab iste recusandae eaque inventore reiciendis culpa, adipisci unde quaerat, dolore enim quos qui reprehenderit dolor aliquam, illum ut amet omnis?",
-          difficulty: 1,
-          importance: 1,
-          sprint: 2,
-          state: "OPEN",
-          type: "NewFeature",
-        },
-        {
-          id: 4,
-          description:
-            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo ab iste recusandae eaque inventore reiciendis culpa, adipisci unde quaerat, dolore enim quos qui reprehenderit dolor aliquam, illum ut amet omnis?",
-          difficulty: 1,
-          importance: 1,
-          sprint: 2,
-          state: "OPEN",
-          type: "NewFeature",
-        },
-      ],
+      usList: [],
     };
+  },
+  mounted() {
+    axios
+      .get(
+        `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
+      )
+      .then((res) => {
+        const us = res.data;
+        if (us) {
+          this.usList = us;
+        }
+      });
   },
 };
 </script>

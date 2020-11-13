@@ -14,7 +14,7 @@
           <router-link
             :to="{
               name: 'Project',
-              params: { projectId: project.id, project: project },
+              params: { idProject: project.id, project: project },
             }"
           >
             <v-card elevation="2" class="projectCard">
@@ -51,7 +51,6 @@ export default {
   mounted() {
     axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
       this.projects = res.data.projectList;
-      console.log(this.projects);
     });
   },
 };

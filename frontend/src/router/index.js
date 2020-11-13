@@ -34,7 +34,7 @@ const routes = [
   },
   {
     path: "/project/:idProject/modify/",
-    name: "ModifyUS",
+    name: "ModifyProject",
     component: ProjectForm,
     props: true,
   },
