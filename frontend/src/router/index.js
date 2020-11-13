@@ -22,6 +22,11 @@ const routes = [
     props: true,
   },
   {
+    path: "/project/:",
+    name: "ModifyProject",
+    props: true,
+  },
+  {
     path: "/project/:idProject/us/createUS",
     name: "CreateUS",
     component: USForm,
