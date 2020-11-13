@@ -2,23 +2,26 @@
 
 ### DoD
 
-- NF : 
+- NF :
+
   - [ ] Toutes les instructions sont implémentées
   - [ ] Relecture et optimisation du code
   - [ ] Fonctionnalité push sur le dépôt
-<p></p>
+  <p></p>
 
 - TU :
+
   - [ ] Toutes les instructions sont implémentées
   - [ ] Relecture et optimisation du code
   - [ ] Fonctionnalité push sur le dépôt
-<p></p>
+  <p></p>
 
 - TINT :
+
   - [ ] Toutes les instructions sont implémentées
   - [ ] Relecture et optimisation du code
   - [ ] Fonctionnalité push sur le dépôt
-<p></p>
+  <p></p>
 
 - TE2E :
   - [ ] Le test est décrit sous forme de scénario
@@ -57,22 +60,22 @@ Routes de l'appli
   - [x] Implémenter un serveur Express basique
   - [x] Créer un composant Main.vue
   - [x] Faire pointer notre serveur vers Main.vue
-<p></p>
+  <p></p>
 
 - T1. Test squelete d'App
 
   - [x] Implémenter un test qui vérifie qu'on a bien accès à notre serveur
-<p></p>
+  <p></p>
 
 - NF2. Requête de listage des projets
 
   - [x] Ajouter à app/index.js une route GET vers /project qui appelle un useCase getProjects.js qui renvoie au front les projets déjà existants si il y en a
-<p></p>
+  <p></p>
 
 - T2. Test listage des projet
 
   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données au front (rien si il n'y a pas de projets en BD et les bons si ils y en a)
-<p></p>
+  <p></p>
 
 - NF3. Affichage des projets
 
@@ -80,14 +83,14 @@ Routes de l'appli
   - [x] Afficher les projets reçus par le back sous forme de liste.
   - [x] Ajouter à la liste un bouton menant à la page de création d'un projet via un GET sur /project/create.
   - [x] Pour chaque projet renvoyer un GET sur /projet/:idProject lors d'un clic sur le projet
-<p></p>
+  <p></p>
 
 - T3. Test affichage des projet
 
   - [ ] Implémenter un test qui vérifie qu'on affiche correctement les données reçues par le back.
   - [ ] Implémenter un test qui vérifie qu'on envoie la bonne requête de GET une fois qu'on a cliqué sur le bouton.
   - [ ] Implémenter un test qui vérifie lors d'un clic sur le projet que la route GET renvoyée contient le bon id associé
-<p></p>
+  <p></p>
 
 - NF4. Formulaire de création/modification de projet
 
@@ -101,56 +104,58 @@ Routes de l'appli
     - un état\* (par défaut OUVERT)
   - [x] Créer un script qui renvoie via une requete POST à l'adresse /project/create les données du formulaire si il s'agit d'un nouveau projet.
   - [x] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/modify les données du formulaire si il s'agit d'une modification.
-<p></p>
+  <p></p>
 
 - T4. Test formulaire projet
 
   - [ ] Implémenter un test qui vérifie qu'on ne peut pas rentrer de caractères illégaux dans notre formulaire
   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/modify
   - [ ] Vérifie qu'on entre bien dans l'état modification quand on passe des paramètre à notre composant et dans l'état ajout sinon.
-<p></p>
+  <p></p>
 
 - NF5. Requetes de création d'un projet
 
   - [x] Creer un fichier useCase/CreateProject.js qui va récupérer les données du projet à créer et les ajouter le projet à la base de données
   - [x] Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
-<p></p>
+  <p></p>
 
 - T5. Test requête de création d'un projet
 
   - [ ] Implémenter un test qui vérifie que le projet ,avec les bonnes informations, a bien été créer.
-<p></p>
+  <p></p>
 
 - NF6. Requêtes de modification d'un projet
 
   - [x] Creer un fichier useCase/ModifyProject.js qui va récupérer les données du projet à modifier et les répercuter dans la base de données
   - [x] Ajouter à app/index.js une route POST vers /project/:idProject/modify qui appelle un useCase/ModifyProject.js
-<p></p>
+  <p></p>
 
 - T6. Test requete de modification d'un projet
 
   - [ ] Implémenter un test qui vérifie que le projet à été modifié correctement
-<p></p>
+  <p></p>
 
 - NF7. Requetes d'ajout d'une US
+
   - [x] Creer un fichier useCase/CreateUS.js qui va ajouter l'US à la base de donées et l'ajouter au projet correspondant.
   - [x] Ajouter à app/index.js une route POST vers /project/:idProject/us/create qui appelle un useCase/createUS.js
-<p></p>
+  <p></p>
 
 - T7. Test requete d'ajout d'un US
 
   - [ ] Implémenter un test qui vérifie que l'US avec les bonnes information à bien était créée. et qu'elle a bien était ajouté au bon projet.
-<p></p>
+  <p></p>
 
 - NF8 . Requêtes de modification d'une US
 
   - [x] Creer un fichier useCase/ModifyUS.js qui va récupérer les données de l'US à modifier et les répercuter dans la base de données
   - [x] Ajouter à app/index.js une route POST vers /project/:idProject/us/:idUS/modify qui appelle un useCase/ModifyUS.js
-<p></p>
+  <p></p>
 
 - T8. Test requete de modification d'une US
+
   - [ ] Implémenter un test qui vérifie que le projet à été modifié correctement
-<p></p>
+  <p></p>
 
 - NF9. Formulaire de création/modification d'une US
 
@@ -166,7 +171,7 @@ Routes de l'appli
     - Si il s'agit d'une modification on affiche le bouton Modifier
   - [x] Envoie via par POST à l'addresse /project/:idProject/us/create les données du formulaire s'il s'agit d'une nouvelle US.
   - [x] Envoie via par POST à l'addresse /project/:idProject/us/:idUS/modify les données du formulaire s'il s'agit d'une US déjà existante.
-<p></p>
+  <p></p>
 
 - T9. Test Formulaire de création/ modification d'une US
 
@@ -174,7 +179,7 @@ Routes de l'appli
   - [ ] Implémenter un test qui vérifie qu'on ne peut pas rentrer de caractères illégaux dans notre formulaire
   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/us/:idUS/modify
   - [ ] Vérifier qu'on entre bien dans l'état modification quand on passe des paramètre à notre composant et dans l'état ajout sinon.
-<p></p>
+  <p></p>
 
 - NF10. Récupération des données d'un projet
 
@@ -182,12 +187,12 @@ Routes de l'appli
   - [x] Créer le fichier getProjectInfo.js dans /useCase
   - [x] Implémenter dans getProjectInfo.js la récupération des champs du projet ayant pour id : idProject dans la BD
   - [x] Envoyer les données au front
-<p></p>
+  <p></p>
 
 - T10. Test récupération des données d'un projet.
 
   - [ ] Implémenter un test qui créer un projet puis fais la requete de réccupération affin de vérifié si les données sont identique.
-<p></p>
+  <p></p>
 
 - NF11. Affichage d'un projet
 
@@ -195,13 +200,13 @@ Routes de l'appli
   - [x] Afficher les champs : nom, date de début, état
   - [ ] Afficher les champs optionnels si ils sont présents : date de fin estimée, dépôt, description.
   - [ ] Ajouter un bouton de modification qui revoie un GET vers la route /project/:idProject/modify
-<p></p>
+  <p></p>
 
 - T11. Test affichage d'un projet
 
   - [ ] Implémenter un test qui vérifie que les champs du projets sont bien affichés
   - [ ] Implémenter un test qui vérifie qu'après un clic sur le bouton "Modifier" on revoie bien un GET avec l'id du projet
-<p></p>
+  <p></p>
 
 - NF12. Récupération des US d'un projet
 
@@ -209,50 +214,50 @@ Routes de l'appli
   - [ ] Créer le fichier getUS.js dans /useCase
   - [ ] Implémenter dans getUS.js la récupération des US du projet d'id idProject dans la BD
   - [ ] Envoyer les données au front
-<p></p>
+  <p></p>
 
 - T12. Test récupération des US d'un projet
 
   - [ ] Implémenter un test qui vérifie qu'on réccuppére bien toutes les US d'un projet idProjet
-<p></p>
+  <p></p>
 
 - NF13. Affichage des US dans le projet
 
   - [x] Créer un composant USList.vue
-  - [ ] Récupérer la liste des US envoyées par le back
+  - [x] Récupérer la liste des US envoyées par le back
   - [x] Afficher sous forme de tableau les US (id,description,difficulté,importance,sprint)
   - [x] Ajouter pour chaque US un bouton "Modifier" qui renvoie un GET vers la route /project/:idProject/us/:idUS/modify
-  - [ ] Ajouter à côté du bouton "Modifier" un bouton "Supprimer" qui renvoie un GET vers /project/:idProject/us/delete
-  - [ ] Ajouter en bas du tableau un bouton "Ajouter" qui renvoie un GET vers la route /project/:idProject/us/createUS
-  - [ ] Ajouter le composant USList.vue à Project.vue
-<p></p>
+  - [x] Ajouter à côté du bouton "Modifier" un bouton "Supprimer" qui renvoie un GET vers /project/:idProject/us/delete
+  - [x] Ajouter en bas du tableau un bouton "Ajouter" qui renvoie un GET vers la route /project/:idProject/us/createUS
+  - [x] Ajouter le composant USList.vue à Project.vue
+  <p></p>
 
 - T13. Test affichage des US
 
   - [ ] Implémenter un test qui vérifie que toute les US réccupérer sont bien afficher.
-<p></p>
+  <p></p>
 
 - NF14. Modif de l'importance et difficulté de l'US via liste déroulante
 
   - [ ] Ajouter une liste déroulante pour l'importance, contenant high, medium, low pour chaque US.
   - [ ] Ajouter une liste déroulante pour la difficulté, contenant 1, 2 , 3, 5, 8 pour chaque US.
-<p></p>
+  <p></p>
 
 - T14. Test modification de l'importance et de la difficulté d'une US
 
   - [ ] Implémenter un test qui vérifie que lorqu'il y a modification de la valeur des listes, celle-ci est bien sauvegardé et enregistré en BDD.
-<p></p>
+  <p></p>
 
 - NF15. Requête d'ajout d'une tâche
 
   - [ ] Creer un fichier useCase/CreateTask.js qui va ajouter la tâche à la base de donées et l'ajouter au projet correspondant.
   - [ ] Ajouter à app/index.js une route POST vers /project/:idProject/task/create qui appelle un useCase/createTask.js
-<p></p>
+  <p></p>
 
 - T15. Test de l'ajout d'une tâche
 
   - [ ] Implémenter un test qui vérifie que l'US avec les bonnes information à bien était créée. et qu'elle a bien était ajouté au bon projet.
-<p></p>
+  <p></p>
 
 - NF16 Formulaire de création des tâches
 
@@ -263,14 +268,14 @@ Routes de l'appli
         -lien avec userStory (string)
         -état (par default en TODO)
   - [ ] Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/Task/create les données du formulaire.
-<p></p>
+  <p></p>
 
 - T16 Test du formulaire de création d'une tâche.
 
   - [ ] Implémenter un test qui vérifie qu'on ne peut pas rentrer de caractères illégaux dans notre formulaire
   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/task
   - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
-<p></p>
+  <p></p>
 
 - NF17. Récupération des Tâches d'un projet
 
@@ -278,12 +283,12 @@ Routes de l'appli
   - [ ] Créer le fichier getTasks.js dans /useCase
   - [ ] Implémenter dans getTasks.js la récupération des Tâches du projet d'id idProject dans la BD
   - [ ] Envoyer les données au front
-<p></p>
+  <p></p>
 
 - T17. Test de réccupération des tâche d'une US.
 
   - [ ] Implémenter un test qui vérifie qu'on réccupére bien toutes les tâche lier a une US idUS
-<p></p>
+  <p></p>
 
 - NF18. Affichage des Tasks dans le projet
 
@@ -295,11 +300,12 @@ Routes de l'appli
   - [ ] Ajouter à côté du bouton "Modifier" un bouton "Supprimer" qui renvoie un GET vers /project/:idProject/task/delete
   - [ ] Ajouter en bas du tableau un bouton "Ajouter" qui renvoie un GET vers la route /project/:idProject/task/create
   - [ ] Ajouter le composant TasksList.vue à Project.vue
-<p></p>
+  <p></p>
 
 - T18. Test de l'affichage des tâche d'un projet
+
   - [ ] Implémenter un test qui vérifie qu'on affiche bien toute les tâche associé aux projet idProjet
-<p></p>
+  <p></p>
 
 - NF19. Affichage du Pert dans le projet
 
@@ -307,36 +313,37 @@ Routes de l'appli
   - [ ] Ajouter un bouton d'ajout de fichier (png,jpeg)
   - [ ] Afficher l'image du Pert
   - [ ] Ajouter le composant Pert.vue à Project.vue
-<p></p>
+  <p></p>
 
 - T19. Test affichage du pert
-  - [ ] Implémenter un test qui vérifie qu'on affiche la bonne image.
-<p></p>
 
-- NF20. Affichage du Kanban dans le projet 
+  - [ ] Implémenter un test qui vérifie qu'on affiche la bonne image.
+  <p></p>
+
+- NF20. Affichage du Kanban dans le projet
 
   - [ ] Créer un composant Pert.vue
   - [ ] Récupérer la liste des tâches
   - [ ] Classer les tâches par développeur
   - [ ] Afficher le Kanban
   - [ ] Ajouter le composant Kanban.vue à Project.vue
-<p></p>
+  <p></p>
 
 - T20. Test du kanban
 
   - [ ] Implémenter un test qui vérifie que les tâche d'un projet idProject sont classer au bon endroit
-<p></p>
+  <p></p>
 
 - NF21. Modification de l'état d'une tâche
 
   - [ ] Drag&Drop d'une tâche dans une colonne qui modifie sont état.
   - [ ] Le drag&drop envoie une requete POST au back /project/:idProjet/task/:idTask/modify
-<p></p>
+  <p></p>
 
 - T21. Test de modification de l'état d'une tâche.
 
   - [ ] Implémenter un test qui vérifie que lorsqu'on déplace une tâche, on envoie une requete au serveur avec le nouvel état
-<p></p>
+  <p></p>
 
 - NF22. Définir les données en BD
 
@@ -350,7 +357,7 @@ Routes de l'appli
     - un état\* (String)
   - [x] Lister les paramètres d'une tâche et leur type
   - [x] Lister les paramètres d'une US et leur type - description\* (String) - type (String) - un état (String) - un état\* (String)
-<p></p>
+  <p></p>
 
 - NF23 Formulaire de création des sprints
 
@@ -359,124 +366,143 @@ Routes de l'appli
   - [ ] Creer un formulaire avec les champs date de début (date) et date de fin (date) (l'id doit être généré automatiquement).
   - [ ] Creer deux boutons, Valider et Annuler en fin de formulaire.
   - [ ] Envoyer une requête POST avec les données saisies vers /project/:idProject/Sprint/create
-<p></p>
+  <p></p>
 
 - T23. Test formulaire de création d'un sprint
 
   - [ ] Implémenter un test qui vérifie qu'on ne peut pas mettre autre chose que des dates dans les deux champs.
   - [ ] Implémenter un test qui vérifie qu'on renvoie les bonnes données dans le POST vers /project/:idProject/Sprint/create.
   - [ ] Implémenter un test qui vérifie qu'on entre bien dans l'état ajout.
-<p></p>
+  <p></p>
 
 - NF24 Requête de création d'un sprint
+
   - [ ] Ajouter une route POST dans app/index.js qui redirige les données vers un fichier addSprint.js dans /useCase
   - [ ] Créer un fichier addSprint.js dans le dossier /useCase qui sauvegarde en BD le sprint créé
-<p></p>
+  <p></p>
 
 - T24. Test de la requête de création d'un sprint
+
   - [ ] Implémenter un test qui vérifie que le sprint a bien était créer.
-<p></p>
+  <p></p>
 
 - NF25. Ajouter une US dans un sprint
+
   - [ ] Ajouter l'api Drag/Drop de html5 de drag and drop à l'application.
   - [ ] Utiliser l'Api de drag and drop sur les objets de type US
-<p></p>
+  <p></p>
 
 - T25. Test ajout d'une US dans un sprint
+
   - [ ] Implémenter un test qui vérifie que les objets de type US sont bien drag and dropable.
   - [ ] Implémenter un test qui vérifie que le drag and drop ajoute bien à l'objet sprint correspondant un objet de type US.
   - [ ] Implémenter un test qui vérifie que l'objet ajouté au sprint est bien l'objet US correspondant à l'objet dragé and dropé dans le sprint voulu.
-<p></p>
+  <p></p>
 
 - NF26. Composant de % de complétion
+
   - [ ] Créer un composant Progression.vue
   - [ ] Intégrer au composant une barre de progression Bootstrap
   - [ ] En fonction des données reçues (nombre à réaliser et nombre réalisé) actualiser la barre en conséquence
   - [ ] Ajouter 3 fois ce composant a Projet.vue : - Un pour les US - Un pour les Tasks - Un pour les Sprints
-<p></p>
+  <p></p>
 
 - T26. Test composant de complétion
+
   - [ ] Implémentation d'un test qui vérifie que le pourcentage afficher est correct
-<p></p>
+  <p></p>
 
 - NF27. Récupération de l'avancement des US
+
   - [ ] Dans le fichier app/index.js créer une route GET sur /project qui va appeler un fichier getProgressUS.js dans le dossier useCase
   - [ ] Créer un fichier getProgressUS.js dans le dossier useCase
   - [ ] Récupérer en BD le nombre d'US total et le nombre d'US terminées
   - [ ] Envoyer ces 2 paramètres au front
-<p></p>
+  <p></p>
 
 - T27. Test de réccupération de l'avancement d'une US
+
   - [ ] Implémenter un test qui vérifie que l'avancement d'une US est égale au nombre d'US d'un projet idProject terminé /au nombre d'US total d'un projet idProject \* 100
-<p></p>
+  <p></p>
 
 - NF28. Récupération de l'avancement des Tasks
+
   - [ ] Dans le fichier app/index.js créer une route GET sur /project qui va appeler un fichier getProgressTask.js dans le dossier useCase
   - [ ] Créer un fichier getProgressTask.js dans le dossier useCase
   - [ ] Récupérer en BD le nombre de Task total et le nombre de Task terminées
   - [ ] Envoyer ces 2 paramètres au front
-<p></p>
+  <p></p>
 
 - T28. Test de réccupération de l'avancement d'une Task
+
   - [ ] Implémenter un test qui vérifie que l'avancement d'une US est égale au nombre de task d'un projet terminé idProject terminé /au nombre de task total d'un projet idProject x 100.
-<p></p>
+  <p></p>
 
 - NF29. Récupération de l'avancement des Sprints
+
   - [ ] Dans le fichier app/index.js créer une route GET sur /project qui va appeler un fichier getProgressSprint.js dans le dossier useCase
   - [ ] Créer un fichier getProgressSprint.js dans le dossier useCase
   - [ ] Récupérer en BD le nombre de total de Tasks du Sprint et le nombre de Tasks du sprint terminées
   - [ ] Envoyer ces 2 paramètres au front
-<p></p>
+  <p></p>
 
 - T29. Test de récupération de l'avancement d'un Sprint
+
   - [ ] Implémenter un test qui vérifie que l'avancement d'une US est égale au nombre de task terminées lié a une US d'un sprint idSprint terminé /au nombre de task total task lié a une US d'un sprint d'un projet idProject x 100.
-<p></p>
+  <p></p>
 
 - NF30. Creation de la vue basique d'un Burndown Chart avec les données d'un projet test
+
   - [ ] Ajout d'un bouton "Génerer Burndown Chart" en bas de la page d'affichage d'un projet, qui renvoie un GET vers la route /project/:idProject/burndownChart
   - [ ] Créer un composant burndownChart.vue où sera affiché le burndown chart généré
   - [ ] Utilisation de l'api Chartjs pour générer un graphique sur deux axes:
     - En x: Iteration Timeline (days)
     - En y: Sum of task estimates (days)
   - [ ] Tracer la ligne "Ideal Tasks Remaining" correspondant à une droite du point de départ du projet jusqu'au nombre de jours final du projet.
-<p></p>
+  <p></p>
 
 - T30. Test du Burndown Chart basique
+
   - [ ] Implémenter un test qui vérifie que la droite tracée commence bien au nombre de jours total du projet et qui fini bien à 0 et que chaque jours a un point de la droite.
   - [ ] Implémenter un test qui vérifie que les données affichées correspondent aux données inMemory
-<p></p>
+  <p></p>
 
 - NF31. Ajout de la ligne "Actual task remaining" au Burndown Chart avec les données d'un projet test
+
   - [ ] Pour chaques jours que le projet a commencé, calculer en jour la durée de toutes les tâches restantes.
   - [ ] Tracer la ligne "Actual task remaining" qui prend en x le chiffre calculé precedement, et en y le jours d'avancement correspondant.
-<p></p>
+  <p></p>
 
 - T31. Test de "Actual task remaining"
+
   - [ ] Implémenter un test qui vérifie que chaque jour de la courbe dispose d'un point et qu'il a la bonne valeur
   - [ ] Implémenter un test qui vérifie l'actualisation de la courbe après un changement dans la BD
-<p></p>
+  <p></p>
 
 - NF32. Récupération des Sprints d'un projet
+
   - [ ] Créer une route GET sur /project/:idProject qui renvoie sur useCase/getSprints.js
   - [ ] Créer le fichier getSprints.js dans /useCase
   - [ ] Implémenter dans getSprints.js la récupération des SPrints du projet d'id idProject dans la BD
   - [ ] Envoyer les données au front
-<p></p>
+  <p></p>
 
 - T32. Test de réccupération des Sprints.
+
   - [ ] Implémenter un test qui vérifie qu'on réccupére bien touts les sprints liés à un projet d'id idProject
-<p></p>
+  <p></p>
 
 - NF33. Affichage des Sprints dans le projet
+
   - [ ] Créer un composant SprintsList.vue
   - [ ] Récupérer la liste des Sprints et leurs US associées envoyées par le back
   - [ ] Afficher chaque sprint sous forme de liste d'US associée au sprint.
-<p></p>
+  <p></p>
 
 - T33. Test de l'affichage des tâche d'un projet
   - [ ] Implémenter un test qui vérifie qu'on affiche bien tous les sprints si il en existe ou zero si il n'y en a pas
   - [ ] Implémenter un test qui vérifie que les US affichées dans un sprint appartiennent bien à ce sprint.
-<p></p>
+  <p></p>
 
 ## Organisation
 
