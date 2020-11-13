@@ -32,8 +32,8 @@
 
 <script>
 import USList from "./USList";
-//import { serverurl, port } from "../config/backend.config";
-//import axios from "axios";
+import { serverurl, port } from "../config/backend.config";
+import axios from "axios";
 export default {
   props: {
     project: Object,
@@ -45,13 +45,13 @@ export default {
 
   data() {
     return {
-      id: this.project.id,
-      name: this.project.name,
-      description: this.project.description,
-      git: this.project.git_repo,
-      start: this.project.start_date,
-      end: this.project.end_date,
-      state: this.project.state,
+      id: this.project ? this.project.id : this.idProject,
+      name: this.project ? this.project.name : null,
+      description: this.project ? this.project.description : null,
+      git: this.project ? this.project.git_repo : null,
+      start: this.project ? this.project.start_date : null,
+      end: this.project ? this.project.end_date : null,
+      state: this.project ? this.project.state : null,
 
       tab: null,
       items: [
@@ -62,7 +62,22 @@ export default {
       ],
     };
   },
-  mounted() {},
+  mounted() {
+    if (!this.project) {
+      console.log("No props in params");
+      axios
+        .get(`http://${serverurl}:${port}/project/${this.idProject}`)
+        .then((res) => {
+          const p = res.data;
+          this.name = p.name;
+          this.description = p.description;
+          this.git = p.git_repo;
+          this.start = p.start_date;
+          this.end = p.end_date;
+          this.state = p.state;
+        });
+    }
+  },
 };
 </script>
 

@@ -1,7 +1,7 @@
 let usList = [
   {
     id: 1,
-    desc: "En tant que développeur je veux pouvoir me créer un compte",
+    description: "En tant que développeur je veux pouvoir me créer un compte",
     type: "NewFeature",
     state: "Ouvert",
     projectId: 1,
@@ -23,7 +23,7 @@ exports.createUS = (req, res) => {
 
 exports.modifyUS = (req, res) => {
   let us_at_modify = usList.find((us) => us.id == req.params.idUS);
-  us_at_modify.desc = req.body.desc;
+  us_at_modify.description = req.body.description;
   us_at_modify.type = req.body.type;
   us_at_modify.state = req.body.state;
   us_at_modify.projectId = req.body.projectId;

@@ -83,7 +83,7 @@ export default {
       state: this.us ? this.us.state : "OPEN",
       importance: this.us ? this.us.importance : 1,
       difficulty: this.us ? this.us.difficulty : 1,
-      projectId: this.us ? this.us.projectId : this.$route.params.projectId,
+      projectId: this.us ? this.us.projectId : this.$route.params.idProject,
       id: this.us ? this.us.id : null,
 
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
@@ -95,35 +95,22 @@ export default {
   methods: {
     create() {
       console.log("Create ");
+      console.log(this.createPostData());
       axios
         .post(
           `http://${serverurl}:${port}/project/${this.projectId}/us/create/`,
-          this.createPostData(
-            this.id,
-            this.description,
-            this.importance,
-            this.state,
-            this.difficulty,
-            this.projectId
-          )
+          this.createPostData()
         )
-        .then(this.$router.go(-1));
+        .then(this.$router.back());
     },
     modify() {
       console.log("Modify...");
       axios
         .post(
-          `http://${serverurl}:${port}/project/${this.projectId}/us/modify/`,
-          this.createPostData(
-            this.id,
-            this.description,
-            this.importance,
-            this.state,
-            this.difficulty,
-            this.projectId
-          )
+          `http://${serverurl}:${port}/project/${this.projectId}/us/${this.id}/modify/`,
+          this.createPostData()
         )
-        .then(this.$router.go(-1));
+        .then(this.$router.back());
     },
     cancel() {
       console.log("Cancel");
@@ -134,12 +121,16 @@ export default {
       return {
         id: this.id,
         description: this.description,
-        importance: this.importance,
+        priority: this.importance,
         state: this.state,
         difficulty: this.difficulty,
         projectId: this.projectId,
+        sprintId: null,
       };
     },
+  },
+  mounted() {
+    console.log(this.$route.params.idProject);
   },
 };
 </script>

@@ -184,7 +184,7 @@ export default {
   },
   methods: {
     create() {
-      if (this.title === "") {
+      if (this.name === "") {
         alert("you can't create empty project");
         return;
       }
@@ -206,7 +206,7 @@ export default {
       console.log(`modify : ${this.title}`);
     },
     cancel() {
-      console.log(`cancel...`);
+      this.$router.back();
     },
     createPostBody() {
       const post = {
