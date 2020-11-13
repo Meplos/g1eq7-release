@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  front:
+    image: node
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+        - 8080:8080
+
+  back:
+    image: node
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+        - 3000:3000
