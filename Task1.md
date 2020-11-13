@@ -174,8 +174,8 @@ Routes de l'appli
 
 - NF11. Affichage d'un projet US:1
 
-  - [ ] Créer un composant Project.vue
-  - [ ] Afficher les champs : nom, date de début, état
+  - [x] Créer un composant Project.vue
+  - [x] Afficher les champs : nom, date de début, état
   - [ ] Afficher les champs optionnels si ils sont présents : date de fin estimée, dépôt, description.
   - [ ] Ajouter un bouton de modification qui revoie un GET vers la route /project/:idProject/modify
   <p></p>

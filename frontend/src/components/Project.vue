@@ -33,15 +33,30 @@
     <v-row col="12" sm="8">
       <label>{{desc}}</label>
     </v-row>
+    <v-row col="12" sm="8">
+      <router-link :to="{ name: 'modifyProject' }">
+        <v-btn color="success"><v-icon left>mdi-plus</v-icon> Modify</v-btn>
+      </router-link>
+    </v-row>
   </div>
   
 </template>
 
 <script>
+import { serverurl, port } from "../config/backend.config";
+import axios from "axios";
+
 export default {
   props: { 
-    id: Number
+    id: Number,
   },
+
+mounted(){
+  axios.get(`http://${serverurl}:${port}/project`, {}).then((res)=>{
+    this.project = res;
+    console.log(this.project);
+  });
+},
 
 };
 </script>
