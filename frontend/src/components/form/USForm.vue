@@ -107,7 +107,7 @@ export default {
             this.projectId
           )
         )
-        .then(this.$router.push({ name: "USList" }));
+        .then(this.$router.go(-1));
     },
     modify() {
       console.log("Modify...");
@@ -123,11 +123,11 @@ export default {
             this.projectId
           )
         )
-        .then(this.$router.push({ name: "USList" }));
+        .then(this.$router.go(-1));
     },
     cancel() {
       console.log("Cancel");
-      this.$router.push({ name: "USList" });
+      this.$router.go(-1);
     },
 
     createPostData() {
