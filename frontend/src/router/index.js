@@ -32,6 +32,9 @@ const routes = [
     props: true,
   },
   {
+    path: "/project/:"
+  }
+  {
     path: "/project/:idProject/us/createUS",
     name: "CreateUS",
     component: USForm,
