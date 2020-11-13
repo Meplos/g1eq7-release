@@ -2,9 +2,9 @@ let projectList = [
   {
     id: 1,
     name: "Test",
-    start_date: "11/11/2020",
+    start_date: "2020-11-12",
     state: "Ouvert",
-    end_date: null,
+    end_date: "2020-11-12",
     git_repo: null,
     description: "Projet de test",
   },
@@ -36,7 +36,9 @@ exports.modifyProject = (req, res) => {
 };
 
 exports.getProject = (req, res) => {
-  let project = projectList.find((projet) => projet.id == req.params.idProject);
+  let project = projectList.find(
+    (projet) => projet.id === eval(req.params.idProject)
+  );
 
   res.send(project);
 };
