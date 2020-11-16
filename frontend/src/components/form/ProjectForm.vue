@@ -10,8 +10,8 @@
           <v-text-field
             v-model="name"
             :rules="titleValidator"
-            :count="10"
-            label="Title"
+            :count="100"
+            label="Title*"
             required
             filled
           />

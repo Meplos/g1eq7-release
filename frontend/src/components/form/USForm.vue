@@ -2,28 +2,18 @@
   <div class="usForm">
     <h1 v-if="isEdit">Edit</h1>
     <h1 v-else>Create US</h1>
-    <p>
-      {{ description }}
-    </p>
-    <v-form>
+    <v-form ref="form" v-model="valid" lazy-validation justify="center">
       <v-row>
         <v-col cols="12" sm="8">
           <v-textarea
             label="Description"
             filled
             v-model="description"
+            :rules="[usValidator]"
+            placeholder="As a devellopeur I wan't to code so i'm productive "
+            required
             auto-grow
           />
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" sm="8">
-          <v-select
-            :items="typeList"
-            label="Type"
-            filled
-            v-model="type"
-          ></v-select>
         </v-col>
       </v-row>
       <v-row>
@@ -57,10 +47,25 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-btn color="success" class="mr-6" v-if="isEdit" @click="modify"
-          >Save</v-btn
+        <v-btn
+          color="success"
+          class="mr-6"
+          v-if="isEdit"
+          @click="modify"
+          :disabled="!valid"
         >
-        <v-btn color="success" class="mr-6" v-else @click="create">Add</v-btn>
+          Save
+        </v-btn>
+
+        <v-btn
+          color="success"
+          class="mr-6"
+          v-else
+          @click="create"
+          :disabled="!valid"
+        >
+          Add
+        </v-btn>
         <v-btn color="error" @click="cancel" outlined>Cancel</v-btn>
       </v-row>
     </v-form>
@@ -87,13 +92,31 @@ export default {
       id: this.us ? this.us.id : null,
 
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
-      typeList: ["NewFeature", "BugFix", "Test"],
       numberList: [1, 2, 3, 4, 5],
+      usRegExHead: new RegExp("^As a"),
+      usRegExMid: new RegExp("I wan't"),
+      usRegExpTail: new RegExp("(so)?"),
+
+      usValidator: (v) =>
+        this.isUserStory(v) || "US must be: As a ... I wan't to ... so? ...",
+      valid: false,
     };
   },
 
   methods: {
+    isUserStory(us) {
+      return (
+        this.usRegExHead.test(us) &&
+        this.usRegExMid.test(us) &&
+        this.usRegExpTail.test(us)
+      );
+    },
     create() {
+      if (this.description.trim().length === 0) {
+        alert("You can't create US with no description");
+        return;
+      }
+
       console.log("Create ");
       console.log(this.createPostData());
       axios
@@ -129,9 +152,7 @@ export default {
       };
     },
   },
-  mounted() {
-    console.log(this.$route.params.idProject);
-  },
+  mounted() {},
 };
 </script>
 
