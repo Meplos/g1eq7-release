@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ListProject from "../components/ListProject.vue";
+import ProjectList from "../components/list/ProjectList.vue";
 import Project from "../components/Project.vue";
 import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
@@ -56,7 +56,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: ListProject,
+    component: ProjectList,
   },
 ];
 

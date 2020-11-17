@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { serverurl, port } from "../config/backend.config";
+import { serverurl, port } from "../../config/backend.config";
 import axios from "axios";
 export default {
   data() {

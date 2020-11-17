@@ -31,7 +31,9 @@
 </template>
 
 <script>
-import USList from "./USList";
+import USList from "./list/USList";
+import SprintList from "./list/SprintList";
+
 import { serverurl, port } from "../config/backend.config";
 import axios from "axios";
 export default {
@@ -41,6 +43,7 @@ export default {
   },
   components: {
     USList,
+    SprintList,
   },
 
   data() {
@@ -58,6 +61,10 @@ export default {
         {
           tab: "User Story",
           content: "USList",
+        },
+        {
+          tab: "Sprints",
+          content: "SprintList",
         },
       ],
     };
