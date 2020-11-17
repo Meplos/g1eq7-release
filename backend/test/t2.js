@@ -16,11 +16,10 @@ QUnit.test("On affiche bien les projets",function(assert){
     .then(res => res.json())
     .then(res => {
         count = res.projectList.length
-        console.log(count);
         
         driver.get('http://localhost:8080/');
     })
-    .then(() => driver.findElements(By.className("projectList__container")) )
+    .then(() => driver.findElements(By.className("projectList__item")) )
     .then((projects) => {
         driver.quit();
         assert.equal(projects.length,count);
