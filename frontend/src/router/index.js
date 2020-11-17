@@ -4,6 +4,7 @@ import ListProject from "../components/ListProject.vue";
 import Project from "../components/Project.vue";
 import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
+import SprintForm from "../components/form/SprintForm.vue";
 
 Vue.use(VueRouter);
 
@@ -22,15 +23,22 @@ const routes = [
     props: true,
   },
   {
-    path: "/project/:",
-    name: "ModifyProject",
-    props: true,
-  },
-  {
     path: "/project/:idProject/us/createUS",
     name: "CreateUS",
     component: USForm,
     props: { isEdit: false },
+  },
+  {
+    path: "/project/:idProject/sprint/create",
+    name: "CreateSprint",
+    component: SprintForm,
+    props: { isEdit: false },
+  },
+  {
+    path: "/project/:idProject/sprint/modify",
+    name: "ModifySprint",
+    component: SprintForm,
+    props: true,
   },
   {
     path: "/project/:idProject/modify/",

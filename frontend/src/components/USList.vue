@@ -7,8 +7,8 @@
         fab
         @click="$router.push({ name: 'CreateUS', params: { isEdit: false } })"
       >
-        <v-icon> mdi-plus</v-icon></v-btn
-      >
+        <v-icon> mdi-plus</v-icon>
+      </v-btn>
     </h1>
 
     <v-simple-table class="mt-10 mr-10">
