@@ -11,7 +11,20 @@
       </v-btn>
     </h1>
 
-    <v-simple-table class="mt-10 mr-10">
+    <v-row v-if="usList.length === 0">
+      <v-spacer></v-spacer>
+      <v-col cols="8" sm="4" class="align-center">
+        <v-alert class="red lighten-2">
+          No User Story?
+          <router-link :to="{ name: 'CreateUS' }">
+            Create one here
+          </router-link>
+        </v-alert>
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
+
+    <v-simple-table class="mt-10 mr-10" v-else>
       <template v-slot:default>
         <thead>
           <tr>
@@ -87,4 +100,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+a {
+  font-weight: bold;
+}
+</style>

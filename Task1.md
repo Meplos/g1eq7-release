@@ -344,7 +344,7 @@
 
 - NF20. Affichage du Kanban dans le projet
 
-  - Créer un composant Pert.vue
+  - Créer un composant Kanban.vue
   - Récupérer la liste des tâches
   - Classer les tâches par développeur
   - Afficher le Kanban
@@ -417,7 +417,7 @@
 
 - NF25. Ajouter une US dans un sprint
 
-  - Ajouter l'api Drag/Drop de html5 de drag and drop à l'application.
+  - Ajouter l'api Drag&Drop de html5 de drag and drop à l'application.
   - Utiliser l'Api de drag and drop sur les objets de type US
   <p></p>
 
@@ -587,10 +587,10 @@ TI11 : Project.vue existe et est testé
 | TE2E16_2 | US4     | 1          | NF16        |                 | TODO  |
 | NF17     | US4     | 1          | TU1,NF22    |                 | TODO  |
 | TU17     | US4     | 1          | NF17        |                 | TODO  |
-| NF18     | US4     | 2          | NF22,TI11   |                 | TODO  |
+| NF18     | US4     | 2          | NF22,TI11   | Alexandre ERARD | TODO  |
 | TI18     | US4     | 1          | NF18        |                 | TODO  |
 | NF19     | US8     | 1          | TI11        |                 | TODO  |
-| NF20     | US5     | 4          | TI11        |                 | TODO  |
+| NF20     | US5     | 4          | TI11        | Alexandre ERARD | TODO  |
 | TE2E20   | US5     | 3          | NF20        |                 | TODO  |
 | NF21     | US5     | 2          | TI18        |                 | TODO  |
 | TE2E21   | US5     | 1          | NF21        |                 | TODO  |
@@ -599,7 +599,7 @@ TI11 : Project.vue existe et est testé
 | TI23     | US6     | 2          | NF23        |                 | TODO  |
 | NF24     | US6     | 1          | TU1,NF22    |                 | TODO  |
 | TU24     | US6     | 1          | NF24        | Alexandre Erard | TODO  |
-| NF25     | US7     | 2          | TI13,T33    | Alexandre ERARD | DOING |
+| NF25     | US7     | 2          | TI13,T33    | Alexandre ERARD | DONE  |
 | TE2E25   | US7     | 2          | NF25        |                 | TODO  |
 | NF26     | US23    | 1          | TI11        | Alix            | TODO  |
 | NF27     | US23    | 1          | NF26,TU12   |                 | TODO  |
