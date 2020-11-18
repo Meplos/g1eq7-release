@@ -552,8 +552,8 @@ TI11 : Project.vue existe et est testé
 | NF2      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU2      | US1     | 1          | NF2         | Maxime Gresse   | DONE  |
 | NF3      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
-| TI3_1    | US1     | 2          | NF3         |                 | TODO  |
-| TE2E3_2  | US1     | 2          | NF3         |                 | TODO  |
+| TI3_1    | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
+| TE2E3_2  | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | NF4      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
 | TU4_1    | US1     | 2          | NF4         |                 | TODO  |
 | TE2E4_2  | US1     | 2          | NF4         |                 | TODO  |
