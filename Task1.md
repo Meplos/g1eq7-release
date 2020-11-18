@@ -552,30 +552,30 @@ TI11 : Project.vue existe et est testé
 | NF2      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU2      | US1     | 1          | NF2         | Maxime Gresse   | DONE  |
 | NF3      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
-| TI3_1    | US1     | 2          | NF3         |                 | TODO  |
-| TE2E3_2  | US1     | 2          | NF3         |                 | TODO  |
+| TI3_1    | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
+| TE2E3_2  | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | NF4      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
 | TU4_1    | US1     | 2          | NF4         |                 | TODO  |
 | TE2E4_2  | US1     | 2          | NF4         |                 | TODO  |
 | TE2E4_3  | US1     | 2          | NF4         |                 | TODO  |
 | NF5      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU5      | US1     | 1          | NF5         |                 | TODO  |
+| TU5      | US1     | 1          | NF5         | Alexandre Erard | DONE  |
 | NF6      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU6      | US1     | 1          | NF6         |                 | TODO  |
 | NF7      | US2     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU7      | US2     | 1          | NF7         |                 | TODO  |
+| TU7      | US2     | 1          | NF7         | Alexandre Erard | DONE  |
 | NF8      | US3     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU8      | US3     | 1          | NF8         |                 | TODO  |
+| TU8      | US3     | 1          | NF8         | Alexandre Erard | DONE  |
 | NF9      | US2 US3 | 1          | NF22        | Alexandre Erard | DONE  |
 | TU9_1    | US2 US3 | 2          | NF4         |                 | TODO  |
 | TE2E9_2  | US2 US3 | 2          | NF4         |                 | TODO  |
 | TE2E9_3  | US2 US3 | 2          | NF4         |                 | TODO  |
 | NF10     | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| T10      | US1     | 1          | NF10        |                 | TODO  |
+| T10      | US1     | 1          | NF10        | Alexandre Erard | DONE  |
 | NF11     | US1     | 2          | NF22        | Alix            | TODO  |
 | TI11     | US1     | 2          | NF11        |                 | TODO  |
 | NF12     | US3     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU12     | US3     | 1          | NF12        |                 | TODO  |
+| TU12     | US3     | 1          | NF12        | Alexandre Erard | DONE  |
 | NF13     | US3     | 3          | NF22,TI11   | Alexandre Erard | DONE  |
 | TI13     | US3     | 2          | NF13        |                 | TODO  |
 | NF14     | US3     | 1          | TI13        | Alexandre ERARD | DONE  |
