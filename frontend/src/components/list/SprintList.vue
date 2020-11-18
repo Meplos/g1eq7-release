@@ -16,7 +16,25 @@
       </v-btn>
     </h1>
 
-    <div class="sprint__list">
+    <v-row v-if="sprintList.length === 0">
+      <v-spacer></v-spacer>
+      <v-col cols="8" sm="4">
+        <v-alert class="red lighten-2">
+          No sprint yet?
+          <router-link
+            :to="{
+              name: 'CreateSprint',
+              params: { isEdit: false, idProject: $route.params.idProject },
+            }"
+          >
+            Create one here
+          </router-link>
+        </v-alert>
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
+
+    <div class="sprint__list" v-else>
       <div
         class="sprint drop-zone"
         @drop="onDrop($event, null)"
@@ -35,19 +53,7 @@
           @dragstart="startDrag($event, us)"
         />
       </div>
-      <div class="info">
-        <v-alert v-if="sprintList.length === 0" class="red lighten-2">
-          No sprint yet?
-          <router-link
-            :to="{
-              name: 'CreateSprint',
-              params: { isEdit: false, idProject: $route.params.idProject },
-            }"
-          >
-            Create one here
-          </router-link>
-        </v-alert>
-      </div>
+
       <div
         class="sprint drop-zone"
         v-for="sprint in sprintList"
@@ -148,9 +154,5 @@ export default {
 
 a {
   font-weight: bold;
-}
-
-.info {
-  margin: 45px;
 }
 </style>
