@@ -599,7 +599,7 @@ TI11 : Project.vue existe et est testé
 | TI23     | US6     | 2          | NF23        |                 | TODO  |
 | NF24     | US6     | 1          | TU1,NF22    |                 | TODO  |
 | TU24     | US6     | 1          | NF24        | Alexandre Erard | TODO  |
-| NF25     | US7     | 2          | TI13,T33    | Alexandre ERARD | TODO  |
+| NF25     | US7     | 2          | TI13,T33    | Alexandre ERARD | DOING |
 | TE2E25   | US7     | 2          | NF25        |                 | TODO  |
 | NF26     | US23    | 1          | TI11        | Alix            | TODO  |
 | NF27     | US23    | 1          | NF26,TU12   |                 | TODO  |
