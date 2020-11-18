@@ -10,20 +10,25 @@ const driver = new webdriver.Builder()
 
 let count = 0;
 
-QUnit.test("On affiche bien les projets",function(assert){
+console.log("Test affichage du bon nombre de projets")
 
-    return fetch('http://localhost:3000/project')
-    .then(res => res.json())
-    .then(res => {
-        count = res.projectList.length
-        
-        driver.get('http://localhost:8080/');
-    })
-    .then(() => driver.findElements(By.className("projectList__item")) )
-    .then((projects) => {
-        driver.quit();
-        assert.equal(projects.length,count);
-    })
-
+fetch('http://localhost:3000/project')
+.then(res => res.json())
+.then(res => {
+    count = res.projectList.length
+    driver.get('http://localhost:8080/');
 })
+.then(() => driver.sleep(2000))
+.then(() => driver.findElements(By.className("projectList__item")) )
+.then((projects) => {
+    driver.quit();
+    if(projects.length==count){
+        console.log("ok")
+    }
+    else{
+        console.log("non")
+    }
+})
+
+
 
