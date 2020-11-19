@@ -196,11 +196,9 @@ export default {
       console.log(`create : ${body}`);
     },
     modify() {
-      const body = this.createPostBody();
       axios
         .post(
-          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
-          body
+          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`, this.createPostBody()
         )
         .then(this.$router.push({ name: "Home" }));
       console.log(`modify : ${this.title}`);
@@ -209,7 +207,7 @@ export default {
       this.$router.back();
     },
     createPostBody() {
-      const post = {
+      return {
         id: this.id,
         name: this.name,
         description: this.description,
@@ -218,7 +216,6 @@ export default {
         git_repo: this.git,
         state: this.state,
       };
-      return post;
     },
   },
   mounted() {},
