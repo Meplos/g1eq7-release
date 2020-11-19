@@ -38,12 +38,7 @@
                 name: 'ModifyProject',
                 params: {
                   idProject: project.id,
-                  name: project.name,
-                  description: project.description,
-                  start_date: project.start,
-                  end_date: project.end ? project.end : null,
-                  git_repo: project.git,
-                  state: project.state,
+                  project: project,
                   isEdit: true,
                 },
               })">Modify Project</v-btn>
