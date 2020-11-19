@@ -37,7 +37,6 @@
             <v-btn class="mr-6" color="warning" @click="$router.push({
                 name: 'ModifyProject',
                 params: {
-                  projectId: $route.params.projectId,
                   idProject: project.id,
                   name: project.name,
                   description: project.description,
@@ -45,6 +44,7 @@
                   end_date: project.end ? project.end : null,
                   git_repo: project.git,
                   state: project.state,
+                  isEdit: true,
                 },
               })">Modify Project</v-btn>
           </div>

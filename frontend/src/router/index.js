@@ -41,10 +41,10 @@ const routes = [
     props: true,
   },
   {
-    path: "/project/:idProject/modify/",
+    path: "/project/:idProject/modify",
     name: "ModifyProject",
     component: ProjectForm,
-    props: true,
+    props: { isEdit: true },
   },
   {
     path: "/createProject",

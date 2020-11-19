@@ -1,7 +1,7 @@
 <template>
   <div class="projectForm">
     <v-row>
-      <h1 v-if="isEdit">{{ name }}</h1>
+      <h1 v-if="isEdit">Edit</h1>
       <h1 v-else>New project</h1>
     </v-row>
     <v-form ref="form" v-model="valid" lazy-validation justify="center">
