@@ -581,12 +581,12 @@ TI11 : Project.vue existe et est testé
 | TE2E16_2 | US4     | 1          | NF16        |                 | TODO  |
 | NF17     | US4     | 1          | TU1,NF22    |                 | TODO  |
 | TU17     | US4     | 1          | NF17        |                 | TODO  |
-| NF18     | US4     | 2          | NF22,TI11   | Alexandre ERARD | TODO  |
+| NF18     | US4     | 2          | NF22,TI11   | Alexandre ERARD | DOING |
 | TI18     | US4     | 1          | NF18        |                 | TODO  |
 | NF19     | US8     | 1          | TI11        |                 | TODO  |
 | NF20     | US5     | 4          | TI11        | Alexandre ERARD | TODO  |
 | TE2E20   | US5     | 3          | NF20        |                 | TODO  |
-| NF21     | US5     | 2          | TI18        |                 | TODO  |
+| NF21     | US5     | 2          | TI18        | Alexandre ERARD | DONE  |
 | TE2E21   | US5     | 1          | NF21        |                 | TODO  |
 | NF22     | US1     | 1          |             |                 | DONE  |
 | NF23     | US6     | 1          | NF22        | Alexandre Erard | DOING |

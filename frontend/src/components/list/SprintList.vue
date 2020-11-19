@@ -44,33 +44,35 @@
         <h2>
           Unplannified
         </h2>
-        <p v-if="usList.lenght === 0">No US available</p>
-        <USCard
-          v-for="us in getUserStoriesIn(null)"
-          :key="us.id"
-          :us="us"
-          draggable
-          @dragstart="startDrag($event, us)"
-        />
+        <div class="sprint__info">
+          <p v-if="usList.lenght === 0">No US available</p>
+          <USCard
+            v-else
+            v-for="us in getUserStoriesIn(null)"
+            :key="us.id"
+            :us="us"
+            draggable
+            @dragstart="startDrag($event, us)"
+          />
+        </div>
       </div>
 
       <div
         class="sprint drop-zone"
         v-for="sprint in sprintList"
         :key="sprint.id"
-        @drop="onDrop($event, sprint.id)"
         @dragover.prevent
         @dragenter.prevent
+        @drop="onDrop($event, sprint.id)"
       >
         <h2>Sprint {{ sprint.id }}</h2>
-
-        <USCard
-          v-for="us in getUserStoriesIn(sprint.id)"
-          :key="us.id"
-          :us="us"
-          draggable
-          @dragstart="startDrag($event, us)"
-        />
+        <div class="sprint__info">
+          <USCard
+            v-for="us in getUserStoriesIn(sprint.id)"
+            :key="us.id"
+            :us="us"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -86,24 +88,34 @@ export default {
   },
   data() {
     return {
-      usList: [],
-      sprintList: [],
+      usList: [
+        {
+          id: 0,
+          description: "MAMAM",
+          state: "OPEN",
+          sprint: null,
+        },
+        {
+          id: 1,
+          description: "LKJEMZ",
+          state: "OPEN",
+          sprint: 1,
+        },
+      ],
+      sprintList: [{ id: 0 }, { id: 1 }, { id: 3 }],
     };
   },
   methods: {
     getUserStoriesIn(id) {
       return this.usList.filter((cur) => cur.sprint === id);
     },
-    startDrag: (evt, item) => {
-      evt.dataTransfer.dropEffect = "move";
-      evt.dataTransfer.effectAllowed = "move";
-      evt.dataTransfer.setData("itemID", item.id);
-    },
+
     onDrop(evt, sprint) {
-      const itemID = evt.dataTransfer.getData("itemID");
-      const item = this.usList.find((us) => us.id == itemID);
+      const itemID = evt.dataTransfer.getData("usID");
+      const item = this.usList.find((it) => it.id === eval(itemID));
+      if (!item) return;
       item.sprint = sprint;
-      if (itemID) {
+      if (sprint) {
         item.state = "PLANNIFIED";
       } else {
         item.state = "OPEN";
@@ -151,7 +163,9 @@ export default {
   box-sizing: border-box;
   border-radius: 36px;
 }
-
+.sprint__info {
+  display: flex;
+}
 a {
   font-weight: bold;
 }

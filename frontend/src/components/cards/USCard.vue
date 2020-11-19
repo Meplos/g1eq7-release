@@ -1,5 +1,5 @@
 <template>
-  <div class="usCard__container">
+  <div class="usCard__container" draggable @dragstart="startDrag($event)">
     <h1>{{ us.id }}</h1>
     <p>{{ us.description }}</p>
   </div>
@@ -11,6 +11,13 @@ export default {
     us: Object,
   },
   mounted() {},
+  methods: {
+    startDrag(evt) {
+      evt.dataTransfer.dropEffect = "move";
+      evt.dataTransfer.effectAllowed = "move";
+      evt.dataTransfer.setData("usID", this.us.id);
+    },
+  },
 };
 </script>
 
