@@ -12,6 +12,7 @@
         </v-col>
       </v-row>
     </div>
+    
 
     <template>
       <v-tabs v-model="tab">

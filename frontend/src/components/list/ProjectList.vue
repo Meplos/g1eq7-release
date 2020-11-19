@@ -30,6 +30,9 @@
                   {{ project.state }}
                 </div>
               </v-card-text>
+              <div class="modify-btn">
+                <v-btn class="mr-6" color="warning" @click="modify">Modify Project</v-btn>
+              </div>
             </v-card>
           </router-link>
         </v-col>
@@ -47,7 +50,18 @@ export default {
       projects: null,
     };
   },
-
+  methods:{
+    modify() {
+      const body = this.createPostBody();
+      axios
+        .post(
+          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
+          body
+        )
+        .then(this.$router.push({ name: "Home" }));
+      console.log(`modify : ${this.title}`);
+    }
+  },
   mounted() {
     axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
       this.projects = res.data.projectList;
