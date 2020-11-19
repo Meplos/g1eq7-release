@@ -30,11 +30,24 @@
                   {{ project.state }}
                 </div>
               </v-card-text>
-              <div class="modify-btn">
-                <v-btn class="mr-6" color="warning" @click="modify">Modify Project</v-btn>
-              </div>
+              
             </v-card>
           </router-link>
+          <div class="modify-btn">
+            <v-btn class="mr-6" color="warning" @click="$router.push({
+                name: 'ModifyProject',
+                params: {
+                  projectId: $route.params.projectId,
+                  idProject: project.id,
+                  name: project.name,
+                  description: project.description,
+                  start_date: project.start,
+                  end_date: project.end ? project.end : null,
+                  git_repo: project.git,
+                  state: project.state,
+                },
+              })">Modify Project</v-btn>
+          </div>
         </v-col>
       </v-row>
     </div>
@@ -51,16 +64,7 @@ export default {
     };
   },
   methods:{
-    modify() {
-      const body = this.createPostBody();
-      axios
-        .post(
-          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
-          body
-        )
-        .then(this.$router.push({ name: "Home" }));
-      console.log(`modify : ${this.title}`);
-    }
+    
   },
   mounted() {
     axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
