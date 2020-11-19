@@ -86,12 +86,7 @@
   - Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/modify les données du formulaire si il s'agit d'une modification.
   <p></p>
 
-- TU4_1. Test formulaire projet
-
-  - Vérifier qu'on ne peut pas rentrer des caractères illégaux dans le formulaire
-  <p></p>
-
-- TE2E4_2. Test ajout via formulaire projet
+- TE2E4_1. Test ajout via formulaire projet
 
   - Créer un projet
   - Remplir le formulaire
@@ -99,7 +94,7 @@
   - Vérifier qu'un projet est bien créé avec les valeurs du formulaire en BD
   <p></p>
 
-- TE2E4_3. Test modification via formulaire projet
+- TE2E4_2. Test modification via formulaire projet
 
   - Modifier un projet
   - Remplir le formulaire
@@ -555,9 +550,8 @@ TI11 : Project.vue existe et est testé
 | TI3_1    | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | TE2E3_2  | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | NF4      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
-| TU4_1    | US1     | 2          | NF4         |                 | TODO  |
+| TE2E4_1  | US1     | 2          | NF4         |                 | TODO  |
 | TE2E4_2  | US1     | 2          | NF4         |                 | TODO  |
-| TE2E4_3  | US1     | 2          | NF4         |                 | TODO  |
 | NF5      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU5      | US1     | 1          | NF5         | Alexandre Erard | DONE  |
 | NF6      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
