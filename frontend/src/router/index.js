@@ -5,6 +5,7 @@ import Project from "../components/Project.vue";
 import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
 import SprintForm from "../components/form/SprintForm.vue";
+import NotFound from "../components/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -52,7 +53,11 @@ const routes = [
     component: ProjectForm,
     props: { isEdit: false },
   },
-
+  {
+    path: "/404",
+    name: "404",
+    component: NotFound,
+  },
   {
     path: "/",
     name: "Home",

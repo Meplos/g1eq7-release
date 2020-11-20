@@ -36,7 +36,7 @@ exports.modifyUS = (req, res) => {
 };
 
 exports.getAllUS = (req, res) => {
-  console.log(req);
+  //console.log(req);
   let projectId = eval(req.params.idProject);
   let projectUS = [];
 
