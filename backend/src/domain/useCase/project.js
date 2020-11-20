@@ -25,7 +25,7 @@ exports.modifyProject = (req, res) => {
   projet_at_modify.state = req.body.state;
   projet_at_modify.end_date = req.body.end_date;
   projet_at_modify.git_repo = req.body.git_repo;
-  projet_at_modify.desc = req.body.desc;
+  projet_at_modify.description = req.body.description;
 
   res.status("200").send({ projectList });
 };
