@@ -159,7 +159,7 @@ export default {
       id: this.project ? this.project.id : null,
       name: this.project ? this.project.name : "",
       description: this.project ? this.project.description : "",
-      git: this.project ? this.project.git : "",
+      git: this.project ? this.project.git_repo : "",
       start: this.project
         ? this.project.start_date
         : new Date().toISOString().substr(0, 10),

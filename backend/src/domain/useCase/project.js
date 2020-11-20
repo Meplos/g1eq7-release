@@ -21,11 +21,12 @@ exports.modifyProject = (req, res) => {
     (projet) => projet.id == req.params.idProject
   );
   projet_at_modify.name = req.body.name;
+  projet_at_modify.description = req.body.description;
   projet_at_modify.start_date = req.body.start_date;
   projet_at_modify.state = req.body.state;
   projet_at_modify.end_date = req.body.end_date;
   projet_at_modify.git_repo = req.body.git_repo;
-  projet_at_modify.desc = req.body.desc;
+  
 
   res.status("200").send({ projectList });
 };
