@@ -550,12 +550,12 @@ TI11 : Project.vue existe et est testé
 | TI3_1    | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | TE2E3_2  | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | NF4      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
-| TE2E4_1  | US1     | 2          | NF4         |                 | TODO  |
-| TE2E4_2  | US1     | 2          | NF4         |                 | TODO  |
+| TE2E4_1  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
+| TE2E4_2  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
 | NF5      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU5      | US1     | 1          | NF5         | Alexandre Erard | DONE  |
 | NF6      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU6      | US1     | 1          | NF6         |                 | TODO  |
+| TU6      | US1     | 1          | NF6         | Maxime Gresse   | DOING |
 | NF7      | US2     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU7      | US2     | 1          | NF7         | Alexandre Erard | DONE  |
 | NF8      | US3     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
@@ -581,12 +581,12 @@ TI11 : Project.vue existe et est testé
 | TE2E16_2 | US4     | 1          | NF16        |                 | TODO  |
 | NF17     | US4     | 1          | TU1,NF22    |                 | TODO  |
 | TU17     | US4     | 1          | NF17        |                 | TODO  |
-| NF18     | US4     | 2          | NF22,TI11   | Alexandre ERARD | DOING |
+| NF18     | US4     | 2          | NF22,TI11   | Alexandre ERARD | TODO  |
 | TI18     | US4     | 1          | NF18        |                 | TODO  |
 | NF19     | US8     | 1          | TI11        |                 | TODO  |
 | NF20     | US5     | 4          | TI11        | Alexandre ERARD | TODO  |
 | TE2E20   | US5     | 3          | NF20        |                 | TODO  |
-| NF21     | US5     | 2          | TI18        | Alexandre ERARD | DONE  |
+| NF21     | US5     | 2          | TI18        |                 | TODO  |
 | TE2E21   | US5     | 1          | NF21        |                 | TODO  |
 | NF22     | US1     | 1          |             |                 | DONE  |
 | NF23     | US6     | 1          | NF22        | Alexandre Erard | DOING |
