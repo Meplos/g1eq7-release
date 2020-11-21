@@ -60,12 +60,7 @@
   - Envoie via par POST à l'addresse /project/:idProject/us/:idUS/modify les données du formulaire s'il s'agit d'une US déjà existante.
   <p></p>
 
-- TU9_1. Test formulaire US
-
-  - Vérifier qu'on ne peut pas rentrer des caractères illégaux dans le formulaire
-  <p></p>
-
-- TE2E9_2. Test ajout US via formulaire
+- TE2E9_1. Test ajout US via formulaire
 
   - Créer une US
   - Remplir le formulaire
@@ -73,7 +68,7 @@
   - Vérifier qu'une US est bien créé avec les valeurs du formulaire en BD
   <p></p>
 
-- TE2E9_3. Test modification US via formulaire
+- TE2E9_2. Test modification US via formulaire
 
   - Modifier une US
   - Remplir le formulaire
@@ -415,9 +410,8 @@ TI11 : Project.vue existe et est testé
 | TE2E4_2  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
 | TU6      | US1     | 1          | NF6         | Alexandre Erard | DOING |
 | NF9      | US2 US3 | 1          | NF22        | Alexandre Erard | DONE  |
-| TU9_1    | US2 US3 | 2          | NF4         |                 | TODO  |
+| TE2E9_1  | US2 US3 | 2          | NF4         |                 | TODO  |
 | TE2E9_2  | US2 US3 | 2          | NF4         |                 | TODO  |
-| TE2E9_3  | US2 US3 | 2          | NF4         |                 | TODO  |
 | NF11     | US1     | 2          | NF22        | Alix            | TODO  |
 | TI11     | US1     | 2          | NF11        |                 | TODO  |
 | NF13     | US3     | 3          | NF22,TI11   | Alexandre Erard | DONE  |
