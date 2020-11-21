@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
@@ -8,7 +6,9 @@ const driver = new webdriver.Builder()
     .forBrowser('chrome')
     .build();
 
-let previousUSCount = 0;
+let previousUS = {
+    desc: ""
+};
 
 console.log("Test création US");
 
@@ -17,20 +17,22 @@ driver.get("http://localhost:8080")
 .then(() => driver.findElement(By.className("projectCard v-card v-sheet theme--dark elevation-2")))
 .then((project) => project.click())
 .then(() => driver.sleep(1000))
+.then(() => driver.findElements(By.css("td")))
+.then((params) => params[1].getText())
+.then((description) => previousUS.desc=description)
 .then(() => driver.findElements(By.css("tr")))
-.then((lignes) => previousUSCount=lignes.length)
-.then(() => driver.findElement(By.className("mx-2 success v-btn v-btn--contained v-btn--fab v-btn--round theme--dark v-size--default")))
-.then((button) => button.click())
-.then(() => {
-    let desc = driver.findElement(By.id("input-43"));
-    desc.sendKeys("As a developper I wan't to add and US so I can manage them");
-})
+.then((lignes) => lignes[1].click())
+.then(() => driver.sleep(1000))
+.then(() => driver.findElement(By.id("input-44")))
+.then((input) => input.sendKeys(" easily"))
+.then(() => driver.sleep(1000))
 .then(() => driver.findElement(By.className("mr-6 v-btn v-btn--contained theme--dark v-size--default success")))
 .then((button) => button.click())
 .then(() => driver.sleep(1000))
-.then(() => driver.findElements(By.css("tr")))
-.then((lignes) => {
-    if(lignes.length==previousUSCount+1){
+.then(() => driver.findElements(By.css("td")))
+.then((params) => params[1].getText())
+.then((description) => {
+    if(description==previousUS.desc+" easily"){
         console.log("ok");
     }
     else{
@@ -38,4 +40,3 @@ driver.get("http://localhost:8080")
     }
 })
 .then(() => driver.quit());
-
