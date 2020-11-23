@@ -10,7 +10,7 @@ let previousUS = {
     desc: ""
 };
 
-console.log("Test création US");
+console.log("Test modification US");
 
 driver.get("http://localhost:8080")
 .then(() => driver.sleep(1000))
@@ -23,7 +23,7 @@ driver.get("http://localhost:8080")
 .then(() => driver.findElements(By.css("tr")))
 .then((lignes) => lignes[1].click())
 .then(() => driver.sleep(1000))
-.then(() => driver.findElement(By.id("input-44")))
+.then(() => driver.findElement(By.id("description")))
 .then((input) => input.sendKeys(" easily"))
 .then(() => driver.sleep(1000))
 .then(() => driver.findElement(By.className("mr-6 v-btn v-btn--contained theme--dark v-size--default success")))

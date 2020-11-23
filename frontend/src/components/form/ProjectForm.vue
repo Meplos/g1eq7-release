@@ -11,6 +11,7 @@
             v-model="name"
             :rules="titleValidator"
             :count="100"
+            id="titre"
             label="Title*"
             required
             filled
@@ -22,6 +23,7 @@
           <v-textarea
             v-model="description"
             filled
+            id="description"
             label="Description"
             auto-grow
           />

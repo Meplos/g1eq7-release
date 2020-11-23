@@ -10,6 +10,8 @@ const driver = new webdriver.Builder()
     .forBrowser('chrome')
     .build();
 
+console.log("Test création de projet");
+
 driver.get("http://localhost:8080/");
 driver.sleep(2000)
 .then(() => driver.findElement(By.className("v-btn v-btn--contained theme--dark v-size--default success")))
@@ -21,8 +23,8 @@ driver.sleep(2000)
 .then((res) => res.json())
 .then((data) => count_before=data.projectList.length)
 .then(() => {
-    let titre = driver.findElement(By.id("input-15"));
-    let desc = driver.findElement(By.id("input-18"));
+    let titre = driver.findElement(By.id("titre"));
+    let desc = driver.findElement(By.id("description"));
     titre.sendKeys("CDP");
     desc.sendKeys("Initiation a CDP");
     driver.sleep(1000);

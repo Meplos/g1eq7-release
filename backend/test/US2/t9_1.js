@@ -22,15 +22,15 @@ driver.get("http://localhost:8080")
 .then(() => driver.findElement(By.className("mx-2 success v-btn v-btn--contained v-btn--fab v-btn--round theme--dark v-size--default")))
 .then((button) => button.click())
 .then(() => {
-    let desc = driver.findElement(By.id("input-43"));
+    let desc = driver.findElement(By.id("description"));
     desc.sendKeys("As a developper I wan't to add and US so I can manage them");
 })
 .then(() => driver.findElement(By.className("mr-6 v-btn v-btn--contained theme--dark v-size--default success")))
 .then((button) => button.click())
-.then(() => driver.sleep(1000))
+.then(() => driver.sleep(2000))
 .then(() => driver.findElements(By.css("tr")))
 .then((lignes) => {
-    if(lignes.length==previousUSCount+1){
+    if(lignes.length>previousUSCount){
         console.log("ok");
     }
     else{

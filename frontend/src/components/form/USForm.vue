@@ -8,6 +8,7 @@
           <v-textarea
             label="Description"
             filled
+            id="description"
             v-model="description"
             :rules="[usValidator]"
             placeholder="As a devellopeur I wan't to code so i'm productive "
