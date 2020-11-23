@@ -17,7 +17,7 @@
               params: { idProject: project.id, project: project },
             }"
           >
-            <v-card elevation="2" class="projectCard">
+            <v-card elevation="2" class="projectCard" id="projet">
               <v-card-title>
                 {{ project.name }}
               </v-card-title>

@@ -410,10 +410,10 @@ TI11 : Project.vue existe et est testé
 | TE2E4_2  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
 | TU6      | US1     | 1          | NF6         | Alexandre Erard | DOING |
 | NF9      | US2 US3 | 1          | NF22        | Alexandre Erard | DONE  |
-| TE2E9_1  | US2 US3 | 2          | NF4         |                 | TODO  |
-| TE2E9_2  | US2 US3 | 2          | NF4         |                 | TODO  |
-| NF11     | US1     | 2          | NF22        | Alix            | TODO  |
-| TI11     | US1     | 2          | NF11        |                 | TODO  |
+| TE2E9_1  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
+| TE2E9_2  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
+| NF11     | US1     | 2          | NF22        | Alix            | DONE  |
+| TI11     | US1     | 2          | NF11        | Maxime Gresse   | TODO  |
 | NF13     | US3     | 3          | NF22,TI11   | Alexandre Erard | DONE  |
 | TI13     | US3     | 2          | NF13        |                 | TODO  |
 | NF14     | US3     | 1          | TI13        | Alexandre ERARD | DONE  |

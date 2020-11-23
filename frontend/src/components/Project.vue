@@ -1,18 +1,18 @@
 <template>
   <div class="projectVue">
     <div class="project__info">
-      <h1>{{ name }}</h1>
+      <h1 id="name">{{ name }}</h1>
       <div class="project__info">
         <v-row class="project__infoDate">
-          <v-col cols="12" sm="6"> Start: {{ start }} </v-col>
-          <v-col cols="12" sm="6" v-if="end"> End: {{ end }} </v-col>
+          <v-col cols="12" sm="6" id="start"> Start: {{ start }} </v-col>
+          <v-col cols="12" sm="6" id="end" v-if="end"> End: {{ end }} </v-col>
         </v-row>
         <v-row v-if="git.trim().length > 0">
-          <p><v-icon> mdi-github</v-icon> {{ git }}</p>
+          <p id="git"><v-icon> mdi-github</v-icon> {{ git }}</p>
           <p></p
         ></v-row>
         <v-row class="project__infoDescription">
-          <v-col cols="12" class="text-justify font-weight-bold">
+          <v-col cols="12" class="text-justify font-weight-bold" id="description">
             {{ description }}
           </v-col>
         </v-row>
