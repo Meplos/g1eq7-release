@@ -12,7 +12,35 @@ let previousUSCount = 0;
 
 console.log("Test création US");
 
-driver.get("http://localhost:8080")
+let projectToCreate = {
+    id: 1,
+    name: "OkOk",
+    start_date: "2020-11-12",
+    state: "Ouvert",
+    end_date: "2020-11-14",
+    git_repo: "https://github.com/max98hash/g1eq7-dev",
+    description: "Projet de test"
+}
+
+let us = {}
+
+function usDisplayIsEqualToCreate(us){
+    if("As a developper I wan't to add and US so I can manage them"==us.description && "1"==us.importance && "1"==us.difficulty){
+        console.log("ok");
+    }
+    else{
+        console.log("non")
+    }
+}
+
+fetch("http://localhost:3000/project/create", {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  },
+  body: JSON.stringify(projectToCreate)
+})
+.then(() => driver.get("http://localhost:8080"))
 .then(() => driver.sleep(1000))
 .then(() => driver.findElement(By.className("projectCard v-card v-sheet theme--dark elevation-2")))
 .then((project) => project.click())
@@ -28,9 +56,14 @@ driver.get("http://localhost:8080")
 .then(() => driver.findElement(By.className("mr-6 v-btn v-btn--contained theme--dark v-size--default success")))
 .then((button) => button.click())
 .then(() => driver.sleep(2000))
-.then(() => driver.findElements(By.css("tr")))
-.then((lignes) => {
-    if(lignes.length>previousUSCount){
+.then(() => driver.findElement(By.id("description")).getText())
+.then((description) => us.description=description)
+.then(() => driver.findElement(By.id("importance")).getText())
+.then((importance) => us.importance=importance)
+.then(() => driver.findElement(By.id("difficulty")).getText())
+.then((difficulty) => us.difficulty=difficulty)
+.then(() => {
+    if(usDisplayIsEqualToCreate){
         console.log("ok");
     }
     else{
@@ -38,4 +71,3 @@ driver.get("http://localhost:8080")
     }
 })
 .then(() => driver.quit());
-

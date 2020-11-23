@@ -413,9 +413,9 @@ TI11 : Project.vue existe et est testé
 | TE2E9_1  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
 | TE2E9_2  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
 | NF11     | US1     | 2          | NF22        | Alix            | DONE  |
-| TI11     | US1     | 2          | NF11        | Maxime Gresse   | TODO  |
+| TI11     | US1     | 2          | NF11        | Maxime Gresse   | DONE  |
 | NF13     | US3     | 3          | NF22,TI11   | Alexandre Erard | DONE  |
-| TI13     | US3     | 2          | NF13        |                 | TODO  |
+| TI13     | US3     | 2          | NF13        | Maxime Gresse   | DONE  |
 | NF14     | US3     | 1          | TI13        | Alexandre ERARD | DONE  |
 | TI14     | US3     | 1          | NF14        |                 | TODO  |
 | NF15     | US4     | 1          | TU1,NF22    |                 | TODO  |
