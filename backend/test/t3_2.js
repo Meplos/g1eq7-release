@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const assert = require('assert');
 
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -52,9 +53,9 @@ fetch("http://localhost:3000/project/create", {
 .then((url) => {
     driver.quit();
     if(url=="http://localhost:8080/project/"+id){
-        console.log("ok")
+        assert.ok(true);
     }
     else{
-        console.log("non")
+        assert.ok(false);
     }
 })

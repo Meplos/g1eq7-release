@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const assert = require('assert');
 
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -48,10 +49,10 @@ fetch("http://localhost:3000/project/create", {
 .then(() => driver.findElements(By.css("tr")))
 .then((lignes) => {
     if(lignes.length>previousUSCount){
-        console.log("ok");
+        assert.ok(true);
     }
     else{
-        console.log("non");
+        assert.ok(false);
     }
 })
 .then(() => driver.quit());

@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const assert = require('assert');
 
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -45,8 +46,6 @@ fetch("http://localhost:3000/project/create", {
 .then(() => driver.findElement(By.className("projectCard v-card v-sheet theme--dark elevation-2")))
 .then((project) => project.click())
 .then(() => driver.sleep(1000))
-.then(() => driver.findElements(By.css("tr")))
-.then((lignes) => previousUSCount=lignes.length)
 .then(() => driver.findElement(By.className("mx-2 success v-btn v-btn--contained v-btn--fab v-btn--round theme--dark v-size--default")))
 .then((button) => button.click())
 .then(() => {
@@ -64,10 +63,10 @@ fetch("http://localhost:3000/project/create", {
 .then((difficulty) => us.difficulty=difficulty)
 .then(() => {
     if(usDisplayIsEqualToCreate){
-        console.log("ok");
+        assert.ok(true);
     }
     else{
-        console.log("non");
+        assert.ok(false);
     }
 })
 .then(() => driver.quit());
