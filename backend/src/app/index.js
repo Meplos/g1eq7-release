@@ -5,11 +5,13 @@ const PORT = 3000;
 
 const stuffProject = require("./routes/stuffProject");
 const stuffUS = require("./routes/stuffUS");
+const stuffTask = require("./routes/stuffTask");
 
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/project/:idProject/us", stuffUS);
+app.use("/project/:idProject/task", stuffTask);
 app.use("/project", stuffProject);
 
 app.get("/", (req, res) => res.send("Hello world ✌"));

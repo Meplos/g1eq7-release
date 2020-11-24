@@ -418,7 +418,7 @@ TI11 : Project.vue existe et est testé
 | TI13     | US3     | 2          | NF13        | Maxime Gresse   | DONE  |
 | NF14     | US3     | 1          | TI13        | Alexandre ERARD | DONE  |
 | TI14     | US3     | 1          | NF14        |                 | TODO  |
-| NF15     | US4     | 1          | TU1,NF22    |                 | TODO  |
+| NF15     | US4     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU15     | US4     | 1          | NF15        |                 | TODO  |
 | NF16     | US4     | 1          | NF22        | Alix            | TODO  |
 | TU16_1   | US4     | 1          | NF16        |                 | TODO  |
