@@ -4,7 +4,7 @@
   "description": "",
   "main": "app/index.js",
   "scripts": {
-    "serve": "node src/app/index.js",
+    "serve": "nodemon src/app/index.js",
     "start": "node src/app/index.js",
     "test": "qunit",
     "integration-test-local": "newman run ./test/local/cdp-g7.postman_collection.json --environment ./test/local/localhost.postman_environment.json"
