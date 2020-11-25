@@ -31,12 +31,12 @@ Task :
     id* : int (incrémenté par rapport aux autres Tasks du projet)
     name* : string
     desc : string
-    us_link : string
+    idUs : string
     state : string (default: TODO)
     time (hm) : int
     dependencies : string list
     devs : string list
-    project_link* : int
+    IdProject* : int
 }
 
 Sprint : {

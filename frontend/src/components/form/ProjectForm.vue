@@ -158,7 +158,7 @@ export default {
   },
   data() {
     return {
-      id: this.project ? this.project.id : null,
+      id: this.project ? this.project._id : null,
       name: this.project ? this.project.name : "",
       description: this.project ? this.project.description : "",
       git: this.project ? this.project.git_repo : "",

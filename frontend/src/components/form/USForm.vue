@@ -89,8 +89,8 @@ export default {
       state: this.us ? this.us.state : "OPEN",
       importance: this.us ? this.us.importance : 1,
       difficulty: this.us ? this.us.difficulty : 1,
-      projectId: this.us ? this.us.projectId : this.$route.params.idProject,
-      id: this.us ? this.us.id : null,
+      projectId: this.us ? this.us.idProject : this.$route.params.idProject,
+      id: this.us ? this.us._id : null,
 
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
       numberList: [1, 2, 3, 4, 5],
@@ -148,7 +148,7 @@ export default {
         priority: this.importance,
         state: this.state,
         difficulty: this.difficulty,
-        projectId: this.projectId,
+        idProject: this.projectId,
         sprintId: null,
       };
     },

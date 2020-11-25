@@ -1,43 +1,46 @@
 let projectList = [];
+const ProjectRepository = require("../../infra/ProjectMongoRepository");
 
 exports.getProjects = (req, res) => {
-  res.status("200").send({ projectList });
+  ProjectRepository.getAllProject()
+    .then((projects) => {
+      console.log(projects);
+      res.status(200).send({ projectList: projects });
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.addProject = (req, res) => {
-  if (projectList.length === 0) {
-    req.body.id = 0;
-  } else {
-    req.body.id = projectList[projectList.length - 1].id + 1;
+  if (!req.body.name || req.body.name.length === 0) {
+    res.sendStatus(400);
   }
   const project = req.body;
-  projectList.push(project);
-
-  res.status("201").send(project);
+  ProjectRepository.createProject(project)
+    .then(() => {
+      res.status(201).send(project);
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.modifyProject = (req, res) => {
-  let projet_at_modify = projectList.find(
-    (projet) => projet.id == req.params.idProject
-  );
-  if (!projet_at_modify) return;
-  projet_at_modify.name = req.body.name;
-  projet_at_modify.start_date = req.body.start_date;
-  projet_at_modify.state = req.body.state;
-  projet_at_modify.end_date = req.body.end_date;
-  projet_at_modify.git_repo = req.body.git_repo;
-  projet_at_modify.description = req.body.description;
-  console.log(projectList);
-  res.status("200").send({ projectList });
+  if (!req.body.name || req.body.name.length === 0) {
+    res.sendStatus(400);
+  }
+  const projectModify = req.body;
+  ProjectRepository.modifyProject(projectModify)
+    .then(() => {
+      res.status(200).send({ projectModify });
+    })
+    .catch(() => {
+      res.sendStatus(500);
+    });
 };
 
 exports.getProject = (req, res) => {
-  let project = projectList.find(
-    (projet) => projet.id === eval(req.params.idProject)
-  );
-  if (!project) {
-    res.sendStatus(404);
-  } else {
-    res.status(200).send(project);
-  }
+  ProjectRepository.getOneProject(req.params.idProject)
+    .then((result) => {
+      console.log(result);
+      res.status(200).send(result);
+    })
+    .catch(() => res.sendStatus(404));
 };

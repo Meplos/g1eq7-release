@@ -12,7 +12,11 @@
           <p></p
         ></v-row>
         <v-row class="project__infoDescription">
-          <v-col cols="12" class="text-justify font-weight-bold" id="description">
+          <v-col
+            cols="12"
+            class="text-justify font-weight-bold"
+            id="description"
+          >
             {{ description }}
           </v-col>
         </v-row>
@@ -48,7 +52,7 @@ import axios from "axios";
 export default {
   props: {
     project: Object,
-    idProject: Number,
+    idProject: String,
   },
   components: {
     USList,
@@ -59,10 +63,10 @@ export default {
 
   data() {
     return {
-      id: this.project ? this.project.id : this.idProject,
+      id: this.project ? this.project._id : this.idProject,
       name: this.project ? this.project.name : null,
-      description: this.project ? this.project.description : null,
-      git: this.project ? this.project.git_repo : null,
+      description: this.project ? this.project.description : "",
+      git: this.project ? this.project.git_repo : "",
       start: this.project ? this.project.start_date : null,
       end: this.project ? this.project.end_date : null,
       state: this.project ? this.project.state : null,

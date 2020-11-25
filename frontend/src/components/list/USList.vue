@@ -47,8 +47,8 @@
         </thead>
         <tbody>
           <tr
-            v-for="us in usList"
-            :key="us.id"
+            v-for="(us, index) in usList"
+            :key="us._id"
             @click="
               $router.push({
                 name: 'ModifyUS',
@@ -61,7 +61,7 @@
               })
             "
           >
-            <td>{{ us.id }}</td>
+            <td>{{ index }}</td>
             <td>{{ us.description.substring(0, 250) }}</td>
             <td>{{ us.priority }}</td>
             <td>{{ us.difficulty }}</td>
@@ -78,7 +78,7 @@ import axios from "axios";
 
 export default {
   props: {
-    idProject: Number,
+    idProject: String,
   },
   data() {
     return {

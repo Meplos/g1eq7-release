@@ -14,7 +14,7 @@
           <router-link
             :to="{
               name: 'Project',
-              params: { idProject: project.id, project: project },
+              params: { idProject: project._id, project: project },
             }"
           >
             <v-card elevation="2" class="projectCard" id="projet">
