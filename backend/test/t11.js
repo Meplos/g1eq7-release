@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const assert = require('assert');
 
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -18,14 +19,16 @@ let project = {
     description: "Projet de test"
 }
 
+console.log("Test affichage correct des données dans le projet")
+
 let compareProject = {}
 
 function projectsAreEquals(project,compareProject){
     if(project.name==compareProject.name && project.start_date==compareProject.start && project.end_date==compareProject.end && project.git_repo==compareProject.git && project.description==compareProject.description){
-        console.log("ok");
+        assert.ok(true);
     }
     else{
-        console.log("non")
+        assert.ok(false);
     }
 }
 

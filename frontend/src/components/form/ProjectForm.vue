@@ -21,7 +21,7 @@
       <v-row>
         <v-col cols="12" sm="8">
           <v-textarea
-            v-model="description"
+            v-model="desc"
             filled
             id="description"
             label="Description"
@@ -160,7 +160,7 @@ export default {
     return {
       id: this.project ? this.project._id : null,
       name: this.project ? this.project.name : "",
-      description: this.project ? this.project.description : "",
+      desc: this.project ? this.project.description : "",
       git: this.project ? this.project.git_repo : "",
       start: this.project
         ? this.project.start_date
@@ -213,7 +213,7 @@ export default {
       return {
         id: this.id,
         name: this.name,
-        description: this.description,
+        description: this.desc,
         start_date: this.start,
         end_date: this.endEstimated ? this.endEstimated : null,
         git_repo: this.git,

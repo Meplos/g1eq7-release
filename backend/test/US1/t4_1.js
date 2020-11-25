@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const assert = require('assert');
 
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -34,15 +35,15 @@ driver.sleep(2000)
 .then((button) => {
     button.click();
     driver.sleep(2000);
-    driver.quit();
 })
 .then(() => fetch("http://localhost:3000/project"))
 .then((res) => res.json())
 .then((data) => {
-    if(data.projectList.length==count_before+1){
-        console.log("ok")
+    if(data.projectList.length==count_before+1){   
+        assert.ok(true);
     }
     else{
-        console.log("non")
+        assert.ok(false);
     }
 })
+.then(() => driver.quit())

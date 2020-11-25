@@ -38,6 +38,11 @@
       </template>
       <router-view />
     </div>
+    <div class="burndownchart-btn" >
+      <v-col cols="12" sm="12">
+        <v-btn class="mr-6"  @click="$router.push({name: 'Burndownchart', params: {idProject: project.id, project: project}})">Générer Burndown Chart</v-btn>
+      </v-col>
+    </div>
   </div>
 </template>
 

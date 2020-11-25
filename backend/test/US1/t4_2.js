@@ -1,4 +1,5 @@
 const fetch = require("node-fetch");
+const assert = require('assert');
 
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -14,6 +15,9 @@ console.log("Test modification de projet");
 
 driver.get("http://localhost:8080/");
 driver.sleep(2000)
+.then(() => fetch("http://localhost:3000/project"))
+.then((res) => res.json())
+.then((data) => count_before=data.projectList.length)
 .then(() => driver.findElement(By.className("v-btn v-btn--contained theme--dark v-size--default success")))
 .then((button) => {
     button.click();
@@ -57,9 +61,9 @@ driver.sleep(2000)
 .then((res) => res.json())
 .then((data) => {
     if(data.projectList.length==count_before+1){
-        console.log("ok")
+        assert.ok(true);
     }
     else{
-        console.log("non")
+        assert.ok(false);
     }
 })
