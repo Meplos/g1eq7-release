@@ -18,7 +18,7 @@ services:
   back:
     build:
       context: ./backend
-    restart: always
+    restart: unless-stopped
     ports:
       - 3000:3000
     links:
