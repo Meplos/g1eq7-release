@@ -11,6 +11,7 @@
             v-model="name"
             :rules="titleValidator"
             :count="100"
+            id="titre"
             label="Title*"
             required
             filled
@@ -22,6 +23,7 @@
           <v-textarea
             v-model="desc"
             filled
+            id="description"
             label="Description"
             auto-grow
           />
@@ -198,7 +200,8 @@ export default {
     modify() {
       axios
         .post(
-          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`, this.createPostBody()
+          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
+          this.createPostBody()
         )
         .then(this.$router.push({ name: "Home" }));
       console.log(`modify : ${this.title}`);
@@ -212,7 +215,7 @@ export default {
         name: this.name,
         description: this.desc,
         start_date: this.start,
-        end_date: this.end ? this.end : null,
+        end_date: this.endEstimated ? this.endEstimated : null,
         git_repo: this.git,
         state: this.state,
       };

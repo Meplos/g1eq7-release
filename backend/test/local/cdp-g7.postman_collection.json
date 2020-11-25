@@ -70,7 +70,7 @@
 									"    const jsonData = pm.response.json();",
 									"    pm.expect(jsonData.projectList.length).to.be.above(0);",
 									"})",
-									"postman.setNextRequest(\"/us/create POST\");"
+									"// postman.setNextRequest(\"/us/create POST\");"
 								],
 								"type": "text/javascript"
 							}
@@ -107,7 +107,7 @@
 									"    pm.expect(jsonData.id).to.be.equal(pm.environment.get(\"projectId\"));",
 									"});",
 									"",
-									"postman.setNextRequest(\"/ GET\");"
+									"// postman.setNextRequest(\"/ GET\");"
 								],
 								"type": "text/javascript"
 							}
@@ -254,7 +254,7 @@
 									"    const jsonData = pm.response.json();",
 									"    pm.expect(jsonData).to.have.lengthOf.at.least(0);",
 									"})",
-									"postman.setNextRequest(\"/us/:idUs/modify POST\");"
+									"// postman.setNextRequest(\"/us/:idUs/modify POST\");"
 								],
 								"type": "text/javascript"
 							}

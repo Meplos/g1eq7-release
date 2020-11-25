@@ -1,14 +1,4 @@
 let usList = [
-  {
-    id: 1,
-    description: "En tant que développeur je veux pouvoir me créer un compte",
-    type: "NewFeature",
-    state: "Ouvert",
-    projectId: 1,
-    priority: 1,
-    difficulty: 3,
-    sprintId: null,
-  },
 ];
 
 exports.createUS = (req, res) => {
@@ -36,7 +26,7 @@ exports.modifyUS = (req, res) => {
 };
 
 exports.getAllUS = (req, res) => {
-  console.log(req);
+  //console.log(req);
   let projectId = eval(req.params.idProject);
   let projectUS = [];
 

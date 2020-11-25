@@ -17,7 +17,7 @@
               params: { idProject: project.id, project: project },
             }"
           >
-            <v-card elevation="2" class="projectCard">
+            <v-card elevation="2" class="projectCard" id="projet">
               <v-card-title>
                 {{ project.name }}
               </v-card-title>
@@ -30,18 +30,26 @@
                   {{ project.state }}
                 </div>
               </v-card-text>
-              
             </v-card>
           </router-link>
           <div class="modify-btn">
-            <v-btn class="mr-6" color="warning" @click="$router.push({
-                name: 'ModifyProject',
-                params: {
-                  idProject: project.id,
-                  project: project,
-                  isEdit: true,
-                },
-              })">Modify Project</v-btn>
+            <v-btn
+              class="mr-6"
+              color="warning"
+              fab
+              @click="
+                $router.push({
+                  name: 'ModifyProject',
+                  params: {
+                    idProject: project.id,
+                    project: project,
+                    isEdit: true,
+                  },
+                })
+              "
+            >
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
           </div>
         </v-col>
       </v-row>
@@ -58,9 +66,7 @@ export default {
       projects: null,
     };
   },
-  methods:{
-    
-  },
+  methods: {},
   mounted() {
     axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
       this.projects = res.data.projectList;

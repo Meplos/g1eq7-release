@@ -1,33 +1,39 @@
 <template>
   <div class="projectVue">
-    <h1>{{ name }}</h1>
     <div class="project__info">
-      <v-row class="project__infoDate">
-        <v-col cols="12" sm="6"> Start: {{ start }} </v-col>
-        <v-col cols="12" sm="6" v-if="end"> End: {{ end }} </v-col>
-      </v-row>
-      <v-row class="project__infoDescription">
-        <v-col cols="12" class="text-justify font-weight-bold">
-          {{ description }}
-        </v-col>
-      </v-row>
-    </div>
-    
+      <h1 id="name">{{ name }}</h1>
+      <div class="project__info">
+        <v-row class="project__infoDate">
+          <v-col cols="12" sm="6" id="start"> Start: {{ start }} </v-col>
+          <v-col cols="12" sm="6" id="end" v-if="end"> End: {{ end }} </v-col>
+        </v-row>
+        <v-row v-if="git.trim().length > 0">
+          <p id="git"><v-icon> mdi-github</v-icon> {{ git }}</p>
+          <p></p
+        ></v-row>
+        <v-row class="project__infoDescription">
+          <v-col cols="12" class="text-justify font-weight-bold" id="description">
+            {{ description }}
+          </v-col>
+        </v-row>
+        <v-spacer></v-spacer>
+      </div>
 
-    <template>
-      <v-tabs v-model="tab">
-        <v-tab v-for="item in items" :key="item.tab"> {{ item.tab }}</v-tab>
-      </v-tabs>
-      <v-tabs-items v-model="tab">
-        <v-tab-item v-for="item in items" :key="item.tab">
-          <component
-            :is="item.content"
-            v-bind="{ idProject: $route.params.idProject }"
-          ></component>
-        </v-tab-item>
-      </v-tabs-items>
-    </template>
-    <router-view />
+      <template>
+        <v-tabs v-model="tab">
+          <v-tab v-for="item in items" :key="item.tab"> {{ item.tab }}</v-tab>
+        </v-tabs>
+        <v-tabs-items v-model="tab">
+          <v-tab-item v-for="item in items" :key="item.tab">
+            <component
+              :is="item.content"
+              v-bind="{ idProject: $route.params.idProject }"
+            ></component>
+          </v-tab-item>
+        </v-tabs-items>
+      </template>
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -83,19 +89,25 @@ export default {
     };
   },
   mounted() {
-    if (!this.project) {
+    if (!this.project && this.$route.params.idProject) {
       console.log("No props in params");
       axios
-        .get(`http://${serverurl}:${port}/project/${this.idProject}`)
+        .get(
+          `http://${serverurl}:${port}/project/${this.$route.params.idProject}`
+        )
         .then((res) => {
-          const p = res.data;
-          this.name = p.name;
-          this.description = p.description;
-          this.git = p.git_repo;
-          this.start = p.start_date;
-          this.end = p.end_date;
-          this.state = p.state;
-        });
+          console.log(res.status);
+          if (res.status === 200) {
+            const p = res.data;
+            this.name = p.name;
+            this.description = p.description;
+            this.git = p.git_repo;
+            this.start = p.start_date;
+            this.end = p.end_date;
+            this.state = p.state;
+          }
+        })
+        .catch(() => this.$router.push({ name: "404" }));
     }
   },
 };

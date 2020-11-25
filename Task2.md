@@ -26,40 +26,6 @@
   - [ ] Il est push sur le dépôt
   <p></p>
 
-- NF1. Créer un squelette d'app JS/Express/Vue
-
-  - Créer un fichier app/index.js
-  - Implémenter un serveur Express basique
-  - Créer un composant Main.vue
-  - Faire pointer notre serveur vers Main.vue
-  <p></p>
-
-- TU1. Test squelete d'App
-
-  - Faire une requête GET sur l'adresse du front
-  - Faire une requête GET sur l'adresse du back
-  - Si les deux requêtes passent avec succès alors le test est réussi
-  <p></p>
-
-- NF2. Requête de listage des projets
-
-  - Ajouter à app/index.js une route GET vers /project qui appelle un useCase getProjects.js qui renvoie au front les projets déjà existants si il y en a
-  <p></p>
-
-- TU2. Test listage des projet
-
-  - Faire une requête GET sur /project
-  - Vérifier que le nombre de projets affiché et les même que celui en BD
-  <p></p>
-
-- NF3. Affichage des projets
-
-  - Creer un composant vue ListProjet.vue
-  - Afficher les projets reçus par le back sous forme de liste.
-  - Ajouter à la liste un bouton menant à la page de création d'un projet via un GET sur /project/create.
-  - Pour chaque projet renvoyer un GET sur /projet/:idProject lors d'un clic sur le projet
-  <p></p>
-
 - TI3_1. Test affichage des projets
 
   - Effectuer un GET sur /project
@@ -72,82 +38,10 @@
   - Vérifier que l'on est bien redirigés vers /project/:idProject
   <p></p>
 
-- NF4. Formulaire de création/modification de projet
-
-  - Créer un composant ProjectForm.vue
-  - Créer dedans un formulaire avec les champs :
-    - nom\*
-    - date de début\* (par défaut date du jour)
-    - une date de fin estimé
-    - url vers un dépot git
-    - une description
-    - un état\* (par défaut OUVERT)
-  - Créer un script qui renvoie via une requete POST à l'adresse /project/create les données du formulaire si il s'agit d'un nouveau projet.
-  - Créer un script qui renvoie via une requete POST à l'adresse /project/:idProject/modify les données du formulaire si il s'agit d'une modification.
-  <p></p>
-
-- TE2E4_1. Test ajout via formulaire projet
-
-  - Créer un projet
-  - Remplir le formulaire
-  - Valider
-  - Vérifier qu'un projet est bien créé avec les valeurs du formulaire en BD
-  <p></p>
-
-- TE2E4_2. Test modification via formulaire projet
-
-  - Modifier un projet
-  - Remplir le formulaire
-  - Valider
-  - Vérifier que les projet est bien modifié en BD avec les valeurs du formulaire
-  <p></p>
-
-- NF5. Requetes de création d'un projet
-
-  - Creer un fichier useCase/CreateProject.js qui va récupérer les données du projet à créer et les ajouter le projet à la base de données
-  - Ajouter à app/index.js une route POST vers /project/create qui appelle un useCase/createProject.js
-  <p></p>
-
-- TU5. Test requête de création d'un projet
-
-  - Envoyer un POST vers /project/create contenant les données d'un projet à créer
-  - Vérifier que le projet est bien créé en BD
-  <p></p>
-
-- NF6. Requêtes de modification d'un projet
-
-  - Creer un fichier useCase/ModifyProject.js qui va récupérer les données du projet à modifier et les répercuter dans la base de données
-  - Ajouter à app/index.js une route POST vers /project/:idProject/modify qui appelle un useCase/ModifyProject.js
-  <p></p>
-
 - TU6. Test requete de modification d'un projet
 
   - Envoyer un POST vers /project/:idProject/modify contenant les données d'un projet à modifier
   - Vérifier que le projet est bien modifié en BD
-  <p></p>
-
-- NF7. Requetes d'ajout d'une US
-
-  - Creer un fichier useCase/CreateUS.js qui va ajouter l'US à la base de donées et l'ajouter au projet correspondant.
-  - Ajouter à app/index.js une route POST vers /project/:idProject/us/create qui appelle un useCase/createUS.js
-  <p></p>
-
-- TU7. Test requete d'ajout d'un US
-
-  - Envoyer un POST sur /project/:idProject/us/create avec les données pour créer une US
-  - Vérifier qu'une US est créé avec ces données en BD
-  <p></p>
-
-- NF8 . Requêtes de modification d'une US
-
-  - Creer un fichier useCase/ModifyUS.js qui va récupérer les données de l'US à modifier et les répercuter dans la base de données
-  - Ajouter à app/index.js une route POST vers /project/:idProject/us/:idUS/modify qui appelle un useCase/ModifyUS.js
-  <p></p>
-
-- TU8. Test requete de modification d'une US
-
-  - Envoyer un POST sur /project/:idProject/us/:idUS/modify avec les données pour modifier une US
-  - Vérifier que l'US est bien modifiée en BD
   <p></p>
 
 - NF9. Formulaire de création/modification d'une US
@@ -166,12 +60,7 @@
   - Envoie via par POST à l'addresse /project/:idProject/us/:idUS/modify les données du formulaire s'il s'agit d'une US déjà existante.
   <p></p>
 
-- TU9_1. Test formulaire US
-
-  - Vérifier qu'on ne peut pas rentrer des caractères illégaux dans le formulaire
-  <p></p>
-
-- TE2E9_2. Test ajout US via formulaire
+- TE2E9_1. Test ajout US via formulaire
 
   - Créer une US
   - Remplir le formulaire
@@ -179,26 +68,12 @@
   - Vérifier qu'une US est bien créé avec les valeurs du formulaire en BD
   <p></p>
 
-- TE2E9_3. Test modification US via formulaire
+- TE2E9_2. Test modification US via formulaire
 
   - Modifier une US
   - Remplir le formulaire
   - Valider
   - Vérifier que l'US est bien modifiée en BD avec les valeurs du formulaire
-  <p></p>
-
-- NF10. Récupération des données d'un projet
-
-  - Créer une route GET sur /project/:idProject qui renvoie sur useCase/getProjectInfo.js
-  - Créer le fichier getProjectInfo.js dans /useCase
-  - Implémenter dans getProjectInfo.js la récupération des champs du projet ayant pour id : idProject dans la BD
-  - Envoyer les données au front
-  <p></p>
-
-- TU10. Test récupération des données d'un projet.
-
-  - Envoyer une requête GET sur /project/:idProject
-  - Vérifier que les données reçues correspondent au projet d'id idProject en BD
   <p></p>
 
 - NF11. Affichage d'un projet
@@ -213,20 +88,6 @@
 
   - Afficher un projet
   - Vérifier que les données affichées correspondent à celles du projet idProject en BD
-
-- NF12. Récupération des US d'un projet
-
-  - Créer une route GET sur /project/:idProject/us/display/:idProject qui renvoie sur useCase/getUS.js
-  - Créer le fichier getUS.js dans /useCase
-  - Implémenter dans getUS.js la récupération des US du projet d'id idProject dans la BD
-  - Envoyer les données au front
-  <p></p>
-
-- TU12. Test récupération des US d'un projet
-
-  - Faire une GET sur /project/:idProject/us/display/:idProject
-  - Vérifier que les données reçues sont toutes US correspondantes au projet d'id idProject
-  <p></p>
 
 - NF13. Affichage des US dans le projet
 
@@ -542,39 +403,22 @@ TI11 : Project.vue existe et est testé
 
 | id       | US      | Temps (hm) | Dépendances | développeur     | état  |
 | -------- | ------- | ---------- | ----------- | --------------- | ----- |
-| NF1      | US1     | 1          | /           | Alexandre Erard | DONE  |
-| TU1      | US1     | 1          | NF1         | Maxime Gresse   | DONE  |
-| NF2      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU2      | US1     | 1          | NF2         | Maxime Gresse   | DONE  |
-| NF3      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
 | TI3_1    | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | TE2E3_2  | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
 | NF4      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
 | TE2E4_1  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
 | TE2E4_2  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
-| NF5      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU5      | US1     | 1          | NF5         | Alexandre Erard | DONE  |
-| NF6      | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU6      | US1     | 1          | NF6         | Maxime Gresse   | DOING |
-| NF7      | US2     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU7      | US2     | 1          | NF7         | Alexandre Erard | DONE  |
-| NF8      | US3     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU8      | US3     | 1          | NF8         | Alexandre Erard | DONE  |
+| TU6      | US1     | 1          | NF6         | Alexandre Erard | DOING |
 | NF9      | US2 US3 | 1          | NF22        | Alexandre Erard | DONE  |
-| TU9_1    | US2 US3 | 2          | NF4         |                 | TODO  |
-| TE2E9_2  | US2 US3 | 2          | NF4         |                 | TODO  |
-| TE2E9_3  | US2 US3 | 2          | NF4         |                 | TODO  |
-| NF10     | US1     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| T10      | US1     | 1          | NF10        | Alexandre Erard | DONE  |
-| NF11     | US1     | 2          | NF22        | Alix            | TODO  |
-| TI11     | US1     | 2          | NF11        |                 | TODO  |
-| NF12     | US3     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU12     | US3     | 1          | NF12        | Alexandre Erard | DONE  |
+| TE2E9_1  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
+| TE2E9_2  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
+| NF11     | US1     | 2          | NF22        | Alix            | DONE  |
+| TI11     | US1     | 2          | NF11        | Maxime Gresse   | DONE  |
 | NF13     | US3     | 3          | NF22,TI11   | Alexandre Erard | DONE  |
-| TI13     | US3     | 2          | NF13        |                 | TODO  |
+| TI13     | US3     | 2          | NF13        | Maxime Gresse   | DONE  |
 | NF14     | US3     | 1          | TI13        | Alexandre ERARD | DONE  |
 | TI14     | US3     | 1          | NF14        |                 | TODO  |
-| NF15     | US4     | 1          | TU1,NF22    |                 | TODO  |
+| NF15     | US4     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU15     | US4     | 1          | NF15        |                 | TODO  |
 | NF16     | US4     | 1          | NF22        | Alix            | TODO  |
 | TU16_1   | US4     | 1          | NF16        |                 | TODO  |
@@ -588,7 +432,6 @@ TI11 : Project.vue existe et est testé
 | TE2E20   | US5     | 3          | NF20        |                 | TODO  |
 | NF21     | US5     | 2          | TI18        |                 | TODO  |
 | TE2E21   | US5     | 1          | NF21        |                 | TODO  |
-| NF22     | US1     | 1          |             |                 | DONE  |
 | NF23     | US6     | 1          | NF22        | Alexandre Erard | DOING |
 | TI23     | US6     | 2          | NF23        |                 | TODO  |
 | NF24     | US6     | 1          | TU1,NF22    |                 | TODO  |

@@ -20,13 +20,14 @@ exports.modifyProject = (req, res) => {
   let projet_at_modify = projectList.find(
     (projet) => projet.id == req.params.idProject
   );
+  if (!projet_at_modify) return;
   projet_at_modify.name = req.body.name;
   projet_at_modify.start_date = req.body.start_date;
   projet_at_modify.state = req.body.state;
   projet_at_modify.end_date = req.body.end_date;
   projet_at_modify.git_repo = req.body.git_repo;
   projet_at_modify.description = req.body.description;
-
+  console.log(projectList);
   res.status("200").send({ projectList });
 };
 
@@ -34,6 +35,9 @@ exports.getProject = (req, res) => {
   let project = projectList.find(
     (projet) => projet.id === eval(req.params.idProject)
   );
-
-  res.send(project);
+  if (!project) {
+    res.sendStatus(404);
+  } else {
+    res.status(200).send(project);
+  }
 };
