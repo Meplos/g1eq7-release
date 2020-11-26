@@ -19,12 +19,6 @@ export default {
     project: Object,
     idProject: String,
   },
-  components: {
-    USList,
-    SprintList,
-    TaskList,
-    Kanban,
-  },
   data(){
   return {
       id: this.project ? this.project._id : this.idProject,

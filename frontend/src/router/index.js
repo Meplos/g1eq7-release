@@ -6,6 +6,7 @@ import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
 import SprintForm from "../components/form/SprintForm.vue";
 import NotFound from "../components/NotFound.vue";
+import Burndownchart from "../components/Burndownchart.vue"
 
 Vue.use(VueRouter);
 

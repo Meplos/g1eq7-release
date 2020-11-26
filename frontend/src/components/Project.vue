@@ -51,7 +51,7 @@ import USList from "./list/USList";
 import SprintList from "./list/SprintList";
 import TaskList from "./list/TaskList";
 import Kanban from "./Kanban";
-import Burndownchart from "./Burndownchart";
+//import Burndownchart from "./Burndownchart";
 
 import { serverurl, port } from "../config/backend.config";
 import axios from "axios";
