@@ -1,39 +1,28 @@
-let taskList = [
-];
+const TaskMongoRepository = require("../../infra/TaskMongoRepository");
 
 exports.createTask = (req, res) => {
-  if (taskList.length > 0) {
-    req.body.id = taskList[taskList.length - 1].id + 1;
-  } else {
-    req.body.id = 1;
-  }
   const newTask = req.body;
-  taskList.push(newTask);
-
-  res.status("201").send(newTask);
+  TaskMongoRepository.createTask(newTask)
+    .then(res.status("201").send(newTask))
+    .catch(() => res.sendStatus(400));
 };
 
-exports.modifyTask = (req, res) => {
-  let taskToModify = taskList.find((task) => task.id == req.params.idTask);
-  taskToModify.name = req.body.name;
-  taskToModify.description = req.body.description;
-  taskToModify.usLink = req.body.usLink;
-  taskToModify.state = req.body.state;
-  taskToModify.time = req.body.time;
-  taskToModify.dependencies = req.body.dependencies;
-  taskToModify.devs = req.body.devs;
-  taskToModify.projectLink = req.body.projectLink;
-  res.status("200").send(taskToModify);
+exports.modifytask = (req, res) => {
+  let taskModify = req.body;
+  TaskMongoRepository.modifyTask(taskModify)
+    .then(res.status(200).send(taskModify))
+    .catch(() => res.sendStatus(400));
 };
 
 exports.getAllTask = (req, res) => {
   //console.log(req);
-  let projectId = eval(req.params.idProject);
-  let projectTasks = [];
 
-  taskList.forEach((task) => {
-    if (task.projectLink === projectId) projectTasks.push(task);
-  });
+  let projectId = req.params.idProject;
+  TaskMongoRepository.getAllTask(projectId)
+    .then((list) => {
+      console.log(list);
 
-  res.status("200").send(projectTasks);
+      res.status(200).send(list);
+    })
+    .catch(() => res.sendStatus(400));
 };
