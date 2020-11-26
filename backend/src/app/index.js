@@ -7,6 +7,7 @@ const stuffProject = require("./routes/stuffProject");
 const stuffUS = require("./routes/stuffUS");
 const mongoose = require("mongoose");
 const stuffTask = require("./routes/stuffTask");
+const stuffSprint = require("./routes/stuffSprint");
 
 const DBNAME = "cdp";
 const HOST = "mongodb:27017";
@@ -24,6 +25,7 @@ db.once("open", function () {
   app.use("/project/:idProject/us", stuffUS);
   app.use("/project", stuffProject);
   app.use("/project/:idProject/task", stuffTask);
+  app.use("/project/:idProject/sprint",stuffSprint);
 
   app.get("/", (req, res) => res.send("Hello world ✌"));
 

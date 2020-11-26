@@ -1,4 +1,3 @@
-let usList = [];
 const { Model } = require("mongoose");
 const USMongoRepository = require("../../infra/USMongoRepository");
 const UserStoryRepository = require("../../infra/USMongoRepository");
