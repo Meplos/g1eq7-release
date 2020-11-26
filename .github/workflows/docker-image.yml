@@ -18,3 +18,9 @@ jobs:
       run: docker-compose up --build -d
     - name: Newman backend test
       run: cd backend && npm run integration-test-local
+    - name: Project feature test
+      run: cd backend && npm run project-test
+    - name: US feature test
+      run: cd backend && npm run us-test
+    - name: Misc test
+      run: cd backend && npm run misc-test
