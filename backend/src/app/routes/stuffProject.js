@@ -11,4 +11,6 @@ router.get('/:idProject', useCaseProject.getProject);
 
 router.get('/', useCaseProject.getProjects);
 
+router.get('/:idProject/burndownchart', useCaseProject.getProject);
+
 module.exports = router;

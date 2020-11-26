@@ -16,7 +16,12 @@ const routes = [
     component: Project,
     props: true,
   },
-
+  {
+    path: "/project/:idProject/burndownchart",
+    name: "Burndownchart",
+    component: Burndownchart,
+    porps: true,
+  },
   {
     path: "/project/:idProject/us/:idUS/modify",
     name: "ModifyUS",
