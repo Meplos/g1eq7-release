@@ -15,7 +15,7 @@
           >
             <TaskCard
               v-for="task in getTaskByState(state)"
-              :key="task.id"
+              :key="task._id"
               :task="task"
             />
           </v-sheet>
@@ -26,29 +26,19 @@
 </template>
 
 <script>
+import { serverurl, port } from "../config/backend.config";
+import axios from "axios";
 import TaskCard from "./cards/TaskCard";
 export default {
+  props: {
+    idProject: String,
+  },
   components: {
     TaskCard,
   },
   data() {
     return {
-      tasks: [
-        {
-          id: 0,
-          name: "Hello World",
-          description: "Je suis une tâche",
-          devs: ["Alexandre ERARD"],
-          state: "TODO",
-        },
-        {
-          id: 1,
-          name: "Hello World 1",
-          description: "Je suis une tâche",
-          devs: ["Alexandre ERARD"],
-          state: "TODO",
-        },
-      ],
+      tasks: [],
       stateList: ["TODO", "DOING", "DONE"],
     };
   },
@@ -63,6 +53,15 @@ export default {
 
       item.state = state;
     },
+  },
+  mounted() {
+    axios
+      .get(
+        `http://${serverurl}:${port}/project/${this.idProject}/task/display/${this.idProject}`
+      )
+      .then((res) => {
+        if (res.data) this.tasks = res.data;
+      });
   },
 };
 </script>

@@ -420,7 +420,7 @@ TI11 : Project.vue existe et est testé
 | TI14     | US3     | 1          | NF14        |                 | TODO  |
 | NF15     | US4     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
 | TU15     | US4     | 1          | NF15        |                 | TODO  |
-| NF16     | US4     | 1          | NF22        | Alix            | TODO  |
+| NF16     | US4     | 1          | NF22        | Alexandre ERARD | DOING |
 | TU16_1   | US4     | 1          | NF16        |                 | TODO  |
 | TE2E16_2 | US4     | 1          | NF16        |                 | TODO  |
 | NF17     | US4     | 1          | TU1,NF22    |                 | TODO  |

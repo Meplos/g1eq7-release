@@ -1,6 +1,8 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<template>
+  <h1>coco</h1>
+</template>
 
-<h1>coco</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 <script>
 /*
@@ -19,14 +21,9 @@ export default {
     project: Object,
     idProject: String,
   },
-  components: {
-    USList,
-    SprintList,
-    TaskList,
-    Kanban,
-  },
-  data(){
-  return {
+
+  data() {
+    return {
       id: this.project ? this.project._id : this.idProject,
       name: this.project ? this.project.name : null,
       description: this.project ? this.project.description : "",
@@ -34,10 +31,10 @@ export default {
       start: this.project ? this.project.start_date : null,
       end: this.project ? this.project.end_date : null,
       state: this.project ? this.project.state : null,
-  };
+    };
   },
 
-mounted() {
+  mounted() {
     if (!this.project && this.$route.params.idProject) {
       console.log("No props in params");
       axios

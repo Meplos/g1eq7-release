@@ -1,7 +1,7 @@
 <template>
   <div class="taskCard__container" draggable @dragstart="startDrag($event)">
-    <h1>{{ task.name }}</h1>
-    <p>{{ task.description }}</p>
+    <h1>{{ task._id }}</h1>
+    <p>{{ task.name }}</p>
   </div>
 </template>
 

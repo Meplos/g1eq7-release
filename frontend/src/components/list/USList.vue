@@ -5,7 +5,7 @@
       <v-btn
         class="mx-2 success"
         fab
-        @click="$router.push({ name: 'CreateUS', params: { isEdit: false } })"
+        @click="$router.push({ name: 'CreateUS' })"
       >
         <v-icon> mdi-plus</v-icon>
       </v-btn>

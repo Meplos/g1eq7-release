@@ -4,8 +4,10 @@ import ProjectList from "../components/list/ProjectList.vue";
 import Project from "../components/Project.vue";
 import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
+import TaskForm from "../components/form/TaskForm";
 import SprintForm from "../components/form/SprintForm.vue";
 import NotFound from "../components/NotFound.vue";
+import Burndownchart from "../components/Burndownchart";
 
 Vue.use(VueRouter);
 
@@ -15,6 +17,12 @@ const routes = [
     name: "Project",
     component: Project,
     props: true,
+  },
+  {
+    path: "/project/:idProject/tasks/create",
+    name: "CreateTask",
+    component: TaskForm,
+    props: { isEdit: false },
   },
   {
     path: "/project/:idProject/burndownchart",

@@ -38,9 +38,18 @@
       </template>
       <router-view />
     </div>
-    <div class="burndownchart-btn" >
+    <div class="burndownchart-btn">
       <v-col cols="12" sm="12">
-        <v-btn class="mr-6"  @click="$router.push({name: 'Burndownchart', params: {idProject: project.id,project: project}})">Générer Burndown Chart</v-btn>
+        <v-btn
+          class="mr-6"
+          @click="
+            $router.push({
+              name: 'Burndownchart',
+              params: { idProject: project.id, project: project },
+            })
+          "
+          >Générer Burndown Chart</v-btn
+        >
       </v-col>
     </div>
   </div>
@@ -51,7 +60,6 @@ import USList from "./list/USList";
 import SprintList from "./list/SprintList";
 import TaskList from "./list/TaskList";
 import Kanban from "./Kanban";
-import Burndownchart from "./Burndownchart";
 
 import { serverurl, port } from "../config/backend.config";
 import axios from "axios";
