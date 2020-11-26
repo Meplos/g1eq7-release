@@ -75,7 +75,7 @@
 <script>
 export default {
   props: {
-    idProject: Number,
+    idProject: String,
   },
   data() {
     return {

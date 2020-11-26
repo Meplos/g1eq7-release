@@ -3,6 +3,7 @@ const Model = require("./MongooseSchema");
 
 async function createUS(us) {
   const newUS = Model.UserStory(us);
+  newUS.idProject = mongoose.Types.ObjectId(us.idProject);
   await newUS.save((err) => {
     if (err) throw err;
   });

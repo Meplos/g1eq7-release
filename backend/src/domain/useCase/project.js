@@ -1,4 +1,3 @@
-let projectList = [];
 const ProjectRepository = require("../../infra/ProjectMongoRepository");
 
 exports.getProjects = (req, res) => {
@@ -13,10 +12,14 @@ exports.getProjects = (req, res) => {
 exports.addProject = (req, res) => {
   if (!req.body.name || req.body.name.length === 0) {
     res.sendStatus(400);
+    return;
   }
   const project = req.body;
   ProjectRepository.createProject(project)
-    .then(() => {
+    .then((id) => {
+      console.log(id);
+
+      project._id = id;
       res.status(201).send(project);
     })
     .catch((err) => console.log(err));
@@ -32,7 +35,7 @@ exports.modifyProject = (req, res) => {
       res.status(200).send({ projectModify });
     })
     .catch(() => {
-      res.sendStatus(500);
+      res.sendStatus(400);
     });
 };
 

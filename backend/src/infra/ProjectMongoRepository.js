@@ -3,9 +3,11 @@ const mongoose = require("mongoose");
 
 async function createProject(project) {
   const projectToAdd = new Model.Project(project);
-  await projectToAdd.save((err) => {
-    if (err) throw err;
+  let _id = null;
+  await projectToAdd.save().then((result) => {
+    _id = result._id;
   });
+  return _id;
 }
 
 async function getOneProject(projectId) {
@@ -13,7 +15,6 @@ async function getOneProject(projectId) {
   await Model.Project.findById(mongoose.Types.ObjectId(projectId))
     .exec()
     .then((res) => {
-      console.log(res);
       project = res;
     });
   return project;
