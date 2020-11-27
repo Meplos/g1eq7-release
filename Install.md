@@ -1,5 +1,10 @@
 # Installation
 
+## Via Docker
+```console
+foo@bar:~$ sh start.sh
+```
+
 ## Via Terminal
 
 ### Front
@@ -14,12 +19,6 @@ foo@bar:~$ npm run start
 foo@bar:~$ cd frontend/
 foo@bar:~$ npm install
 foo@bar:~$ npm run serve
-```
-
-
-## Via Docker (not supported for now)
-```console
-foo@bar:~$ docker-compose up
 ```
 
 ## Accès a l'application
