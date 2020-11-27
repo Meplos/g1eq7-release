@@ -393,6 +393,13 @@
   - Compter le nombre de sprints affichéd
   - Si les dexu correspondent le test est passé
   <p></p>
+- NF34 Ajout d'une base de donnée MongoDB dans le docker-compose.yml
+<p></p>
+- NF35 Implémentation des shema mongoose pour les projets/sprint/task/US
+<p></p>
+- NF36 Création des différent répository projets/sprint/task/US
+<p></p>
+- NF37 Passage InMemory à la base de donnée
 
 ## Organisation
 
@@ -453,3 +460,7 @@ TI11 : Project.vue existe et est testé
 | TU32     | US25    | 1          | NF32        |                 | TODO |
 | NF33     | US25    | 3          | TU32        |                 | TODO |
 | TI33     | US25    | 1          | NF33        |                 | TODO |
+| NF34     |         | 4          |             | Alexandre ERARD | DONE |
+| NF35     |         | 1          | NF34        | Alexandre ERARD | DONE |
+| NF36     |         | 4          | NF35        | Alexandre ERARD | DONE |
+| NF37     |         | 4          | NF36        | Alexandre ERARD | DONE |
