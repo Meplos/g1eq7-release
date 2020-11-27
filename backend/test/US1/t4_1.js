@@ -1,17 +1,15 @@
 const fetch = require("node-fetch");
 const assert = require('assert');
 
-const { Builder, Capabilities, By, Key, until } = require("selenium-webdriver");
-var capabilities = Capabilities.firefox();
-var chromeOptions = {
-    'args': ['--no-sandbox', '--disable-dev-shm-usage']
-};
-capabilities.set('chromeOptions', chromeOptions);
+const webdriver = require('selenium-webdriver'),
+    By = webdriver.By,
+    until = webdriver.until;
 
-let driver = new Builder()        
-    .usingServer("http://localhost:4444/wd/hub")   
-    .withCapabilities(capabilities)
+
+const driver = new webdriver.Builder()
+    .forBrowser('chrome')
     .build();
+
 
 let count_before = 0;
 

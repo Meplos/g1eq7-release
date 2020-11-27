@@ -11,6 +11,7 @@ const stuffSprint = require("./routes/stuffSprint");
 
 const DBNAME = "cdp";
 const HOST = "mongodb:27017";
+const HOST_LOCAL = "localhost"
 
 mongoose.connect(`mongodb://${HOST}/${DBNAME}`, {
   useNewUrlParser: true,

@@ -5,11 +5,12 @@ const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
 
-let count_before = 0;
 
 const driver = new webdriver.Builder()
     .forBrowser('chrome')
     .build();
+
+let count_before = 0;
 
 console.log("Test modification de projet");
 

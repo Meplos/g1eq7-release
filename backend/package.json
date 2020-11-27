@@ -7,7 +7,7 @@
     "serve": "nodemon src/app/index.js",
     "start": "node src/app/index.js",
     "integration-test-local": "newman run ./test/local/cdp-g7.postman_collection.json --environment ./test/local/localhost.postman_environment.json",
-    "project-test": "node test/US1/t4_1",
+    "project-test": "node test/US1/t4_1 && node test/US1/t4_2",
     "us-test": "node test/US2/t9_1 && node test/US2/t9_2",
     "misc-test": "node test/t2.js && node test/t3_1.js && node test/t3_2.js && node test/t11.js && node test/t13.js"
   },
