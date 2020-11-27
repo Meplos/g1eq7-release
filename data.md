@@ -22,7 +22,7 @@ US :
     state* : string (default: ouvert)
     priority : string
     difficulty : string
-    projectId* : int (id project)
+    idProject* : int (id project)
     sprintId : int (id sprint)
 }
 

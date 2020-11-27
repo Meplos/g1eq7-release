@@ -1,5 +1,6 @@
 <template>
   <div class="sprintForm__container">
+    {{ idProject }}
     <h1 v-if="isEdit">Sprint #{{ id }}</h1>
     <h1 v-else>Create Sprint</h1>
 
@@ -99,8 +100,8 @@
 </template>
 
 <script>
-//import axios from "axios";
-//import { serveurl, port } from "../../config/backend.config";
+import axios from "axios";
+import { serverurl, port } from "../../config/backend.config";
 export default {
   props: {
     isEdit: Boolean,
@@ -115,10 +116,10 @@ export default {
         ? this.sprint.endDate
         : new Date().toISOString().substring(0, 10),
       state: this.sprint ? this.sprint.state : "COMMING",
-      id: this.sprint ? this.sprint.id : null,
-      projectId: this.sprint
-        ? this.sprint.projectId
-        : this.$route.params.projectId,
+      id: this.sprint ? this.sprint._id : null,
+      idProject: this.sprint
+        ? this.sprint.idProject
+        : this.$route.params.idProject,
 
       menuStart: false,
       menuEnd: false,
@@ -128,30 +129,30 @@ export default {
   methods: {
     create() {
       console.log("Sprint Create");
-      // TODO: Do post request to create sprint
-      /*axios.post(
-        `ĥttp://${serveurl}:${port}/[a remplir]`,
-        this.createPostBody()
-      );*/
+
+      axios
+        .post(
+          `http://${serverurl}:${port}/project/${this.idProject}/sprint/create`,
+          this.createPostBody()
+        )
+        .then(() => this.$router.back());
     },
     modify() {
-      // TODO: Do post request to modify sprint
-      /*
       axios.post(
-        `ĥttp://${serveurl}:${port}/[a remplir]`,
+        `ĥttp://${serverurl}:${port}/project/${this.idProject}/sprint/${this.id}/modify`,
         this.createPostBody()
-      );*/
+      );
     },
     cancel() {
       this.$router.back();
     },
     createPostBody() {
       return {
-        id: this.id,
-        startDate: this.start,
-        endDate: this.end,
+        _id: this.id,
+        start_date: this.start,
+        end_date: this.end,
         state: this.state,
-        projectId: this.projectId,
+        idProject: this.idProject,
       };
     },
   },

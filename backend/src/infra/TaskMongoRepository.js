@@ -31,9 +31,9 @@ async function getOneTasks(taskId) {
   return task;
 }
 
-async function getTasksOfProject(projectId) {
+async function getTasksOfProject(idProject) {
   let tasks = [];
-  await Model.Task.find({ idProject: projectId })
+  await Model.Task.find({ idProject: idProject })
     .exec()
     .then((res) => {
       tasks = res;
@@ -42,7 +42,7 @@ async function getTasksOfProject(projectId) {
 }
 
 async function modifyTask(task) {
-  Model.Task.update({ _id: mongoose.Types.ObjectId(task.id) }, task).exec(
+  Model.Task.update({ _id: mongoose.Types.ObjectId(task._id) }, task).exec(
     (err, res) => {
       if (err) throw err;
       if (res.modifiedCount < 1) throw "No row updated";

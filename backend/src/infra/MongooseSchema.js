@@ -17,12 +17,12 @@ const Project = mongoose.model("Project", projectSchema);
 const sprintSchema = mongoose.Schema({
   start_date: { type: String, required: true },
   end_date: { type: String, required: true },
-  state: { type: String, require: true},
-  projectLink: {
+  state: { type: String, require: true },
+  idProject: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Project",
     required: true,
-  }
+  },
 });
 
 const Sprint = mongoose.model("Sprint", sprintSchema);

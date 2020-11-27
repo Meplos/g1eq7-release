@@ -17,6 +17,18 @@
         </v-col>
       </v-row>
       <v-row>
+        <v-col cols="8">
+          <v-textarea
+            v-model="description"
+            label="Description"
+            id="description"
+            filled
+            required
+            auto-grow
+          />
+        </v-col>
+      </v-row>
+      <v-row>
         <v-col cols="4">
           <v-text-field
             label="Developper"
@@ -115,6 +127,7 @@ export default {
     return {
       id: this.task ? this.task._id : null,
       name: this.task ? this.task.name : "",
+      description: this.task ? this.task.description : "",
       dependencies: this.task ? this.task.dependencies : [],
       dev: this.task ? this.task.dev : "",
       time: this.task ? this.task.time : 0,
@@ -189,8 +202,9 @@ export default {
     },
     createPostData() {
       return {
-        id: this.id,
+        _id: this.id,
         name: this.name,
+        description: this.description,
         dependencies: this.dependencies,
         dev: this.devs,
         time: this.time,

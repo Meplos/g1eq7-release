@@ -52,6 +52,13 @@ export default {
       const item = this.tasks.find((task) => task.id === eval(itemID));
 
       item.state = state;
+      this.update(item);
+    },
+    update(task) {
+      axios.post(
+        `http://${serverurl}:${port}/project/${this.idProject}/task/${this.id}/modify/`,
+        task
+      );
     },
   },
   mounted() {

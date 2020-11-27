@@ -15,7 +15,7 @@ export default {
     startDrag(evt) {
       evt.dataTransfer.dropEffect = "move";
       evt.dataTransfer.effectAllowed = "move";
-      evt.dataTransfer.setData("usID", this.us.id);
+      evt.dataTransfer.setData("usID", this.us._id);
     },
   },
 };

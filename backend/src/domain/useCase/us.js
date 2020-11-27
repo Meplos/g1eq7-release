@@ -19,8 +19,8 @@ exports.modifyUS = (req, res) => {
 exports.getAllUS = (req, res) => {
   //console.log(req);
 
-  let projectId = req.params.idProject;
-  USMongoRepository.getUsOfProject(projectId)
+  let idProject = req.params.idProject;
+  USMongoRepository.getUsOfProject(idProject)
     .then((list) => {
       console.log(list);
 

@@ -89,7 +89,7 @@ export default {
       state: this.us ? this.us.state : "OPEN",
       importance: this.us ? this.us.importance : 1,
       difficulty: this.us ? this.us.difficulty : 1,
-      projectId: this.us ? this.us.idProject : this.$route.params.idProject,
+      idProject: this.us ? this.us.idProject : this.$route.params.idProject,
       id: this.us ? this.us._id : null,
 
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
@@ -122,7 +122,7 @@ export default {
       console.log(this.createPostData());
       axios
         .post(
-          `http://${serverurl}:${port}/project/${this.projectId}/us/create/`,
+          `http://${serverurl}:${port}/project/${this.idProject}/us/create/`,
           this.createPostData()
         )
         .then(this.$router.back());
@@ -131,7 +131,7 @@ export default {
       console.log("Modify...");
       axios
         .post(
-          `http://${serverurl}:${port}/project/${this.projectId}/us/${this.id}/modify/`,
+          `http://${serverurl}:${port}/project/${this.idProject}/us/${this.id}/modify/`,
           this.createPostData()
         )
         .then(this.$router.back());
@@ -143,12 +143,12 @@ export default {
 
     createPostData() {
       return {
-        id: this.id,
+        _id: this.id,
         description: this.description,
         priority: this.importance,
         state: this.state,
         difficulty: this.difficulty,
-        idProject: this.projectId,
+        idProject: this.idProject,
         sprintId: null,
       };
     },

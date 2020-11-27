@@ -49,7 +49,7 @@
           <USCard
             v-else
             v-for="us in getUserStoriesIn(null)"
-            :key="us.id"
+            :key="us._id"
             :us="us"
             draggable
             @dragstart="startDrag($event, us)"
@@ -59,17 +59,17 @@
 
       <div
         class="sprint drop-zone"
-        v-for="sprint in sprintList"
-        :key="sprint.id"
+        v-for="(sprint, index) in sprintList"
+        :key="sprint._id"
         @dragover.prevent
         @dragenter.prevent
-        @drop="onDrop($event, sprint.id)"
+        @drop="onDrop($event, sprint._id)"
       >
-        <h2>Sprint {{ sprint.id }}</h2>
+        <h2>Sprint {{ index }}</h2>
         <div class="sprint__info">
           <USCard
-            v-for="us in getUserStoriesIn(sprint.id)"
-            :key="us.id"
+            v-for="us in getUserStoriesIn(sprint._id)"
+            :key="us._id"
             :us="us"
           />
         </div>
@@ -79,8 +79,8 @@
 </template>
 
 <script>
-//import axios from "axios";
-//import { serverurl, port } from "../../config/backend.config";
+import axios from "axios";
+import { serverurl, port } from "../../config/backend.config";
 import USCard from "../cards/USCard";
 export default {
   components: {
@@ -88,50 +88,37 @@ export default {
   },
   data() {
     return {
-      usList: [
-        {
-          id: 0,
-          description: "MAMAM",
-          state: "OPEN",
-          sprint: null,
-        },
-        {
-          id: 1,
-          description: "LKJEMZ",
-          state: "OPEN",
-          sprint: 1,
-        },
-      ],
-      sprintList: [{ id: 0 }, { id: 1 }, { id: 3 }],
+      idProject: this.$route.params.idProject,
+      usList: [],
+      sprintList: [],
     };
   },
   methods: {
     getUserStoriesIn(id) {
-      return this.usList.filter((cur) => cur.sprint === id);
+      return this.usList.filter((cur) => cur.sprintId === id);
     },
 
     onDrop(evt, sprint) {
       const itemID = evt.dataTransfer.getData("usID");
-      const item = this.usList.find((it) => it.id === eval(itemID));
+      const item = this.usList.find((it) => it._id === itemID);
       if (!item) return;
-      item.sprint = sprint;
+      item.sprintId = sprint;
       if (sprint) {
         item.state = "PLANNIFIED";
       } else {
         item.state = "OPEN";
       }
-      this.update(item.id, sprint);
+      this.update(item);
     },
-    update(usID, sprintID) {
-      if (usID == sprintID) console.log("Update");
-      /*axios
-      .post(
-        `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}, {us: usID, sprint:sprintID }`
-      )*/
+    update(us) {
+      axios.post(
+        `http://${serverurl}:${port}/project/${this.idProject}/us/${this.id}/modify/`,
+        us
+      );
     },
   },
   mounted() {
-    /*axios
+    axios
       .get(
         `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
       )
@@ -146,11 +133,11 @@ export default {
         `http://${serverurl}:${port}/project/${this.idProject}/sprint/display/${this.idProject}`
       )
       .then((res) => {
-        const us = res.data;
-        if (us) {
-          this.usList = us;
+        const sprint = res.data;
+        if (sprint) {
+          this.sprintList = sprint;
         }
-      });*/
+      });
   },
 };
 </script>
