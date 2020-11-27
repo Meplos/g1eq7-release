@@ -15,14 +15,14 @@ services:
       - 8080:8080
     volumes:
       - ./frontend:/usr/src/app/frontend
-      
+
   back:
     build:
       context: ./backend
     restart: unless-stopped
     ports:
       - 3000:3000
-    links:
+    depends_on:
       - mongodb
     volumes:
       - ./backend:/usr/src/app/backend
@@ -33,3 +33,6 @@ services:
       - /dev/shm:/dev/shm
     ports:
       - "4444:4444"
+    depends_on:
+      - front
+      - back
