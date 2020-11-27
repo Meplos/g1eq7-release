@@ -1,339 +1,302 @@
 {
-	"info": {
-		"_postman_id": "acb1b3f9-f747-4412-bd94-50b2d9a1646a",
-		"name": "cdp-g7",
-		"description": "# CDP Groupe 7\n\n",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "project",
-			"item": [
-				{
-					"name": "/create POST 200",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "fa35485e-eb50-44a5-a723-0a5017312768",
-								"exec": [
-									"pm.test(\"status code 201\", function() {pm.response.to.have.status(201)});",
-									"",
-									"pm.test(\"project good created\", function() { ",
-									"    const jsonData = pm.response.json();",
-									"    pm.expect(jsonData.name).to.eql('Test');",
-									"    pm.environment.set('projectId', jsonData._id)",
-									"    pm.environment.set('projectName', jsonData.name)",
-									"    pm.environment.set('projectDescription', jsonData.description)",
-									"    pm.environment.set('projectStart', jsonData.start_date)",
-									"    pm.environment.set('projectEnd', jsonData.end_date)",
-									"    pm.environment.set('projectGit', jsonData.git_repo)",
-									"})",
-									"",
-									"postman.setNextRequest(\"/:projectId GET\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"Test\",\n  \"start_date\": \"2020-11-12\",\n  \"state\": \"Ouvert\",\n  \"end_date\": \"2020-11-12\",\n  \"git_repo\": null,\n  \"description\": \"Projet de test\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{localhost}}/project/create",
-							"host": [
-								"{{localhost}}"
-							],
-							"path": [
-								"project",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/ GET",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "d947f9c1-3746-4a75-bbad-dfc38eb5bb48",
-								"exec": [
-									"pm.test(\"status code 201\", function() {pm.response.to.have.status(200)});",
-									"",
-									"pm.test(\"List all project\", function() { ",
-									"    const jsonData = pm.response.json();",
-									"    pm.expect(jsonData.projectList.length).to.be.above(0);",
-									"})",
-									"// postman.setNextRequest(\"/us/create POST\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{localhost}}/project/",
-							"host": [
-								"{{localhost}}"
-							],
-							"path": [
-								"project",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/:projectId GET",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "efe4bc8a-a877-4629-bd30-014fe37c72bf",
-								"exec": [
-									"pm.test(\"status code 200\", function() {pm.response.to.have.status(200)});",
-									"",
-									"pm.test(\"Good project return\", function() { ",
-									"    const jsonData = pm.response.json();",
-									"    pm.expect(jsonData._id).to.be.equal(pm.environment.get(\"projectId\"));",
-									"    pm.expect(jsonData.name).to.be.equal(pm.environment.get(\"projectName\"));",
-									"    pm.expect(jsonData.start_date).to.be.equal(pm.environment.get(\"projectStart\"));",
-									"    pm.expect(jsonData.end_date).to.be.equal(pm.environment.get(\"projectEnd\"));",
-									"    pm.expect(jsonData.git_repo).to.be.equal(pm.environment.get(\"projectGit\"));",
-									"    pm.expect(jsonData.description).to.be.equal(pm.environment.get(\"projectDescription\"));",
-									"",
-									"",
-									"});",
-									"",
-									"// postman.setNextRequest(\"/ GET\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{localhost}}/project/{{projectId}}",
-							"host": [
-								"{{localhost}}"
-							],
-							"path": [
-								"project",
-								"{{projectId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/create POST 400",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "af890f63-148a-4fe7-ade6-b81d89231b07",
-								"exec": [
-									"pm.test(\"status code 400\", function() {pm.response.to.have.status(400)});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"\",\n  \"start_date\": \"2020-11-12\",\n  \"state\": \"Ouvert\",\n  \"end_date\": \"2020-11-12\",\n  \"git_repo\": null,\n  \"description\": \"Projet de test\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{localhost}}/project/create",
-							"host": [
-								"{{localhost}}"
-							],
-							"path": [
-								"project",
-								"create"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "us",
-			"item": [
-				{
-					"name": "/us/create POST",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "40c5b1f8-33d0-4821-aca1-59fed7c7437e",
-								"exec": [
-									"pm.test(\"status code 201\", function() {pm.response.to.have.status(201)});",
-									"",
-									"pm.test(\"us good created\", function() { ",
-									"    const jsonData = pm.response.json();",
-									"    pm.expect(jsonData.description).to.eql(\"As a developer I wan't to create an account \");",
-									"    pm.environment.set('usId', jsonData._id)",
-									"});",
-									"",
-									"postman.setNextRequest(\"/us/display/:idProject POST\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"description\": \"As a developer I wan't to create an account \",\n    \"state\": \"OPEN\",\n    \"priority\": 1,\n    \"difficulty\": 3,\n    \"idProject\": \"{{projectId}}\",\n    \"sprintId\": null\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{localhost}}/project/{{projectId}}/us/create",
-							"host": [
-								"{{localhost}}"
-							],
-							"path": [
-								"project",
-								"{{projectId}}",
-								"us",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/us/:idUs/modify POST",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "56aaa0e5-8fe4-4639-99f7-d3a4c1612ffd",
-								"exec": [
-									"pm.test(\"status code 200\", function() {pm.response.to.have.status(200)});",
-									"",
-									"pm.test(\"us good id\", function() { ",
-									"    const jsonData = pm.response.json();",
-									"    pm.expect(jsonData._id).to.equal(pm.environment.get('usId'));",
-									"    ",
-									"});",
-									"",
-									"pm.test(\"us good modify\", function() { ",
-									"    const jsonData = pm.response.json();",
-									"    pm.expect(jsonData.description).to.deep.equal('Modification');",
-									"    ",
-									"});",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": {{usId}},\n    \"description\": \"Modification\",\n    \"state\": \"Ouvert\",\n    \"projectId\": 1,\n    \"priority\": 1,\n    \"difficulty\": 3,\n    \"sprintId\": null\n  }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{localhost}}/project/{{projectId}}/us/{{usId}}/modify",
-							"host": [
-								"{{localhost}}"
-							],
-							"path": [
-								"project",
-								"{{projectId}}",
-								"us",
-								"{{usId}}",
-								"modify"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "/us/display/:idProject POST",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "1a9868f8-acba-45b8-92a0-877e06370b23",
-								"exec": [
-									"pm.test(\"status code 200\", function() {pm.response.to.have.status(200)});",
-									"",
-									"pm.test(\"List all us\", function() { ",
-									"    const jsonData = pm.response.json();",
-									"    pm.expect(jsonData).to.have.lengthOf.at.least(0);",
-									"})",
-									"// postman.setNextRequest(\"/us/:idUs/modify POST\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{localhost}}/project/{{projectId}}/us/display/{{projectId}}/",
-							"host": [
-								"{{localhost}}"
-							],
-							"path": [
-								"project",
-								"{{projectId}}",
-								"us",
-								"display",
-								"{{projectId}}",
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		}
-	],
-	"protocolProfileBehavior": {}
+  "info": {
+    "_postman_id": "acb1b3f9-f747-4412-bd94-50b2d9a1646a",
+    "name": "cdp-g7",
+    "description": "# CDP Groupe 7\n\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "project",
+      "item": [
+        {
+          "name": "/create POST 200",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "fa35485e-eb50-44a5-a723-0a5017312768",
+                "exec": [
+                  "pm.test(\"status code 201\", function() {pm.response.to.have.status(201)});",
+                  "",
+                  "pm.test(\"project good created\", function() { ",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.name).to.eql('Test');",
+                  "    pm.environment.set('idProject', jsonData._id)",
+                  "    pm.environment.set('projectName', jsonData.name)",
+                  "    pm.environment.set('projectDescription', jsonData.description)",
+                  "    pm.environment.set('projectStart', jsonData.start_date)",
+                  "    pm.environment.set('projectEnd', jsonData.end_date)",
+                  "    pm.environment.set('projectGit', jsonData.git_repo)",
+                  "})",
+                  "",
+                  "postman.setNextRequest(\"/:idProject GET\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test\",\n  \"start_date\": \"2020-11-12\",\n  \"state\": \"Ouvert\",\n  \"end_date\": \"2020-11-12\",\n  \"git_repo\": null,\n  \"description\": \"Projet de test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/project/create",
+              "host": ["{{localhost}}"],
+              "path": ["project", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/ GET",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "d947f9c1-3746-4a75-bbad-dfc38eb5bb48",
+                "exec": [
+                  "pm.test(\"status code 201\", function() {pm.response.to.have.status(200)});",
+                  "",
+                  "pm.test(\"List all project\", function() { ",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.projectList.length).to.be.above(0);",
+                  "})",
+                  "// postman.setNextRequest(\"/us/create POST\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/project/",
+              "host": ["{{localhost}}"],
+              "path": ["project", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/:idProject GET",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "efe4bc8a-a877-4629-bd30-014fe37c72bf",
+                "exec": [
+                  "pm.test(\"status code 200\", function() {pm.response.to.have.status(200)});",
+                  "",
+                  "pm.test(\"Good project return\", function() { ",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData._id).to.be.equal(pm.environment.get(\"idProject\"));",
+                  "    pm.expect(jsonData.name).to.be.equal(pm.environment.get(\"projectName\"));",
+                  "    pm.expect(jsonData.start_date).to.be.equal(pm.environment.get(\"projectStart\"));",
+                  "    pm.expect(jsonData.end_date).to.be.equal(pm.environment.get(\"projectEnd\"));",
+                  "    pm.expect(jsonData.git_repo).to.be.equal(pm.environment.get(\"projectGit\"));",
+                  "    pm.expect(jsonData.description).to.be.equal(pm.environment.get(\"projectDescription\"));",
+                  "",
+                  "",
+                  "});",
+                  "",
+                  "// postman.setNextRequest(\"/ GET\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/project/{{idProject}}",
+              "host": ["{{localhost}}"],
+              "path": ["project", "{{idProject}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/create POST 400",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "af890f63-148a-4fe7-ade6-b81d89231b07",
+                "exec": [
+                  "pm.test(\"status code 400\", function() {pm.response.to.have.status(400)});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"\",\n  \"start_date\": \"2020-11-12\",\n  \"state\": \"Ouvert\",\n  \"end_date\": \"2020-11-12\",\n  \"git_repo\": null,\n  \"description\": \"Projet de test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/project/create",
+              "host": ["{{localhost}}"],
+              "path": ["project", "create"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "us",
+      "item": [
+        {
+          "name": "/us/create POST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "40c5b1f8-33d0-4821-aca1-59fed7c7437e",
+                "exec": [
+                  "pm.test(\"status code 201\", function() {pm.response.to.have.status(201)});",
+                  "",
+                  "pm.test(\"us good created\", function() { ",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.description).to.eql(\"As a developer I wan't to create an account \");",
+                  "    pm.environment.set('usId', jsonData._id)",
+                  "});",
+                  "",
+                  "postman.setNextRequest(\"/us/display/:idProject POST\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"description\": \"As a developer I wan't to create an account \",\n    \"state\": \"OPEN\",\n    \"priority\": 1,\n    \"difficulty\": 3,\n    \"idProject\": \"{{idProject}}\",\n    \"sprintId\": null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/project/{{idProject}}/us/create",
+              "host": ["{{localhost}}"],
+              "path": ["project", "{{idProject}}", "us", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/us/:idUs/modify POST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "56aaa0e5-8fe4-4639-99f7-d3a4c1612ffd",
+                "exec": [
+                  "pm.test(\"status code 200\", function() {pm.response.to.have.status(200)});",
+                  "",
+                  "pm.test(\"us good id\", function() { ",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData._id).to.equal(pm.environment.get('usId'));",
+                  "    ",
+                  "});",
+                  "",
+                  "pm.test(\"us good modify\", function() { ",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData.description).to.deep.equal('Modification');",
+                  "    ",
+                  "});",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": {{usId}},\n    \"description\": \"Modification\",\n    \"state\": \"Ouvert\",\n    \"idProject\": 1,\n    \"priority\": 1,\n    \"difficulty\": 3,\n    \"sprintId\": null\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{localhost}}/project/{{idProject}}/us/{{usId}}/modify",
+              "host": ["{{localhost}}"],
+              "path": ["project", "{{idProject}}", "us", "{{usId}}", "modify"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/us/display/:idProject POST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1a9868f8-acba-45b8-92a0-877e06370b23",
+                "exec": [
+                  "pm.test(\"status code 200\", function() {pm.response.to.have.status(200)});",
+                  "",
+                  "pm.test(\"List all us\", function() { ",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.lengthOf.at.least(0);",
+                  "})",
+                  "// postman.setNextRequest(\"/us/:idUs/modify POST\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{localhost}}/project/{{idProject}}/us/display/{{idProject}}/",
+              "host": ["{{localhost}}"],
+              "path": [
+                "project",
+                "{{idProject}}",
+                "us",
+                "display",
+                "{{idProject}}",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    }
+  ],
+  "protocolProfileBehavior": {}
 }

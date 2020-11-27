@@ -53,7 +53,7 @@
               $router.push({
                 name: 'ModifyUS',
                 params: {
-                  projectId: $route.params.projectId,
+                  idProject: $route.params.idProject,
                   idUS: us.id,
                   us: us,
                   isEdit: true,

@@ -401,55 +401,55 @@ TU1 : squelette node (index.js) existe et testé
 NF22 : définition des données en BD
 TI11 : Project.vue existe et est testé
 
-| id       | US      | Temps (hm) | Dépendances | développeur     | état  |
-| -------- | ------- | ---------- | ----------- | --------------- | ----- |
-| TI3_1    | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
-| TE2E3_2  | US1     | 2          | NF3         | Maxime Gresse   | DONE  |
-| NF4      | US1     | 1          | NF22        | Alexandre Erard | DONE  |
-| TE2E4_1  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
-| TE2E4_2  | US1     | 2          | NF4         | Maxime Gresse   | DONE  |
-| TU6      | US1     | 1          | NF6         | Alexandre Erard | DOING |
-| NF9      | US2 US3 | 1          | NF22        | Alexandre Erard | DONE  |
-| TE2E9_1  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
-| TE2E9_2  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE  |
-| NF11     | US1     | 2          | NF22        | Alix            | DONE  |
-| TI11     | US1     | 2          | NF11        | Maxime Gresse   | DONE  |
-| NF13     | US3     | 3          | NF22,TI11   | Alexandre Erard | DONE  |
-| TI13     | US3     | 2          | NF13        | Maxime Gresse   | DONE  |
-| NF14     | US3     | 1          | TI13        | Alexandre ERARD | DONE  |
-| TI14     | US3     | 1          | NF14        |                 | TODO  |
-| NF15     | US4     | 1          | TU1,NF22    | Maxime Gresse   | DONE  |
-| TU15     | US4     | 1          | NF15        |                 | TODO  |
-| NF16     | US4     | 1          | NF22        | Alexandre ERARD | DOING |
-| TU16_1   | US4     | 1          | NF16        |                 | TODO  |
-| TE2E16_2 | US4     | 1          | NF16        |                 | TODO  |
-| NF17     | US4     | 1          | TU1,NF22    |                 | TODO  |
-| TU17     | US4     | 1          | NF17        |                 | TODO  |
-| NF18     | US4     | 2          | NF22,TI11   | Alexandre ERARD | TODO  |
-| TI18     | US4     | 1          | NF18        |                 | TODO  |
-| NF19     | US8     | 1          | TI11        |                 | TODO  |
-| NF20     | US5     | 4          | TI11        | Alexandre ERARD | TODO  |
-| TE2E20   | US5     | 3          | NF20        |                 | TODO  |
-| NF21     | US5     | 2          | TI18        |                 | TODO  |
-| TE2E21   | US5     | 1          | NF21        |                 | TODO  |
-| NF23     | US6     | 1          | NF22        | Alexandre Erard | DOING |
-| TI23     | US6     | 2          | NF23        |                 | TODO  |
-| NF24     | US6     | 1          | TU1,NF22    |                 | TODO  |
-| TU24     | US6     | 1          | NF24        | Alexandre Erard | TODO  |
-| NF25     | US7     | 2          | TI13,T33    | Alexandre ERARD | DONE  |
-| TE2E25   | US7     | 2          | NF25        |                 | TODO  |
-| NF26     | US23    | 1          | TI11        | Alix            | TODO  |
-| NF27     | US23    | 1          | NF26,TU12   |                 | TODO  |
-| TU27     | US23    | 1          | NF27        |                 | TODO  |
-| NF28     | US23    | 1          | NF26,TU17   |                 | TODO  |
-| TU28     | US23    | 1          | NF28        |                 | TODO  |
-| NF29     | US23    | 1          | NF26,T32    |                 | TODO  |
-| TU29     | US23    | 1          | NF29        |                 | TODO  |
-| NF30     | US25    | 3          | TI11        | Alix            | TODO  |
-| TE2E30   | US25    | 2          | NF30        |                 | TODO  |
-| NF31     | US25    | 3          | T30,TU17    |                 | TODO  |
-| TE2E31   | US25    | 2          | NF31        |                 | TODO  |
-| NF32     | US25    | 1          | TU1,NF22    |                 | TODO  |
-| TU32     | US25    | 1          | NF32        |                 | TODO  |
-| NF33     | US25    | 3          | TU32        |                 | TODO  |
-| TI33     | US25    | 1          | NF33        |                 | TODO  |
+| id       | US      | Temps (hm) | Dépendances | développeur     | état |
+| -------- | ------- | ---------- | ----------- | --------------- | ---- |
+| TI3_1    | US1     | 2          | NF3         | Maxime Gresse   | DONE |
+| TE2E3_2  | US1     | 2          | NF3         | Maxime Gresse   | DONE |
+| NF4      | US1     | 1          | NF22        | Alexandre Erard | DONE |
+| TE2E4_1  | US1     | 2          | NF4         | Maxime Gresse   | DONE |
+| TE2E4_2  | US1     | 2          | NF4         | Maxime Gresse   | DONE |
+| TU6      | US1     | 1          | NF6         | Alexandre Erard | DONE |
+| NF9      | US2 US3 | 1          | NF22        | Alexandre Erard | DONE |
+| TE2E9_1  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE |
+| TE2E9_2  | US2 US3 | 2          | NF4         | Maxime Gresse   | DONE |
+| NF11     | US1     | 2          | NF22        | Alix            | DONE |
+| TI11     | US1     | 2          | NF11        | Maxime Gresse   | DONE |
+| NF13     | US3     | 3          | NF22,TI11   | Alexandre Erard | DONE |
+| TI13     | US3     | 2          | NF13        | Maxime Gresse   | DONE |
+| NF14     | US3     | 1          | TI13        | Alexandre ERARD | DONE |
+| TI14     | US3     | 1          | NF14        |                 | TODO |
+| NF15     | US4     | 1          | TU1,NF22    | Maxime Gresse   | DONE |
+| TU15     | US4     | 1          | NF15        |                 | TODO |
+| NF16     | US4     | 1          | NF22        | Alexandre ERARD | DONE |
+| TU16_1   | US4     | 1          | NF16        |                 | TODO |
+| TE2E16_2 | US4     | 1          | NF16        |                 | TODO |
+| NF17     | US4     | 1          | TU1,NF22    |                 | TODO |
+| TU17     | US4     | 1          | NF17        |                 | TODO |
+| NF18     | US4     | 2          | NF22,TI11   | Alexandre ERARD | TODO |
+| TI18     | US4     | 1          | NF18        |                 | TODO |
+| NF19     | US8     | 1          | TI11        |                 | TODO |
+| NF20     | US5     | 4          | TI11        | Alexandre ERARD | DONE |
+| TE2E20   | US5     | 3          | NF20        |                 | TODO |
+| NF21     | US5     | 2          | TI18        | Alexandre ERARD | DONE |
+| TE2E21   | US5     | 1          | NF21        |                 | TODO |
+| NF23     | US6     | 1          | NF22        | Alexandre Erard | DONE |
+| TI23     | US6     | 2          | NF23        |                 | TODO |
+| NF24     | US6     | 1          | TU1,NF22    |                 | TODO |
+| TU24     | US6     | 1          | NF24        | Alexandre Erard | TODO |
+| NF25     | US7     | 2          | TI13,T33    | Alexandre ERARD | DONE |
+| TE2E25   | US7     | 2          | NF25        |                 | TODO |
+| NF26     | US23    | 1          | TI11        | Alix            | TODO |
+| NF27     | US23    | 1          | NF26,TU12   |                 | TODO |
+| TU27     | US23    | 1          | NF27        |                 | TODO |
+| NF28     | US23    | 1          | NF26,TU17   |                 | TODO |
+| TU28     | US23    | 1          | NF28        |                 | TODO |
+| NF29     | US23    | 1          | NF26,T32    |                 | TODO |
+| TU29     | US23    | 1          | NF29        |                 | TODO |
+| NF30     | US25    | 3          | TI11        | Alix            | TODO |
+| TE2E30   | US25    | 2          | NF30        |                 | TODO |
+| NF31     | US25    | 3          | T30,TU17    |                 | TODO |
+| TE2E31   | US25    | 2          | NF31        |                 | TODO |
+| NF32     | US25    | 1          | TU1,NF22    |                 | TODO |
+| TU32     | US25    | 1          | NF32        |                 | TODO |
+| NF33     | US25    | 3          | TU32        |                 | TODO |
+| TI33     | US25    | 1          | NF33        |                 | TODO |

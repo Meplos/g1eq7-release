@@ -211,7 +211,7 @@ export default {
     },
     createPostBody() {
       return {
-        id: this.id,
+        _id: this.id,
         name: this.name,
         description: this.desc,
         start_date: this.start,

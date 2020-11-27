@@ -17,9 +17,9 @@ async function getOneUs(usId) {
   return us;
 }
 
-async function getUsOfProject(projectId) {
+async function getUsOfProject(idProject) {
   let list = [];
-  await Model.UserStory.find({ idProject: projectId })
+  await Model.UserStory.find({ idProject: idProject })
     .exec()
     .then((res) => {
       list = res;
@@ -28,7 +28,7 @@ async function getUsOfProject(projectId) {
 }
 
 async function modifyUS(us) {
-  await Model.UserStory.update({ _id: us.id }, us).exec((err, res) => {
+  await Model.UserStory.update({ _id: us._id }, us).exec((err, res) => {
     if (err) throw err;
     if (res.modifiedCount < 1) throw "No row updated";
   });

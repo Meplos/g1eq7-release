@@ -10,9 +10,9 @@ async function createProject(project) {
   return _id;
 }
 
-async function getOneProject(projectId) {
+async function getOneProject(idProject) {
   let project = {};
-  await Model.Project.findById(mongoose.Types.ObjectId(projectId))
+  await Model.Project.findById(mongoose.Types.ObjectId(idProject))
     .exec()
     .then((res) => {
       project = res;
@@ -32,7 +32,7 @@ async function getAllProject() {
 
 async function modifyProject(project) {
   Model.Project.update(
-    { _id: mongoose.Types.ObjectId(project.id) },
+    { _id: mongoose.Types.ObjectId(project._id) },
     project
   ).exec((err, res) => {
     if (err) throw err;
