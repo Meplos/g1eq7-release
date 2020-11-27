@@ -462,5 +462,5 @@ TI11 : Project.vue existe et est testé
 | TI33     | US25    | 1          | NF33        |                 | TODO |
 | NF34     |         | 4          |             | Alexandre ERARD | DONE |
 | NF35     |         | 1          | NF34        | Alexandre ERARD | DONE |
-| NF36     |         | 4          | NF35        | Alexandre ERARD | DONE |
-| NF37     |         | 4          | NF36        | Alexandre ERARD | DONE |
+| NF36     |         | 2          | NF35        | Alexandre ERARD | DONE |
+| NF37     |         | 2          | NF36        | Alexandre ERARD | DONE |
