@@ -15,10 +15,6 @@ let driver = new Builder()
 
 let count_before = 0;
 
-const driver = new webdriver.Builder()
-    .forBrowser('chrome')
-    .build();
-
 console.log("Test création de projet");
 
 driver.get("http://localhost:8080/");
