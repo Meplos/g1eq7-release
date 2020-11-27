@@ -4,10 +4,11 @@ const assert = require('assert');
 const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
-
-const driver = new webdriver.Builder()
-    .forBrowser('chrome')
-    .build();
+    
+let driver = new webdriver.Builder()        
+        .usingServer("http://localhost:4444/wd/hub")   
+        .withCapabilities(webdriver.Capabilities.chrome())
+        .build();
 
 let previousUSCount = 0;
 
