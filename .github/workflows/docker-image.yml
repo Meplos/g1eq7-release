@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker-compose up --build -d
+      run: docker-compose up --build --force-recreate -d
 #    - name: Newman backend test
 #      run: cd backend && npm run integration-test-local
     - name: Project feature test
