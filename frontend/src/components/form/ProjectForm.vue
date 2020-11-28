@@ -1,7 +1,7 @@
 <template>
   <div class="projectForm">
     <v-row>
-      <h1 v-if="isEdit">{{ name }}</h1>
+      <h1 v-if="isEdit">Edit</h1>
       <h1 v-else>New project</h1>
     </v-row>
     <v-form ref="form" v-model="valid" lazy-validation justify="center">
@@ -10,8 +10,9 @@
           <v-text-field
             v-model="name"
             :rules="titleValidator"
-            :count="10"
-            label="Title"
+            :count="100"
+            id="titre"
+            label="Title*"
             required
             filled
           />
@@ -20,8 +21,9 @@
       <v-row>
         <v-col cols="12" sm="8">
           <v-textarea
-            v-model="description"
+            v-model="desc"
             filled
+            id="description"
             label="Description"
             auto-grow
           />
@@ -156,10 +158,10 @@ export default {
   },
   data() {
     return {
-      id: this.project ? this.project.id : null,
+      id: this.project ? this.project._id : null,
       name: this.project ? this.project.name : "",
-      description: this.project ? this.project.description : "",
-      git: this.project ? this.project.git : "",
+      desc: this.project ? this.project.description : "",
+      git: this.project ? this.project.git_repo : "",
       start: this.project
         ? this.project.start_date
         : new Date().toISOString().substr(0, 10),
@@ -196,11 +198,10 @@ export default {
       console.log(`create : ${body}`);
     },
     modify() {
-      const body = this.createPostBody();
       axios
         .post(
           `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
-          body
+          this.createPostBody()
         )
         .then(this.$router.push({ name: "Home" }));
       console.log(`modify : ${this.title}`);
@@ -209,16 +210,15 @@ export default {
       this.$router.back();
     },
     createPostBody() {
-      const post = {
-        id: this.id,
+      return {
+        _id: this.id,
         name: this.name,
-        description: this.description,
+        description: this.desc,
         start_date: this.start,
-        end_date: this.end ? this.end : null,
+        end_date: this.endEstimated ? this.endEstimated : null,
         git_repo: this.git,
         state: this.state,
       };
-      return post;
     },
   },
   mounted() {},

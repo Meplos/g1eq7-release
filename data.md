@@ -17,32 +17,32 @@ Projets :
 US :
 {
     id* : int (incrémenté par rapport aux autres US du projet)
-    desc* : string
+    description : string
     type* : string
     state* : string (default: ouvert)
     priority : string
     difficulty : string
-    project_link* : int (id project)
-    sprint_link : int (id sprint)
+    idProject* : int (id project)
+    sprintId : int (id sprint)
 }
 
-Task : 
+Task :
 {
     id* : int (incrémenté par rapport aux autres Tasks du projet)
     name* : string
     desc : string
-    us_link : string
+    idUs : string
     state : string (default: TODO)
     time (hm) : int
     dependencies : string list
     devs : string list
-    project_link* : int
+    IdProject* : int
 }
 
 Sprint : {
-    _id : int (généré par mongo)
-    start_date* : string
-    end_date* : string
+    id : int (généré par mongo)
+    startDate* : string
+    endDate* : string
     state* : string
 }
 ```

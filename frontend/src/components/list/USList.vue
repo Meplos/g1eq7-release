@@ -5,13 +5,26 @@
       <v-btn
         class="mx-2 success"
         fab
-        @click="$router.push({ name: 'CreateUS', params: { isEdit: false } })"
+        @click="$router.push({ name: 'CreateUS' })"
       >
-        <v-icon> mdi-plus</v-icon></v-btn
-      >
+        <v-icon> mdi-plus</v-icon>
+      </v-btn>
     </h1>
 
-    <v-simple-table class="mt-10 mr-10">
+    <v-row v-if="usList.length === 0">
+      <v-spacer></v-spacer>
+      <v-col cols="8" sm="4" class="align-center">
+        <v-alert class="red lighten-2">
+          No User Story?
+          <router-link :to="{ name: 'CreateUS' }">
+            Create one here
+          </router-link>
+        </v-alert>
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
+
+    <v-simple-table class="mt-10 mr-10" v-else>
       <template v-slot:default>
         <thead>
           <tr>
@@ -34,13 +47,13 @@
         </thead>
         <tbody>
           <tr
-            v-for="us in usList"
-            :key="us.id"
+            v-for="(us, index) in usList"
+            :key="us._id"
             @click="
               $router.push({
                 name: 'ModifyUS',
                 params: {
-                  projectId: $route.params.projectId,
+                  idProject: $route.params.idProject,
                   idUS: us.id,
                   us: us,
                   isEdit: true,
@@ -48,7 +61,7 @@
               })
             "
           >
-            <td>{{ us.id }}</td>
+            <td>{{ index }}</td>
             <td>{{ us.description.substring(0, 250) }}</td>
             <td>{{ us.priority }}</td>
             <td>{{ us.difficulty }}</td>
@@ -60,12 +73,12 @@
   </div>
 </template>
 <script>
-import { serverurl, port } from "../config/backend.config";
+import { serverurl, port } from "../../config/backend.config";
 import axios from "axios";
 
 export default {
   props: {
-    idProject: Number,
+    idProject: String,
   },
   data() {
     return {
@@ -87,4 +100,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+a {
+  font-weight: bold;
+}
+</style>

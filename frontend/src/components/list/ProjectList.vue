@@ -14,10 +14,10 @@
           <router-link
             :to="{
               name: 'Project',
-              params: { idProject: project.id, project: project },
+              params: { idProject: project._id, project: project },
             }"
           >
-            <v-card elevation="2" class="projectCard">
+            <v-card elevation="2" class="projectCard" id="projet">
               <v-card-title>
                 {{ project.name }}
               </v-card-title>
@@ -32,6 +32,25 @@
               </v-card-text>
             </v-card>
           </router-link>
+          <div class="modify-btn">
+            <v-btn
+              class="mr-6"
+              color="warning"
+              fab
+              @click="
+                $router.push({
+                  name: 'ModifyProject',
+                  params: {
+                    idProject: project.id,
+                    project: project,
+                    isEdit: true,
+                  },
+                })
+              "
+            >
+              <v-icon>mdi-pencil</v-icon>
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
     </div>
@@ -39,7 +58,7 @@
 </template>
 
 <script>
-import { serverurl, port } from "../config/backend.config";
+import { serverurl, port } from "../../config/backend.config";
 import axios from "axios";
 export default {
   data() {
@@ -47,7 +66,7 @@ export default {
       projects: null,
     };
   },
-
+  methods: {},
   mounted() {
     axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
       this.projects = res.data.projectList;

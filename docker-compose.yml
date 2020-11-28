@@ -1,21 +1,38 @@
-version: '3.1'
+version: "3.1"
 
 services:
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
 
   front:
-    image: node
     build:
       context: ./frontend
-      dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-        - 8080:8080
+      - 8080:8080
+    volumes:
+      - ./frontend:/usr/src/app/frontend
 
   back:
-    image: node
     build:
       context: ./backend
-      dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-        - 3000:3000
+      - 3000:3000
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/usr/src/app/backend
+
+  chrome:
+    image: selenium/standalone-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "4444:4444"
+    depends_on:
+      - front
+      - back

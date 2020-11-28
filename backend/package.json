@@ -4,9 +4,12 @@
   "description": "",
   "main": "app/index.js",
   "scripts": {
-    "start": "nodemon src/app/index.js",
-    "test": "",
-    "integration-test-local": "newman run ./test/local/cdp-g7.postman_collection.json --environment ./test/local/localhost.postman_environment.json"
+    "serve": "nodemon src/app/index.js",
+    "start": "node src/app/index.js",
+    "integration-test-local": "newman run ./test/local/cdp-g7.postman_collection.json --environment ./test/local/localhost.postman_environment.json",
+    "project-test": "node test/US1/t4_1 && node test/US1/t4_2",
+    "us-test": "node test/US2/t9_1 && node test/US2/t9_2",
+    "misc-test": "node test/t2.js && node test/t3_1.js && node test/t3_2.js && node test/t11.js && node test/t13.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,10 +18,12 @@
     "cors": "^2.8.5",
     "eslint": "^7.13.0",
     "express": "^4.17.1",
+    "mongod": "^2.0.0",
+    "mongoose": "^5.10.16",
+    "newman": "^5.2.1",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.6",
-    "qunit": "^2.12.0",
-    "newman": "^5.2.1"
+    "qunit": "^2.12.0"
   },
   "devDependencies": {
     "selenium-webdriver": "^3.6.0"

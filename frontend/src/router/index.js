@@ -1,9 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ListProject from "../components/ListProject.vue";
+import ProjectList from "../components/list/ProjectList.vue";
 import Project from "../components/Project.vue";
 import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
+import TaskForm from "../components/form/TaskForm";
+import SprintForm from "../components/form/SprintForm.vue";
+import NotFound from "../components/NotFound.vue";
+import Burndownchart from "../components/Burndownchart.vue";
 
 Vue.use(VueRouter);
 
@@ -14,16 +18,22 @@ const routes = [
     component: Project,
     props: true,
   },
-
+  {
+    path: "/project/:idProject/tasks/create",
+    name: "CreateTask",
+    component: TaskForm,
+    props: { isEdit: false },
+  },
+  {
+    path: "/project/:idProject/burndownchart",
+    name: "Burndownchart",
+    component: Burndownchart,
+    porps: true,
+  },
   {
     path: "/project/:idProject/us/:idUS/modify",
     name: "ModifyUS",
     component: USForm,
-    props: true,
-  },
-  {
-    path: "/project/:",
-    name: "ModifyProject",
     props: true,
   },
   {
@@ -33,7 +43,19 @@ const routes = [
     props: { isEdit: false },
   },
   {
-    path: "/project/:idProject/modify/",
+    path: "/project/:idProject/sprint/create",
+    name: "CreateSprint",
+    component: SprintForm,
+    props: { isEdit: false },
+  },
+  {
+    path: "/project/:idProject/sprint/modify",
+    name: "ModifySprint",
+    component: SprintForm,
+    props: true,
+  },
+  {
+    path: "/project/:idProject/modify",
     name: "ModifyProject",
     component: ProjectForm,
     props: true,
@@ -44,11 +66,15 @@ const routes = [
     component: ProjectForm,
     props: { isEdit: false },
   },
-
+  {
+    path: "/404",
+    name: "404",
+    component: NotFound,
+  },
   {
     path: "/",
     name: "Home",
-    component: ListProject,
+    component: ProjectList,
   },
 ];
 
