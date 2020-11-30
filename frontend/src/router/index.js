@@ -28,7 +28,7 @@ const routes = [
     path: "/project/:idProject/burndownchart",
     name: "Burndownchart",
     component: Burndownchart,
-    porps: true,
+    props: true,
   },
   {
     path: "/project/:idProject/us/:idUS/modify",

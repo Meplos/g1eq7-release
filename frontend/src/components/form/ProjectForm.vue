@@ -69,7 +69,7 @@
             ref="menu"
             v-model="menuEnd"
             :close-on-content-click="false"
-            :return-value.sync="start"
+            :return-value.sync="end"
             transition="scale-transition"
             offset-y
             min-width="290px"

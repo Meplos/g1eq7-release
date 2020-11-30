@@ -45,7 +45,7 @@
           @click="
             $router.push({
               name: 'Burndownchart',
-              params: { idProject: project.id, project: project },
+              params: { idProject: id, Project: project},
             })
           "
           >Générer Burndown Chart</v-btn

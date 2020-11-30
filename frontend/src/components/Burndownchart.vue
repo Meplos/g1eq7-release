@@ -1,26 +1,28 @@
+
 <template>
-  <h1>coco</h1>
+  <section class="container">
+    <h1>{{name}}</h1>
+    <div class="columns">
+      <div class="columns">
+        <h3>BurndownChart</h3>
+        <line-chart :project="this.Project" :idProject="this.idProject"></line-chart>
+      </div>
+    </div>
+  </section>
 </template>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
 <script>
-/*
-//sum elements of an array up to the index provided
-function sumArrayUpTo(arrData, index) {
-    var total = 0;
-    for(var i = 0; i<=index; i++){
-        if(arrData.lenght > i) {
-            total += arrData[i];
-        }
-    }
-    return total;
-}*/
+
+import LineChart from './LineChart.vue';
+import { serverurl, port } from "../config/backend.config";
+import axios from "axios";
 export default {
+  name: 'VueChartJS',
+  components: { LineChart },
   props: {
-    project: Object,
     idProject: String,
-  },
+    Project : Object
+,  },
 
   data() {
     return {
@@ -33,13 +35,15 @@ export default {
       state: this.project ? this.project.state : null,
     };
   },
-
+  methods: {
+    
+  },
   mounted() {
     if (!this.project && this.$route.params.idProject) {
       console.log("No props in params");
       axios
         .get(
-          `http://${serverurl}:${port}/project/${this.$route.params.idProject}/burndownchart`
+          `http://${serverurl}:${port}/project/${this.$route.params.idProject}`
         )
         .then((res) => {
           console.log(res.status);
