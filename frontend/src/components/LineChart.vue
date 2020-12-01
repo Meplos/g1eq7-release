@@ -12,6 +12,7 @@
     },
     data () {
       return {
+        nbPoints: 0,
         tasks:[],
         id: this.project ? this.project._id : this.idProject,
         name: this.project ? this.project.name : null,
@@ -24,12 +25,19 @@
           labels:[] ,
           datasets: [
             {
-              label: 'Ideal',
+              label: 'Ideal Task Remaining',
               backgroundColor: '#f87979',
               pointBackgroundColor: 'white',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
               data: [],
+            },{
+              label: 'Actual Task Remaining',
+              backgroundColor: '#A12323',
+              pointBackgroundColor: 'white',
+              borderWidth: 1,
+              pointBorderColor: '#249EBF',
+              data: [12,34,23,22,34],
             }
               ]
         },
@@ -68,7 +76,9 @@
         getPointsIdeal(){
             let point1 = this.getNbHeuresTotal(); 
             let point2 =  0;
-            let tab = [point1,point2];
+            let tab = [];
+            tab[0] = point1;
+            tab[this.nbPoints-1] = point2;
             return tab;
         },
         getLabels(){
@@ -96,6 +106,7 @@
                 labelsIdeal[i] = i;
                 console.log(i);
             }
+            this.nbPoints = labelsIdeal.length;
             return labelsIdeal;
         }
     },
@@ -125,10 +136,11 @@
             this.state = p.state;
             
           }
+            this.datacollection.labels = this.getLabels();
             this.datacollection.datasets[0].data = this.getPointsIdeal();
             console.log("sss"+this.getPointsIdeal());
             this.renderChart(this.datacollection, this.options);
-            this.datacollection.labels = this.getLabels();
+            
             this.renderChart(this.datacollection, this.options);
         })
         .catch(() => this.$router.push({ name: "404" }));
