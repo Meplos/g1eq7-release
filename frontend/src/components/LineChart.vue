@@ -25,6 +25,7 @@
           labels:[] ,
           datasets: [
             {
+              type:'line',
               label: 'Ideal Task Remaining',
               backgroundColor: '#f87979',
               pointBackgroundColor: 'white',
@@ -42,6 +43,7 @@
               ]
         },
         options: {
+            type:'line',
           scales: {
             yAxes: [{
               ticks: {
@@ -74,11 +76,20 @@
             return total;
         },
         getPointsIdeal(){
+            this.datacollection.labels = this.getLabels();
             let point1 = this.getNbHeuresTotal(); 
             let point2 =  0;
             let tab = [];
+            
             tab[0] = point1;
+            let dif= point1/this.nbPoints;
+            console.log(dif);
+            for(let i =1;i<this.nbPoints;i++){
+                tab[i] = point1-(i*dif);
+                console.log(tab[i]);
+            }
             tab[this.nbPoints-1] = point2;
+            
             return tab;
         },
         getLabels(){
@@ -104,7 +115,6 @@
                 
             for(let i =0;i <= difDay;i++){
                 labelsIdeal[i] = i;
-                console.log(i);
             }
             this.nbPoints = labelsIdeal.length;
             return labelsIdeal;
