@@ -107,12 +107,7 @@
       )
       .then((res) => {
         if (res.data) {this.tasks = res.data;}
-        this.datacollection.datasets.data = this.getPointsIdeal();
-        this.renderChart(this.datacollection, this.options);
-      });
-
-
-      if (!this.project && this.$route.params.idProject) {
+        if (!this.project && this.$route.params.idProject) {
       console.log("No props in params");
       axios
         .get(
@@ -129,12 +124,20 @@
             this.end = p.end_date;
             this.state = p.state;
             
+          }
+            this.datacollection.datasets[0].data = this.getPointsIdeal();
+            console.log("sss"+this.getPointsIdeal());
+            this.renderChart(this.datacollection, this.options);
             this.datacollection.labels = this.getLabels();
             this.renderChart(this.datacollection, this.options);
-          }
         })
         .catch(() => this.$router.push({ name: "404" }));
-    }      
+    }   
+        
+      });
+
+    this.renderChart(this.datacollection, this.options);
+         
     }
   }
   
