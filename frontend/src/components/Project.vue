@@ -20,6 +20,23 @@
             {{ description }}
           </v-col>
         </v-row>
+        <v-row class="progress">
+          <v-col
+            cols="4"
+          >
+            <Progress v-bind="{ idProject: $route.params.idProject, component: 'US' }"></Progress>
+          </v-col>
+          <v-col
+            cols="4"
+          >
+            <Progress v-bind="{ idProject: $route.params.idProject, component: 'Tasks' }"></Progress>
+          </v-col>
+          <v-col
+            cols="4"
+          >
+            <Progress v-bind="{ idProject: $route.params.idProject, component: 'Sprint' }"></Progress>
+          </v-col>
+        </v-row>
         <v-spacer></v-spacer>
       </div>
 
@@ -60,6 +77,7 @@ import USList from "./list/USList";
 import SprintList from "./list/SprintList";
 import TaskList from "./list/TaskList";
 import Kanban from "./Kanban";
+import Progress from "./Progression";
 
 import { serverurl, port } from "../config/backend.config";
 import axios from "axios";
@@ -73,6 +91,7 @@ export default {
     SprintList,
     TaskList,
     Kanban,
+    Progress,
   },
 
   data() {
