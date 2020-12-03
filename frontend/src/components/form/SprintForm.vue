@@ -44,7 +44,7 @@
             ref="menu"
             v-model="menuEnd"
             :close-on-content-click="false"
-            :return-value.sync="start"
+            :return-value.sync="end"
             transition="scale-transition"
             offset-y
             min-width="290px"
@@ -110,10 +110,10 @@ export default {
   data() {
     return {
       start: this.sprint
-        ? this.sprint.startDate
+        ? this.sprint.start_date
         : new Date().toISOString().substring(0, 10),
       end: this.sprint
-        ? this.sprint.endDate
+        ? this.sprint.end_date
         : new Date().toISOString().substring(0, 10),
       state: this.sprint ? this.sprint.state : "COMMING",
       id: this.sprint ? this.sprint._id : null,

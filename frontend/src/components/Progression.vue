@@ -73,6 +73,31 @@ export default {
                     }
                 });
         }
+        if(this.component=='Sprint'){
+            axios.get(`http://${serverurl}:${port}/project/${this.idProject}/sprint/uscurrent/${this.idProject}`)
+                .then((res) => {
+                    const us_current_sprint = res.data;
+                    let size = us_current_sprint.length;
+                    console.log("US CURRENT SPRINT : "+us_current_sprint)
+                    console.log("number us current sprint : "+size)
+                    if (size!=0) {
+                        let closed = 0;
+                        for(let i=0;i<size;i++){
+                            if(us_current_sprint[i].state==='CLOSED'){
+                                closed++;
+                            } 
+                        }
+                        console.log('Closed : '+closed);
+                        this.value=(closed/size)*100
+                        this.percent=this.value.toString()+"%";
+                    }
+                    else{
+                        this.percent = "Empty";
+                        this.value = 0;
+                    }
+                })
+                .catch(err => console.log(err));
+        }
         else{
             this.percent = "not implemented";
         }
