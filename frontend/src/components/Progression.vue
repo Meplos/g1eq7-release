@@ -47,6 +47,29 @@ export default {
                     }
                     else{
                         this.percent = "Empty";
+                        this.value = 0;
+                    }
+                });
+        }
+        if(this.component=='Tasks'){
+            axios.get(`http://${serverurl}:${port}/project/${this.idProject}/task/display/${this.idProject}`)
+                .then((res) => {
+                    const tasks = res.data;
+                    let size = tasks.length;
+                    if (size!=0) {
+                        let done = 0;
+                        for(let i=0;i<size;i++){
+                            if(tasks[i].state==='DONE'){
+                                done++;
+                            } 
+                        }
+                        console.log('Done : '+done);
+                        this.value=(done/size)*100
+                        this.percent=this.value.toString()+"%";
+                    }
+                    else{
+                        this.percent = "Empty";
+                        this.value = 0;
                     }
                 });
         }
