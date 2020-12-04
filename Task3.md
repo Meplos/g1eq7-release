@@ -219,12 +219,36 @@
   <p></p>
 
 - TI33. Test de l'affichage des sprints d'un projet
+
   - Faire un GET sur /project/:idProject/sprint/display/:idProject
   - Compter le nombre de sprints récupérés
   - Aller sur l'URL /project/sprint
   - Compter le nombre de sprints affichéd
   - Si les dexu correspondent le test est passé
   <p></p>
+
+- NF34 Formulaire de création d'une release
+
+  - Ajouter un composant form/ReleaseForm.vue
+  - Une release contient un nom, une date, une description, une liste d'issue implémenter, un fichier au format zip
+  - Envoie du fichier au serveur
+  - Requete post sur un /project/:idProject/release/create si on ajoute un nouvelle release
+  - Requete post sur un /project/:idProject/release/:idRelease/modify si on modifie une release existante
+  <p></p>
+
+- NF35 Liste de toutes les releases
+
+  - Ajouter un composant list/ReleaseList.vue
+  - Récuppérer les release avec une requete get à /project/:idProject/release/display/:idProject
+  <p></p>
+
+- NF36 Implémenter la route GET /project/:idProject/release/display/:idProject renvoie la liste des release
+  <p></p>
+- NF37 Implémenter la route POST /project/:idProject/release/create qui créé une release en BDD
+  <p></p>
+- NF38 Implémenter la route POST /project/:idProject/release/:idRelease/modify qui modifie une release idRelease en BDD
+  <p></p>
+- NF39 Création du model du répository Release pour interagir avec mongoDB
 
 ## Organisation
 
@@ -233,33 +257,39 @@ TU1 : squelette node (index.js) existe et testé
 NF22 : définition des données en BD
 TI11 : Project.vue existe et est testé
 
-| id       | US      | Temps (hm) | Dépendances | développeur     | état |
-| -------- | ------- | ---------- | ----------- | --------------- | ---- |
-| TI14     | US3     | 1          | NF14        |                 | TODO |
-| TU15     | US4     | 1          | NF15        |                 | TODO |
-| TU16_1   | US4     | 1          | NF16        |                 | TODO |
-| TE2E16_2 | US4     | 1          | NF16        |                 | TODO |
-| TU17     | US4     | 1          | NF17        |                 | TODO |
-| TI18     | US4     | 1          | NF18        |                 | TODO |
-| NF19     | US8     | 1          | TI11        |                 | TODO |
-| TE2E20   | US5     | 3          | NF20        |                 | TODO |
-| TE2E21   | US5     | 1          | NF21        |                 | TODO |
-| TI23     | US6     | 2          | NF23        |                 | TODO |
-| NF24     | US6     | 1          | TU1,NF22    |                 | TODO |
-| TU24     | US6     | 1          | NF24        | Alexandre Erard | TODO |
-| TE2E25   | US7     | 2          | NF25        |                 | TODO |
-| NF26     | US23    | 1          | TI11        | Alix            | TODO |
-| NF27     | US23    | 1          | NF26,TU12   |                 | TODO |
-| TU27     | US23    | 1          | NF27        |                 | TODO |
-| NF28     | US23    | 1          | NF26,TU17   |                 | TODO |
-| TU28     | US23    | 1          | NF28        |                 | TODO |
-| NF29     | US23    | 1          | NF26,T32    |                 | TODO |
-| TU29     | US23    | 1          | NF29        |                 | TODO |
-| NF30     | US25    | 3          | TI11        | Alix            | TODO |
-| TE2E30   | US25    | 2          | NF30        |                 | TODO |
-| NF31     | US25    | 3          | T30,TU17    |                 | TODO |
-| TE2E31   | US25    | 2          | NF31        |                 | TODO |
-| NF32     | US25    | 1          | TU1,NF22    |                 | TODO |
-| TU32     | US25    | 1          | NF32        |                 | TODO |
-| NF33     | US25    | 3          | TU32        |                 | TODO |
-| TI33     | US25    | 1          | NF33        |                 | TODO |
+| id       | US   | Temps (hm) | Dépendances | développeur     | état |
+| -------- | ---- | ---------- | ----------- | --------------- | ---- |
+| TI14     | US3  | 1          | NF14        |                 | TODO |
+| TU15     | US4  | 1          | NF15        |                 | TODO |
+| TU16_1   | US4  | 1          | NF16        |                 | TODO |
+| TE2E16_2 | US4  | 1          | NF16        |                 | TODO |
+| TU17     | US4  | 1          | NF17        |                 | TODO |
+| TI18     | US4  | 1          | NF18        |                 | TODO |
+| NF19     | US8  | 1          | TI11        |                 | TODO |
+| TE2E20   | US5  | 3          | NF20        |                 | TODO |
+| TE2E21   | US5  | 1          | NF21        |                 | TODO |
+| TI23     | US6  | 2          | NF23        |                 | TODO |
+| NF24     | US6  | 1          | TU1,NF22    |                 | TODO |
+| TU24     | US6  | 1          | NF24        | Alexandre Erard | TODO |
+| TE2E25   | US7  | 2          | NF25        |                 | TODO |
+| NF26     | US23 | 1          | TI11        | Alix            | TODO |
+| NF27     | US23 | 1          | NF26,TU12   |                 | TODO |
+| TU27     | US23 | 1          | NF27        |                 | TODO |
+| NF28     | US23 | 1          | NF26,TU17   |                 | TODO |
+| TU28     | US23 | 1          | NF28        |                 | TODO |
+| NF29     | US23 | 1          | NF26,T32    |                 | TODO |
+| TU29     | US23 | 1          | NF29        |                 | TODO |
+| NF30     | US25 | 3          | TI11        | Alix            | TODO |
+| TE2E30   | US25 | 2          | NF30        |                 | TODO |
+| NF31     | US25 | 3          | T30,TU17    |                 | TODO |
+| TE2E31   | US25 | 2          | NF31        |                 | TODO |
+| NF32     | US25 | 1          | TU1,NF22    |                 | TODO |
+| TU32     | US25 | 1          | NF32        |                 | TODO |
+| NF33     | US25 | 3          | TU32        |                 | TODO |
+| TI33     | US25 | 1          | NF33        |                 | TODO |
+| NF34     | US12 | 3          | NF37,NF38   | Alexandre ERARD | TODO |
+| NF35     | US12 | 1          | NF36        | Alexandre ERARD | TODO |
+| NF36     | US12 | 1          | NF39        | Alexandre ERARD | TODO |
+| NF37     | US12 | 1          | NF39        | Alexandre ERARD | TODO |
+| NF38     | US12 | 1          | NF39        | Alexandre ERARD | TODO |
+| NF39     | US12 | 1          |             | Alexandre ERARD | TODO |
