@@ -69,9 +69,34 @@ const taskSchema = mongoose.Schema({
 });
 
 const Task = mongoose.model("Task", taskSchema);
+
+const releaseSchema = mongoose.Schema({
+  name: {
+    required: true,
+    type: String,
+  },
+  description: String,
+  usList: {
+    required: true,
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "UserStory",
+  },
+  file: {
+    required: true,
+    type: String,
+  },
+  idProject: {
+    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Project",
+  },
+});
+
+const Release = mongoose.model("Release", releaseSchema);
 module.exports = {
   Project,
   Sprint,
   UserStory,
   Task,
+  Release,
 };
