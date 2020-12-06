@@ -176,7 +176,7 @@ export default {
       titleValidator: [
         (v) => !!v || "Title is required",
         (v) =>
-          (v && v.length <= 10) || "Title  must be less than 10 characters",
+          (v && v.length <= 100) || "Title  must be less than 100 characters",
       ],
       descriptionValidator: [
         (v) =>
