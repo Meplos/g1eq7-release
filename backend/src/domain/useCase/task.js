@@ -1,7 +1,7 @@
 const TaskRepository = require("../../infra/TaskMongoRepository");
 exports.createTask = (req, res) => {
   const newTask = req.body;
-
+  console.log(newTask.dateEnd);
   TaskRepository.createTask(newTask)
     .then((t) => {
       newTask._id = t._id;

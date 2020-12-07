@@ -7,4 +7,6 @@ router.post("/create", useCaseSprint.addSprint);
 
 router.get("/display/:idProject", useCaseSprint.getAllSprint);
 
+router.get("/uscurrent/:idProject", useCaseSprint.getAllUSFromCurrentSprint);
+
 module.exports = router;

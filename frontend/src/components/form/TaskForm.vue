@@ -106,7 +106,11 @@
             color="success"
             :disabled="!valid"
             @click="create"
+<<<<<<< HEAD
             >Create task</v-btn
+=======
+            >Create Task</v-btn
+>>>>>>> 0da03c2f342dba09c18d26c3e112db7080f39b33
           >
           <v-btn color="error" @click="cancel" outlined>Cancel</v-btn>
         </v-col>
