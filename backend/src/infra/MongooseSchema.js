@@ -66,6 +66,7 @@ const taskSchema = mongoose.Schema({
     ref: "UserStory",
     required: true,
   },
+  dateEnd: Date
 });
 
 const Task = mongoose.model("Task", taskSchema);

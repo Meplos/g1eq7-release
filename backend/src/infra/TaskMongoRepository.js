@@ -9,7 +9,6 @@ async function createTask(task) {
   task.dependencies = dependenciesId;
   task.idUs = mongoose.Types.ObjectId(task.idUs);
   task.idProject = mongoose.Types.ObjectId(task.idProject);
-  console.log(task);
   const newTask = Model.Task(task);
   let _id;
   await newTask
