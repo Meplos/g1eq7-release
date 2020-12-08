@@ -2,7 +2,7 @@
   <div class="releaseForm">
     <h1>Release Form 🍄</h1>
 
-    <v-form v-model="valid" lazy-validation>
+    <v-form v-model="valid" lazy-validation ref="form">
       <v-row>
         <v-col cols="4">
           <v-text-field
@@ -21,7 +21,7 @@
             truncate-length="15"
             v-model="file"
             label="File"
-            placeholder="Select file..."
+            placeholder="Select file... (zip, 7z, rar, tar.gz)"
             id="file"
             prepend-icon="mdi-archive"
             filled
@@ -112,11 +112,14 @@ export default {
       nameValidator: (v) =>
         /v[0-9]*(.[0-9]+)+/.test(v) || "Name must have format vXX.XX.XX",
       usValidator: (v) => v.length > 0 || "Us is required",
-      fileRequired: (v) => (v && this.isCompress(v)) || "file is required",
+      fileValidator: (v) =>
+        (v && this.isCompress(v)) ||
+        "file is required and need to be zip, rar, tar.gz, 7z format",
     };
   },
   methods: {
     create() {
+      if (!this.$refs.form.validate()) return;
       axios
         .post(
           `http://${serverurl}:${port}/project/${this.idProject}/release/create`,
@@ -126,7 +129,7 @@ export default {
         .catch((err) => console.log(err));
     },
     modify() {
-      console.log(this.file);
+      if (!this.$refs.form.validate()) return;
       axios
         .post(
           `http://${serverurl}:${port}/project/${this.idProject}/release/${this.id}/modify/`,
@@ -168,13 +171,14 @@ export default {
       this.file = file;
     },
     isCompress(file) {
+      console.log(file);
       const mimetype = [
         "application/x-rar-compressed",
-        "application/zip",
+        "application/x-zip-compressed",
         "application/x-7z-compressed",
-        "application/gzip",
+        "application/x-gzip-compressed",
       ];
-      return mimetype.includes(file.mimetype);
+      return mimetype.includes(file.type);
     },
   },
   created() {
