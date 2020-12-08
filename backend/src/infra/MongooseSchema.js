@@ -81,7 +81,11 @@ const releaseSchema = mongoose.Schema({
     type: [mongoose.Schema.Types.ObjectId],
     ref: "UserStory",
   },
-  file: {
+  filename: {
+    required: true,
+    type: String,
+  },
+  filepath: {
     required: true,
     type: String,
   },

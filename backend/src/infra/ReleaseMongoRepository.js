@@ -3,9 +3,7 @@ const Model = require("./MongooseSchema");
 
 async function createRelease(release) {
   let usList = [];
-  release.dependencies.forEach((curr) =>
-    usList.push(mongoose.Types.ObjectId(curr))
-  );
+  release.usList.forEach((curr) => usList.push(mongoose.Types.ObjectId(curr)));
   release.usList = usList;
   release.projectId = mongoose.Types.ObjectId(release.projectId);
 
@@ -40,9 +38,7 @@ async function getReleaseOfProject(projectId) {
 
 async function modifyRelease(release) {
   let usList = [];
-  release.dependencies.forEach((curr) =>
-    usList.push(mongoose.Types.ObjectId(curr))
-  );
+  release.usList.forEach((curr) => usList.push(mongoose.Types.ObjectId(curr)));
   release.usList = usList;
   release.projectId = mongoose.Types.ObjectId(release.projectId);
   Model.Release.update(

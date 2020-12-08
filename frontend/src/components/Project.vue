@@ -21,20 +21,26 @@
           </v-col>
         </v-row>
         <v-row class="progress">
-          <v-col
-            cols="4"
-          >
-            <Progress v-bind="{ idProject: $route.params.idProject, component: 'US' }"></Progress>
+          <v-col cols="4">
+            <Progress
+              v-bind="{ idProject: $route.params.idProject, component: 'US' }"
+            ></Progress>
           </v-col>
-          <v-col
-            cols="4"
-          >
-            <Progress v-bind="{ idProject: $route.params.idProject, component: 'Tasks' }"></Progress>
+          <v-col cols="4">
+            <Progress
+              v-bind="{
+                idProject: $route.params.idProject,
+                component: 'Tasks',
+              }"
+            ></Progress>
           </v-col>
-          <v-col
-            cols="4"
-          >
-            <Progress v-bind="{ idProject: $route.params.idProject, component: 'Sprint' }"></Progress>
+          <v-col cols="4">
+            <Progress
+              v-bind="{
+                idProject: $route.params.idProject,
+                component: 'Sprint',
+              }"
+            ></Progress>
           </v-col>
         </v-row>
         <v-spacer></v-spacer>
@@ -62,7 +68,7 @@
           @click="
             $router.push({
               name: 'Burndownchart',
-              params: { idProject: id, Project: project},
+              params: { idProject: id, Project: project },
             })
           "
           >Générer Burndown Chart</v-btn
@@ -77,6 +83,7 @@ import USList from "./list/USList";
 import SprintList from "./list/SprintList";
 import TaskList from "./list/TaskList";
 import Kanban from "./Kanban";
+import ReleaseList from "./list/ReleaseList";
 import Progress from "./Progression";
 
 import { serverurl, port } from "../config/backend.config";
@@ -91,6 +98,7 @@ export default {
     SprintList,
     TaskList,
     Kanban,
+    ReleaseList,
     Progress,
   },
 
@@ -122,6 +130,7 @@ export default {
           tab: "Kanban",
           content: "Kanban",
         },
+        { tab: "Release", content: "ReleaseList" },
       ],
     };
   },

@@ -12,7 +12,7 @@ axios.defaults.headers = {
 };
 
 axios.interceptors.request.use((request) => {
-  console.log("Starting Request", JSON.stringify(request, null, 2));
+  console.log("Starting Request", request);
   return request;
 });
 
