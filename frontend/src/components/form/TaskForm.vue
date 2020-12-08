@@ -106,7 +106,11 @@
             color="success"
             :disabled="!valid"
             @click="create"
+<<<<<<< HEAD
+            >Create task</v-btn
+=======
             >Create Task</v-btn
+>>>>>>> 0da03c2f342dba09c18d26c3e112db7080f39b33
           >
           <v-btn color="error" @click="cancel" outlined>Cancel</v-btn>
         </v-col>
@@ -134,6 +138,7 @@ export default {
       state: this.task ? this.task.state : "TODO",
       idProject: this.task ? this.task.idProject : this.$route.params.idProject,
       idUS: this.task ? this.task.idUs : null,
+      dateEnd: this.task ? this.task.dateEnd : null,
 
       usList: [],
       stateList: ["TODO", "DOING", "DONE"],
@@ -211,6 +216,7 @@ export default {
         state: this.state,
         idProject: this.idProject,
         idUs: this.idUs,
+        dateEnd: this.dateEnd,
       };
     },
   },

@@ -52,6 +52,11 @@ export default {
       const item = this.tasks.find((task) => task.id === eval(itemID));
 
       item.state = state;
+      if(state == "DONE"){
+        item.endDate = new Date();
+      }else{
+        item.endDate = null;
+      }
       this.update(item);
     },
     update(task) {

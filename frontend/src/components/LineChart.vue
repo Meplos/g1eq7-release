@@ -82,9 +82,9 @@
             let tab = [];
             
             tab[0] = point1;
-            let dif= point1/this.nbPoints;
+            let dif= point1/(this.nbPoints-1);
             console.log(dif);
-            for(let i =1;i<this.nbPoints;i++){
+            for(let i =1;i<=this.nbPoints;i++){
                 tab[i] = point1-(i*dif);
                 console.log(tab[i]);
             }
@@ -146,6 +146,7 @@
             this.state = p.state;
             
           }
+          console.log(this.getLabels());
             this.datacollection.labels = this.getLabels();
             this.datacollection.datasets[0].data = this.getPointsIdeal();
             console.log("sss"+this.getPointsIdeal());
