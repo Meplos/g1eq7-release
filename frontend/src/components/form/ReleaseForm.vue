@@ -179,6 +179,7 @@ export default {
         "application/x-zip-compressed",
         "application/x-7z-compressed",
         "application/x-gzip-compressed",
+        "application/zip",
       ];
       return mimetype.includes(file.type);
     },
