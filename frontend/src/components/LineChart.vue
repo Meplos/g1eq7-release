@@ -2,6 +2,7 @@
   import { Line } from 'vue-chartjs'
   import { serverurl, port } from "../config/backend.config";
     import axios from "axios";
+    
 
 
   export default {
@@ -13,7 +14,7 @@
     data () {
       return {
         nbPoints: 0,
-        tasks:[],
+        usTab:[],
         id: this.project ? this.project._id : this.idProject,
         name: this.project ? this.project.name : null,
         description: this.project ? this.project.description : "",
@@ -38,7 +39,7 @@
               pointBackgroundColor: 'white',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
-              data: [12,34,23,22,34],
+              data: [],
             }
               ]
         },
@@ -68,19 +69,19 @@
       }
     },
     methods: {
-        getNbHeuresTotal(){
+        getNbComplexTotal(){
             let total = 0;
-            for(let i=0;i<this.tasks.length;i++){
-                total = total + this.tasks[i].time;
+            for(let i=0;i<this.usTab.length;i++){
+                total = total + this.usTab[i].difficulty;
             }
+            
             return total;
         },
         getPointsIdeal(){
             this.datacollection.labels = this.getLabels();
-            let point1 = this.getNbHeuresTotal(); 
+            let point1 = this.getNbComplexTotal(); 
             let point2 =  0;
             let tab = [];
-            
             tab[0] = point1;
             let dif= point1/(this.nbPoints-1);
             console.log(dif);
@@ -121,13 +122,12 @@
         }
     },
     mounted () {
-      
       axios
       .get(
-        `http://${serverurl}:${port}/project/${this.idProject}/task/display/${this.idProject}`
+        `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
       )
       .then((res) => {
-        if (res.data) {this.tasks = res.data;}
+        if (res.data) {this.usTab = res.data;}
         if (!this.project && this.$route.params.idProject) {
       console.log("No props in params");
       axios
@@ -148,7 +148,9 @@
           }
           console.log(this.getLabels());
             this.datacollection.labels = this.getLabels();
+            console.log("dddd");
             this.datacollection.datasets[0].data = this.getPointsIdeal();
+            console.log("eeeee");
             console.log("sss"+this.getPointsIdeal());
             this.renderChart(this.datacollection, this.options);
             

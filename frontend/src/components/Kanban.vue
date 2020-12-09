@@ -59,6 +59,7 @@ export default {
       item.state = state;
       if (state == "DONE") {
         item.endDate = new Date();
+        console.log("ffffffff"+item.endDate);
       } else {
         item.endDate = null;
       }
