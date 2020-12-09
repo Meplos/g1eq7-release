@@ -187,6 +187,7 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/task/create/`,
           this.createPostData()
         )
+        .then((data) => console.log(data))
         .then(this.$router.back());
     },
     modify() {
@@ -206,7 +207,7 @@ export default {
         name: this.name,
         description: this.description,
         dependencies: this.dependencies,
-        dev: this.devs,
+        dev: this.dev,
         time: this.time,
         state: this.state,
         idProject: this.idProject,
