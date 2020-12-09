@@ -11,12 +11,9 @@ async function createTask(task) {
   task.idProject = mongoose.Types.ObjectId(task.idProject);
   const newTask = Model.Task(task);
   let _id;
-  await newTask
-    .save()
-    .then((res) => {
-      _id = res._id;
-    })
-    .catch((err) => console.log(err));
+  await newTask.save().then((res) => {
+    _id = res._id;
+  });
   return _id;
 }
 

@@ -33,7 +33,7 @@
       <v-row>
         <v-col cols="12" sm="4">
           <v-menu
-            ref="menu"
+            ref="menuStart"
             v-model="menuStart"
             :close-on-content-click="false"
             :return-value.sync="start"
@@ -57,7 +57,7 @@
               <v-btn text color="primary" @click="menuStart = false">
                 Cancel
               </v-btn>
-              <v-btn text color="primary" @click="$refs.menu.save(start)">
+              <v-btn text color="primary" @click="$refs.menuStart.save(start)">
                 OK
               </v-btn>
             </v-date-picker>
@@ -66,10 +66,10 @@
         <v-col cols="12" sm="4">
           <!-- End date datepicker -->
           <v-menu
-            ref="menu"
+            ref="menuEnd"
             v-model="menuEnd"
             :close-on-content-click="false"
-            :return-value.sync="end"
+            :return-value.sync="endEstimated"
             transition="scale-transition"
             offset-y
             min-width="290px"
@@ -93,7 +93,7 @@
               <v-btn
                 text
                 color="primary"
-                @click="$refs.menu.save(endEstimated)"
+                @click="$refs.menuEnd.save(endEstimated)"
               >
                 OK
               </v-btn>
@@ -194,7 +194,10 @@ export default {
       const body = this.createPostBody();
       axios
         .post(`http://${serverurl}:${port}/project/create`, body)
-        .then(this.$router.push({ name: "Home" }));
+        .then(() => {
+          this.$store.commit("GET_ALL_PROJECT");
+          this.$router.push({ name: "Home" });
+        });
       console.log(`create : ${body}`);
     },
     modify() {
@@ -203,7 +206,10 @@ export default {
           `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
           this.createPostBody()
         )
-        .then(this.$router.push({ name: "Home" }));
+        .then(() => {
+          this.$store.commit("GET_ALL_PROJECT");
+          this.$router.push({ name: "Home" });
+        });
       console.log(`modify : ${this.title}`);
     },
     cancel() {

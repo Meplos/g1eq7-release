@@ -257,39 +257,39 @@ TU1 : squelette node (index.js) existe et testé
 NF22 : définition des données en BD
 TI11 : Project.vue existe et est testé
 
-| id       | US   | Temps (hm) | Dépendances | développeur     | état  |
-| -------- | ---- | ---------- | ----------- | --------------- | ----- |
-| TI14     | US3  | 1          | NF14        |                 | TODO  |
-| TU15     | US4  | 1          | NF15        |                 | TODO  |
-| TU16_1   | US4  | 1          | NF16        |                 | TODO  |
-| TE2E16_2 | US4  | 1          | NF16        |                 | TODO  |
-| TU17     | US4  | 1          | NF17        |                 | TODO  |
-| TI18     | US4  | 1          | NF18        |                 | TODO  |
-| NF19     | US8  | 1          | TI11        |                 | TODO  |
-| TE2E20   | US5  | 3          | NF20        |                 | TODO  |
-| TE2E21   | US5  | 1          | NF21        |                 | TODO  |
-| TI23     | US6  | 2          | NF23        |                 | TODO  |
-| NF24     | US6  | 1          | TU1,NF22    |                 | TODO  |
-| TU24     | US6  | 1          | NF24        | Alexandre Erard | TODO  |
-| TE2E25   | US7  | 2          | NF25        |                 | TODO  |
-| NF26     | US23 | 1          | TI11        | Alix            | TODO  |
-| NF27     | US23 | 1          | NF26,TU12   |                 | TODO  |
-| TU27     | US23 | 1          | NF27        |                 | TODO  |
-| NF28     | US23 | 1          | NF26,TU17   |                 | TODO  |
-| TU28     | US23 | 1          | NF28        |                 | TODO  |
-| NF29     | US23 | 1          | NF26,T32    |                 | TODO  |
-| TU29     | US23 | 1          | NF29        |                 | TODO  |
-| NF30     | US25 | 3          | TI11        | Alix            | TODO  |
-| TE2E30   | US25 | 2          | NF30        |                 | TODO  |
-| NF31     | US25 | 3          | T30,TU17    |                 | TODO  |
-| TE2E31   | US25 | 2          | NF31        |                 | TODO  |
-| NF32     | US25 | 1          | TU1,NF22    |                 | TODO  |
-| TU32     | US25 | 1          | NF32        |                 | TODO  |
-| NF33     | US25 | 3          | TU32        |                 | TODO  |
-| TI33     | US25 | 1          | NF33        |                 | TODO  |
-| NF34     | US12 | 3          | NF37,NF38   | Alexandre ERARD | TODO  |
-| NF35     | US12 | 1          | NF36        | Alexandre ERARD | TODO  |
-| NF36     | US12 | 1          | NF39        | Alexandre ERARD | DONE  |
-| NF37     | US12 | 1          | NF39        | Alexandre ERARD | DOING |
-| NF38     | US12 | 1          | NF39        | Alexandre ERARD | DONE  |
-| NF39     | US12 | 1          |             | Alexandre ERARD | DONE  |
+| id       | US   | Temps (hm) | Dépendances | développeur     | état |
+| -------- | ---- | ---------- | ----------- | --------------- | ---- |
+| TI14     | US3  | 1          | NF14        |                 | TODO |
+| TU15     | US4  | 1          | NF15        |                 | TODO |
+| TU16_1   | US4  | 1          | NF16        |                 | TODO |
+| TE2E16_2 | US4  | 1          | NF16        |                 | TODO |
+| TU17     | US4  | 1          | NF17        |                 | TODO |
+| TI18     | US4  | 1          | NF18        |                 | TODO |
+| NF19     | US8  | 1          | TI11        |                 | TODO |
+| TE2E20   | US5  | 3          | NF20        |                 | TODO |
+| TE2E21   | US5  | 1          | NF21        |                 | TODO |
+| TI23     | US6  | 2          | NF23        |                 | TODO |
+| NF24     | US6  | 1          | TU1,NF22    |                 | TODO |
+| TU24     | US6  | 1          | NF24        | Alexandre Erard | TODO |
+| TE2E25   | US7  | 2          | NF25        |                 | TODO |
+| NF26     | US23 | 1          | TI11        | Alix            | TODO |
+| NF27     | US23 | 1          | NF26,TU12   |                 | TODO |
+| TU27     | US23 | 1          | NF27        |                 | TODO |
+| NF28     | US23 | 1          | NF26,TU17   |                 | TODO |
+| TU28     | US23 | 1          | NF28        |                 | TODO |
+| NF29     | US23 | 1          | NF26,T32    |                 | TODO |
+| TU29     | US23 | 1          | NF29        |                 | TODO |
+| NF30     | US25 | 3          | TI11        | Alix            | TODO |
+| TE2E30   | US25 | 2          | NF30        |                 | TODO |
+| NF31     | US25 | 3          | T30,TU17    |                 | TODO |
+| TE2E31   | US25 | 2          | NF31        |                 | TODO |
+| NF32     | US25 | 1          | TU1,NF22    |                 | TODO |
+| TU32     | US25 | 1          | NF32        |                 | TODO |
+| NF33     | US25 | 3          | TU32        |                 | TODO |
+| TI33     | US25 | 1          | NF33        |                 | TODO |
+| NF34     | US12 | 3          | NF37,NF38   | Alexandre ERARD | DONE |
+| NF35     | US12 | 1          | NF36        | Alexandre ERARD | DONE |
+| NF36     | US12 | 1          | NF39        | Alexandre ERARD | DONE |
+| NF37     | US12 | 1          | NF39        | Alexandre ERARD | DONE |
+| NF38     | US12 | 1          | NF39        | Alexandre ERARD | DONE |
+| NF39     | US12 | 1          |             | Alexandre ERARD | DONE |

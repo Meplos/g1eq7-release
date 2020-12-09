@@ -31,8 +31,8 @@
         <v-col cols="12" sm="8">
           <v-select
             :items="numberList"
-            label="Importance"
-            v-model="importance"
+            label="Priority"
+            v-model="priority"
             filled
           />
         </v-col>
@@ -87,10 +87,11 @@ export default {
       description: this.us ? this.us.description : "",
       type: this.us ? this.us.type : "NewFeature",
       state: this.us ? this.us.state : "OPEN",
-      importance: this.us ? this.us.importance : 1,
+      priority: this.us ? this.us.priority : 1,
       difficulty: this.us ? this.us.difficulty : 1,
       idProject: this.us ? this.us.idProject : this.$route.params.idProject,
       id: this.us ? this.us._id : null,
+      sprintId: this.us ? this.us.sprintId : null,
 
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
       numberList: [1, 2, 3, 4, 5],
@@ -125,7 +126,10 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/us/create/`,
           this.createPostData()
         )
-        .then(this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_US_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     modify() {
       console.log("Modify...");
@@ -134,22 +138,25 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/us/${this.id}/modify/`,
           this.createPostData()
         )
-        .then(this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_US_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     cancel() {
       console.log("Cancel");
-      this.$router.go(-1);
+      this.$router.back();
     },
 
     createPostData() {
       return {
         _id: this.id,
         description: this.description,
-        priority: this.importance,
+        priority: this.priority,
         state: this.state,
         difficulty: this.difficulty,
         idProject: this.idProject,
-        sprintId: null,
+        sprintId: this.sprintId,
       };
     },
   },

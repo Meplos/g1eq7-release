@@ -3,7 +3,7 @@
     <h1>Kanban</h1>
     <div class="dark">
       <v-row class="mr-16 ml-16 justify-space-between">
-        <v-col cols="12" sm="4" v-for="state in stateList" :key="state">
+        <v-col cols="4" v-for="state in stateList" :key="state">
           <h2>{{ state }}</h2>
           <v-sheet
             rounded="lg"
@@ -44,36 +44,39 @@ export default {
   },
   methods: {
     getTaskByState(state) {
-      return this.tasks.filter((cur) => cur.state === state);
+      return this.$store.state.taskOfCurrentProject.filter(
+        (cur) => cur.state === state
+      );
     },
     onDrop(evt, state) {
       const itemID = evt.dataTransfer.getData("taskID");
+      console.log(`itemID ${itemID}`);
 
-      const item = this.tasks.find((task) => task.id === eval(itemID));
+      const item = this.$store.state.taskOfCurrentProject.find(
+        (task) => task._id === itemID
+      );
 
       item.state = state;
-      if(state == "DONE"){
+      if (state == "DONE") {
         item.endDate = new Date();
-      }else{
+      } else {
         item.endDate = null;
       }
       this.update(item);
     },
     update(task) {
-      axios.post(
-        `http://${serverurl}:${port}/project/${this.idProject}/task/${this.id}/modify/`,
-        task
-      );
+      axios
+        .post(
+          `http://${serverurl}:${port}/project/${this.idProject}/task/${this.id}/modify/`,
+          task
+        )
+        .then(() => {
+          this.$store.commit("GET_TASK_OF_PROJECT", this.idProject);
+        });
     },
   },
   mounted() {
-    axios
-      .get(
-        `http://${serverurl}:${port}/project/${this.idProject}/task/display/${this.idProject}`
-      )
-      .then((res) => {
-        if (res.data) this.tasks = res.data;
-      });
+    this.$store.commit("GET_TASK_OF_PROJECT", this.idProject);
   },
 };
 </script>
