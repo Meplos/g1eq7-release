@@ -3,7 +3,6 @@
     <h1 v-if="isEdit">Modify Release</h1>
     <h1 v-else>Create Release</h1>
 
-
     <v-form v-model="valid" lazy-validation ref="form">
       <v-row>
         <v-col cols="4">
@@ -50,7 +49,7 @@
             filled
             id="allUS"
             label="Add user Stories"
-            :items="allUs"
+            :items="$store.state.usOfCurrentProject"
             :item-value="'_id'"
             :item-text="'description'"
             max-height="auto"
@@ -127,7 +126,10 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/release/create`,
           this.createPostBody()
         )
-        .then(this.$router.back())
+        .then(() => {
+          this.$store.commit("GET_RELEASE_OF_PROJECT", this.idProject);
+          this.$router.back();
+        })
         .catch((err) => console.log(err));
     },
     modify() {
@@ -137,7 +139,11 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/release/${this.id}/modify/`,
           this.createPostBody()
         )
-        .then(this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_RELEASE_OF_PROJECT", this.idProject);
+
+          this.$router.back();
+        });
     },
     cancel() {
       this.$router.back();
@@ -153,16 +159,7 @@ export default {
       return formData;
     },
     getAllUs() {
-      axios
-        .get(
-          `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
-        )
-        .then((res) => {
-          const us = res.data;
-          if (us) {
-            this.allUs = us;
-          }
-        });
+      this.$store.commit("GET_US_OF_PROJECT", this.idProject);
     },
     async loadFile() {
       let response = await fetch(

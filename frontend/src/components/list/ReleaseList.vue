@@ -13,16 +13,20 @@
       </h1>
     </div>
 
-    <div class="release__info" v-for="item in releases" :key="item._id">
+    <div
+      class="release__info"
+      v-for="release in $store.state.releaseOfCurrentProject"
+      :key="release._id"
+    >
       <Release
         @click="
           $router.push({
             name: 'ModifyRelease',
-            params: { isEdit: true, release: item },
+            params: { isEdit: true, release: release },
           })
         "
-        :release="item"
-        :usList="getUsOfRelease(item)"
+        :release="release"
+        :usList="getUsOfRelease(release)"
       />
     </div>
   </div>
@@ -30,8 +34,6 @@
 
 <script>
 import Release from "../Release.vue";
-import { serverurl, port } from "../../config/backend.config";
-import axios from "axios";
 export default {
   props: {
     idProject: String,
@@ -47,31 +49,15 @@ export default {
   },
   methods: {
     getRelease() {
-      axios
-        .get(
-          `http://${serverurl}:${port}/project/${this.idProject}/release/display/${this.idProject}`
-        )
-        .then((res) => {
-          const releases = res.data;
-          if (releases) {
-            this.releases = releases;
-          }
-        });
+      this.$store.commit("GET_RELEASE_OF_PROJECT", this.idProject);
     },
     getAllUs() {
-      axios
-        .get(
-          `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
-        )
-        .then((res) => {
-          const us = res.data;
-          if (us) {
-            this.allUs = us;
-          }
-        });
+      this.$store.commit("GET_US_OF_PROJECT", this.idProject);
     },
     getUsOfRelease(release) {
-      return this.allUs.filter((curr) => release.usList.includes(curr._id));
+      return this.$store.state.usOfCurrentProject.filter((curr) =>
+        release.usList.includes(curr._id)
+      );
     },
   },
   mounted() {

@@ -8,7 +8,7 @@
       <v-row>
         <v-col class="ma-2" cols="12" sm="4">
           <v-menu
-            ref="menu"
+            ref="menuStart"
             v-model="menuStart"
             :close-on-content-click="false"
             :return-value.sync="start"
@@ -32,7 +32,7 @@
               <v-btn text color="primary" @click="menuStart = false">
                 Cancel
               </v-btn>
-              <v-btn text color="primary" @click="$refs.menu.save(start)">
+              <v-btn text color="primary" @click="$refs.menuStart.save(start)">
                 OK
               </v-btn>
             </v-date-picker>
@@ -41,7 +41,7 @@
         <v-col class="ma-2" cols="12" sm="4">
           <!-- End date datepicker -->
           <v-menu
-            ref="menu"
+            ref="menuEnd"
             v-model="menuEnd"
             :close-on-content-click="false"
             :return-value.sync="end"
@@ -65,7 +65,7 @@
               <v-btn text color="primary" @click="menuEnd = false">
                 Cancel
               </v-btn>
-              <v-btn text color="primary" @click="$refs.menu.save(end)">
+              <v-btn text color="primary" @click="$refs.menuEnd.save(end)">
                 OK
               </v-btn>
             </v-date-picker>
@@ -135,13 +135,21 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/sprint/create`,
           this.createPostBody()
         )
-        .then(() => this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_SPRINT_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     modify() {
-      axios.post(
-        `ĥttp://${serverurl}:${port}/project/${this.idProject}/sprint/${this.id}/modify`,
-        this.createPostBody()
-      );
+      axios
+        .post(
+          `http://${serverurl}:${port}/project/${this.idProject}/sprint/${this.id}/modify`,
+          this.createPostBody()
+        )
+        .then(() => {
+          this.$store.commit("GET_SPRINT_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     cancel() {
       this.$router.back();

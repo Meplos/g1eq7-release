@@ -126,7 +126,10 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/us/create/`,
           this.createPostData()
         )
-        .then(this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_US_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     modify() {
       console.log("Modify...");
@@ -135,11 +138,14 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/us/${this.id}/modify/`,
           this.createPostData()
         )
-        .then(this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_US_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     cancel() {
       console.log("Cancel");
-      this.$router.go(-1);
+      this.$router.back();
     },
 
     createPostData() {

@@ -7,7 +7,7 @@
       </router-link>
     </h1>
 
-    <v-row v-if="tasks.length === 0">
+    <v-row v-if="$store.state.taskOfCurrentProject.length === 0">
       <v-spacer></v-spacer>
       <v-col cols="8" sm="4" class="align-center">
         <v-alert class="red lighten-2">
@@ -46,7 +46,7 @@
           </th>
         </thead>
         <tbody>
-          <tr v-for="task in tasks" :key="task._id">
+          <tr v-for="task in $store.state.taskOfCurrentProject" :key="task._id">
             <td>{{ task._id }}</td>
             <td>{{ task.name }}</td>
             <td>{{ task.idUs }}</td>
@@ -61,6 +61,7 @@
             </td>
             <td>{{ task.time }}</td>
             <td>
+
               {{ task.dev }}
             </td>
             <td>{{ task.state }}</td>
@@ -72,9 +73,6 @@
 </template>
 
 <script>
-import { serverurl, port } from "../../config/backend.config";
-import axios from "axios";
-
 export default {
   props: {
     idProject: String,
@@ -85,13 +83,7 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get(
-        `http://${serverurl}:${port}/project/${this.idProject}/task/display/${this.idProject}`
-      )
-      .then((res) => {
-        if (res.data) this.tasks = res.data;
-      });
+    this.$store.commit("GET_TASK_OF_PROJECT", this.idProject);
   },
 };
 </script>
