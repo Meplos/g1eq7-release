@@ -170,10 +170,12 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/task/create/`,
           this.createPostData()
         )
+
         .then(() => {
           this.$store.commit("GET_TASK_OF_PROJECT", this.idProject);
           this.$router.back();
         });
+
     },
     modify() {
       axios
@@ -195,7 +197,7 @@ export default {
         name: this.name,
         description: this.description,
         dependencies: this.dependencies,
-        dev: this.devs,
+        dev: this.dev,
         time: this.time,
         state: this.state,
         idProject: this.idProject,

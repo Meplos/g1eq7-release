@@ -43,6 +43,9 @@
             <th class="text-left" id="sprint">
               Sprint
             </th>
+            <th class="text-left" id="state">
+              State
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -66,6 +69,7 @@
             <td>{{ us.priority }}</td>
             <td>{{ us.difficulty }}</td>
             <td>{{ us.sprintId }}</td>
+            <td>{{ us.state }}</td>
           </tr>
         </tbody>
       </template>

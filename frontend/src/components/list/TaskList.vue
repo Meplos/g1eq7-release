@@ -53,15 +53,16 @@
             <td>
               <div v-if="task.dependencies.length === 0">\</div>
               <div
-                v-for="dependency in task.dependecies"
-                :key="dependency.index"
+                v-for="(dependency,index) in task.dependecies"
+                :key="index"
               >
                 {{ dependency }}
               </div>
             </td>
             <td>{{ task.time }}</td>
             <td>
-              <div v-for="dev in task.dev" :key="dev">{{ dev }} <br /></div>
+
+              {{ task.dev }}
             </td>
             <td>{{ task.state }}</td>
           </tr>
