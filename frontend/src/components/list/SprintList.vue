@@ -16,7 +16,7 @@
       </v-btn>
     </h1>
 
-    <v-row v-if="sprintList.length === 0">
+    <v-row v-if="$store.state.sprintOfCurrentProject.length === 0">
       <v-spacer></v-spacer>
       <v-col cols="8" sm="4">
         <v-alert class="red lighten-2">
@@ -45,7 +45,9 @@
           Unplannified
         </h2>
         <div class="sprint__info">
-          <p v-if="usList.lenght === 0">No US available</p>
+          <p v-if="$store.state.usOfCurrentProject.lenght === 0">
+            No US available
+          </p>
           <USCard
             v-else
             v-for="us in getUserStoriesIn(null)"
@@ -59,7 +61,7 @@
 
       <div
         class="sprint drop-zone"
-        v-for="(sprint, index) in sprintList"
+        v-for="(sprint, index) in $store.state.sprintOfCurrentProject"
         :key="sprint._id"
         @dragover.prevent
         @dragenter.prevent
@@ -95,12 +97,16 @@ export default {
   },
   methods: {
     getUserStoriesIn(id) {
-      return this.usList.filter((cur) => cur.sprintId === id);
+      return this.$store.state.usOfCurrentProject.filter(
+        (cur) => cur.sprintId === id
+      );
     },
 
     onDrop(evt, sprint) {
       const itemID = evt.dataTransfer.getData("usID");
-      const item = this.usList.find((it) => it._id === itemID);
+      const item = this.$store.state.usOfCurrentProject.find(
+        (it) => it._id === itemID
+      );
       if (!item) return;
       item.sprintId = sprint;
       if (sprint) {
@@ -111,33 +117,19 @@ export default {
       this.update(item);
     },
     update(us) {
-      axios.post(
-        `http://${serverurl}:${port}/project/${this.idProject}/us/${this.id}/modify/`,
-        us
-      );
+      axios
+        .post(
+          `http://${serverurl}:${port}/project/${this.idProject}/us/${this.id}/modify/`,
+          us
+        )
+        .then(() => {
+          this.$store.commit("GET_US_OF_PROJECT", this.idProject);
+        });
     },
   },
   mounted() {
-    axios
-      .get(
-        `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
-      )
-      .then((res) => {
-        const us = res.data;
-        if (us) {
-          this.usList = us;
-        }
-      });
-    axios
-      .get(
-        `http://${serverurl}:${port}/project/${this.idProject}/sprint/display/${this.idProject}`
-      )
-      .then((res) => {
-        const sprint = res.data;
-        if (sprint) {
-          this.sprintList = sprint;
-        }
-      });
+    this.$store.commit("GET_US_OF_PROJECT", this.idProject);
+    this.$store.commit("GET_SPRINT_OF_PROJECT", this.idProject);
   },
 };
 </script>

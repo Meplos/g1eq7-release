@@ -194,7 +194,10 @@ export default {
       const body = this.createPostBody();
       axios
         .post(`http://${serverurl}:${port}/project/create`, body)
-        .then(this.$router.push({ name: "Home" }));
+        .then(() => {
+          this.$store.commit("GET_ALL_PROJECT");
+          this.$router.push({ name: "Home" });
+        });
       console.log(`create : ${body}`);
     },
     modify() {
@@ -203,7 +206,10 @@ export default {
           `http://${serverurl}:${port}/project/${this.$route.params.idProject}/modify`,
           this.createPostBody()
         )
-        .then(this.$router.push({ name: "Home" }));
+        .then(() => {
+          this.$store.commit("GET_ALL_PROJECT");
+          this.$router.push({ name: "Home" });
+        });
       console.log(`modify : ${this.title}`);
     },
     cancel() {

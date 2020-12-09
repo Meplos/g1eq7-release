@@ -6,7 +6,7 @@
     </router-link>
     <div
       class="projectList__item"
-      v-for="project in projects"
+      v-for="project in $store.state.projects"
       :key="project.id"
     >
       <v-row>
@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import { serverurl, port } from "../../config/backend.config";
-import axios from "axios";
+//import { serverurl, port } from "../../config/backend.config";
+//import axios from "axios";
 export default {
   data() {
     return {
@@ -68,9 +68,10 @@ export default {
   },
   methods: {},
   mounted() {
-    axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
+    /*axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
       this.projects = res.data.projectList;
-    });
+    });*/
+    this.$store.commit("GET_ALL_PROJECT");
   },
 };
 </script>

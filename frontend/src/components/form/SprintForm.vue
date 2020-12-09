@@ -135,13 +135,21 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/sprint/create`,
           this.createPostBody()
         )
-        .then(() => this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_SPRINT_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     modify() {
-      axios.post(
-        `ĥttp://${serverurl}:${port}/project/${this.idProject}/sprint/${this.id}/modify`,
-        this.createPostBody()
-      );
+      axios
+        .post(
+          `http://${serverurl}:${port}/project/${this.idProject}/sprint/${this.id}/modify`,
+          this.createPostBody()
+        )
+        .then(() => {
+          this.$store.commit("GET_SPRINT_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     cancel() {
       this.$router.back();

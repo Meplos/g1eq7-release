@@ -7,11 +7,11 @@
         fab
         @click="$router.push({ name: 'CreateUS' })"
       >
-        <v-icon> mdi-plus</v-icon>
+        <v-icon>mdi-plus</v-icon>
       </v-btn>
     </h1>
 
-    <v-row v-if="usList.length === 0">
+    <v-row v-if="$store.state.usOfCurrentProject.length === 0">
       <v-spacer></v-spacer>
       <v-col cols="8" sm="4" class="align-center">
         <v-alert class="red lighten-2">
@@ -47,7 +47,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="(us, index) in usList"
+            v-for="(us, index) in $store.state.usOfCurrentProject"
             :key="us._id"
             @click="
               $router.push({
@@ -73,8 +73,8 @@
   </div>
 </template>
 <script>
-import { serverurl, port } from "../../config/backend.config";
-import axios from "axios";
+// import { serverurl, port } from "../../config/backend.config";
+// import axios from "axios";
 
 export default {
   props: {
@@ -86,7 +86,7 @@ export default {
     };
   },
   mounted() {
-    axios
+    /* axios
       .get(
         `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
       )
@@ -95,7 +95,8 @@ export default {
         if (us) {
           this.usList = us;
         }
-      });
+      });*/
+    this.$store.commit("GET_US_OF_PROJECT", this.idProject);
   },
 };
 </script>
