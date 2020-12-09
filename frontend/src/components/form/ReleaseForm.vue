@@ -1,6 +1,8 @@
 <template>
   <div class="releaseForm">
-    <h1>Release Form 🍄</h1>
+    <h1 v-if="isEdit">Modify Release</h1>
+    <h1 v-else>Create Release</h1>
+
 
     <v-form v-model="valid" lazy-validation ref="form">
       <v-row>
@@ -43,7 +45,7 @@
       </v-row>
 
       <v-row>
-        <v-col cols="4">
+        <v-col cols="8">
           <v-select
             filled
             id="allUS"

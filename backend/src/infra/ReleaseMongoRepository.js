@@ -31,6 +31,7 @@ async function getOneRelease(releaseId) {
 async function getReleaseOfProject(projectId) {
   let releases = [];
   await Model.Release.find({ idProject: mongoose.Types.ObjectId(projectId) })
+    .sort({ create_at: -1 })
     .exec()
     .then((res) => (releases = res));
   return releases;

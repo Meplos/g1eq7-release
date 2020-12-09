@@ -15,10 +15,12 @@ exports.createRelease = (req, res) => {
   const release = createReleaseObject(req);
   release._id = null;
   console.log(release);
-  ReleaseMongoRepository.createRelease(release).then((result) => {
-    release._id = result._id;
-    res.status(201).send(release);
-  });
+  ReleaseMongoRepository.createRelease(release)
+    .then((result) => {
+      release._id = result._id;
+      res.status(201).send(release);
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.modifyRelease = (req, res) => {

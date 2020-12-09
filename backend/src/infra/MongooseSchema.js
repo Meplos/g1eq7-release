@@ -66,7 +66,7 @@ const taskSchema = mongoose.Schema({
     ref: "UserStory",
     required: true,
   },
-  dateEnd: Date
+  dateEnd: Date,
 });
 
 const Task = mongoose.model("Task", taskSchema);
@@ -94,6 +94,10 @@ const releaseSchema = mongoose.Schema({
     required: true,
     type: mongoose.Schema.Types.ObjectId,
     ref: "Project",
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
   },
 });
 
