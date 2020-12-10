@@ -36,7 +36,7 @@
 
     <div class="sprint__list" v-else>
       <div
-        class="sprint drop-zone"
+        class="sprint__unplannified sprint"
         @drop="onDrop($event, null)"
         @dragover.prevent
         @dragenter.prevent
@@ -44,23 +44,24 @@
         <h2>
           Unplannified
         </h2>
-        <div class="sprint__info">
-          <p v-if="$store.state.usOfCurrentProject.lenght === 0">
-            No US available
-          </p>
-          <USCard
-            v-else
-            v-for="us in getUserStoriesIn(null)"
-            :key="us._id"
-            :us="us"
-            draggable
-            @dragstart="startDrag($event, us)"
-          />
+        <div class="sprint drop-zone">
+          <div class="sprint__info">
+            <p v-if="$store.state.usOfCurrentProject.lenght === 0">
+              No US available
+            </p>
+            <USCard
+              v-else
+              v-for="us in getUserStoriesIn(null)"
+              :key="us._id"
+              :us="us"
+              draggable
+              @dragstart="startDrag($event, us)"
+            />
+          </div>
         </div>
       </div>
-
       <div
-        class="sprint drop-zone"
+        class="sprint"
         v-for="(sprint, index) in $store.state.sprintOfCurrentProject"
         :key="sprint._id"
         @dragover.prevent
@@ -68,12 +69,31 @@
         @drop="onDrop($event, sprint._id)"
       >
         <h2>Sprint {{ index }}</h2>
-        <div class="sprint__info">
-          <USCard
-            v-for="us in getUserStoriesIn(sprint._id)"
-            :key="us._id"
-            :us="us"
-          />
+        <h3>
+          Start:{{ sprint.start_date }} - End: {{ sprint.end_date }} | State :
+          {{ sprint.state }}
+          <v-btn
+            icon
+            small
+            color="warning"
+            @click="
+              $router.push({
+                name: 'ModifySprint',
+                params: { sprint: sprint, isEdit: true },
+              })
+            "
+          >
+            <v-icon>mdi-pen</v-icon></v-btn
+          >
+        </h3>
+        <div class="drop-zone">
+          <div class="sprint__info">
+            <USCard
+              v-for="us in getUserStoriesIn(sprint._id)"
+              :key="us._id"
+              :us="us"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -112,7 +132,7 @@ export default {
       if (sprint) {
         item.state = "PLANNIFIED";
       } else {
-        item.state = "OPEN";
+        item.state = "COMMING";
       }
       this.update(item);
     },
@@ -125,6 +145,10 @@ export default {
         .then(() => {
           this.$store.commit("GET_US_OF_PROJECT", this.idProject);
         });
+    },
+    getSprintClass(sprint) {
+      if (sprint.state === "CLOSE") return "error";
+      if (sprint.state === "CURRENT") return "success";
     },
   },
   mounted() {
@@ -139,6 +163,12 @@ export default {
   margin: 15px;
   padding-bottom: 10px;
   background: #313131;
+  box-sizing: border-box;
+  border-radius: 36px;
+}
+.drop__zone {
+  margin: 15px;
+  padding-bottom: 10px;
   box-sizing: border-box;
   border-radius: 36px;
 }

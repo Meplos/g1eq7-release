@@ -16,7 +16,7 @@ const DBNAME = "cdp";
 const HOST = "mongodb:27017";
 const HOST_LOCAL = "localhost";
 
-mongoose.connect(`mongodb://${HOST_LOCAL}/${DBNAME}`, {
+mongoose.connect(`mongodb://${HOST}/${DBNAME}`, {
   useNewUrlParser: true,
 });
 const db = mongoose.connection;

@@ -12,23 +12,37 @@
         </v-btn>
       </h1>
     </div>
+    <v-row v-if="$store.state.releaseOfCurrentProject.length === 0">
+      <v-spacer></v-spacer>
+      <v-col cols="8" sm="4" class="align-center">
+        <v-alert class="red lighten-2">
+          No Release?
+          <router-link :to="{ name: 'CreateRelease' }">
+            Create one here
+          </router-link>
+        </v-alert>
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
 
-    <div
+    <v-row
       class="release__info"
       v-for="release in $store.state.releaseOfCurrentProject"
       :key="release._id"
     >
-      <Release
-        @click="
-          $router.push({
-            name: 'ModifyRelease',
-            params: { isEdit: true, release: release },
-          })
-        "
-        :release="release"
-        :usList="getUsOfRelease(release)"
-      />
-    </div>
+      <v-col col="4">
+        <Release
+          @click="
+            $router.push({
+              name: 'ModifyRelease',
+              params: { isEdit: true, release: release },
+            })
+          "
+          :release="release"
+          :usList="getUsOfRelease(release)"
+        />
+      </v-col>
+    </v-row>
   </div>
 </template>
 

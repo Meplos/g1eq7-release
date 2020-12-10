@@ -1,8 +1,15 @@
 <template>
-  <div class="usCard__container" draggable @dragstart="startDrag($event)">
-    <h1>{{ us.id }}</h1>
-    <p>{{ us.description }}</p>
-  </div>
+  <v-card
+    class="usCard__container justify-center"
+    max-width="230"
+    max-height="230"
+    draggable
+    @dragstart="startDrag($event)"
+  >
+    <v-card-text>
+      <div class="text--primary">{{ us.description }}</div>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
@@ -23,8 +30,6 @@ export default {
 
 <style>
 .usCard__container {
-  width: 145px;
-  height: 195px;
   margin: 6px;
   background: #413d3d;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
