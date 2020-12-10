@@ -103,8 +103,8 @@
           let tabFinal = [];
           let point0 = this.datacollection.datasets[0].data[0];
           tabFinal[0] = point0;
-          for(let z =0;z<=this.nbPoints;z++){
-            tabFinal[z] = tabBase[z] - tab[z];
+          for(let z =1;z<=this.nbPoints;z++){
+            tabFinal[z] = tabBase[z-1] - tab[z];
           }
 
           //uniformisation du tabFinal
