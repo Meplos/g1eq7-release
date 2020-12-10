@@ -4,39 +4,55 @@
     <router-link :to="{ name: 'CreateProject' }">
       <v-btn color="success"><v-icon left>mdi-plus</v-icon> New project</v-btn>
     </router-link>
-    <div
-      class="projectList__item"
-      v-for="project in $store.state.projects"
-      :key="project.id"
-    >
-      <v-row>
-        <v-col cols="12" sm="4">
-          <router-link
-            :to="{
-              name: 'Project',
-              params: { idProject: project._id, project: project },
-            }"
-          >
-            <v-card elevation="2" class="projectCard" id="projet">
-              <v-card-title>
-                {{ project.name }}
-              </v-card-title>
-              <v-card-text>
-                <div class="start">Start : {{ project.start_date }}</div>
-                <div class="end" v-if="project.end_date">
-                  End : {{ project.end_date }}
-                </div>
-                <div clas s="state">
-                  {{ project.state }}
-                </div>
-              </v-card-text>
-            </v-card>
+
+    <v-row v-if="$store.state.projects.length === 0">
+      <v-spacer></v-spacer>
+      <v-col cols="8" class="align-center justify-center">
+        <v-alert class="red lighten-2">
+          No Project?
+          <router-link :to="{ name: 'CreateProject' }">
+            Create one here
           </router-link>
-          <div class="modify-btn">
+        </v-alert>
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
+    <v-row class="mt-10" v-else>
+      <v-col
+        cols="2"
+        v-for="project in $store.state.projects"
+        :key="project.id"
+        class="justify-center"
+      >
+        <v-card
+          elevation="22"
+          class="projectCard mx-auto"
+          id="projet"
+          shaped
+          max-width="350"
+        >
+          <v-card-title
+            primary-title
+            class="name justify-center"
+            v-text="project.name"
+          />
+          <v-card-subtitle>
+            <p v-if="project.end_date" class="text--primary">
+              {{ project.start_date }} - {{ project.end_date }}
+            </p>
+            <p v-else>{{ project.start_date }}</p>
+          </v-card-subtitle>
+          <v-card-text>
+            <div class="state text--primary">
+              {{ project.state }}
+            </div>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
             <v-btn
-              class="mr-6"
+              class="edit"
               color="warning"
-              fab
+              text
               @click="
                 $router.push({
                   name: 'ModifyProject',
@@ -48,36 +64,38 @@
                 })
               "
             >
-              <v-icon>mdi-pencil</v-icon>
+              Edit
             </v-btn>
-          </div>
-        </v-col>
-      </v-row>
-    </div>
+            <v-btn
+              color="primary open"
+              text
+              @click="
+                $router.push({
+                  name: 'Project',
+                  params: { idProject: project._id, project: project },
+                })
+              "
+            >
+              Open
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
-//import { serverurl, port } from "../../config/backend.config";
-//import axios from "axios";
 export default {
   data() {
     return {
       projects: null,
     };
   },
-  methods: {},
   mounted() {
-    /*axios.get(`http://${serverurl}:${port}/project`, {}).then((res) => {
-      this.projects = res.data.projectList;
-    });*/
     this.$store.commit("GET_ALL_PROJECT");
   },
 };
 </script>
 
-<style>
-a {
-  text-decoration: none !important;
-}
-</style>
+<style></style>
