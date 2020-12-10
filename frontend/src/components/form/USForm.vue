@@ -198,7 +198,7 @@ export default {
             difficulty: this.difficulty,
             idProject: this.idProject,
             sprintId: this.sprintId,
-            dateClose: new Date(),
+            dateClose: this.dateClose ? this.dateClose : new Date(),
           };
         }else{
           if(this.us.state == "CLOSED" && this.state != "CLOSED"){
@@ -217,7 +217,7 @@ export default {
             _id: this.id,
             description: this.description,
             priority: this.priority,
-            state: this.state,
+            state: this.dateClose ? "CLOSED" : this.state,
             difficulty: this.difficulty,
             idProject: this.idProject,
             sprintId: this.sprintId,
