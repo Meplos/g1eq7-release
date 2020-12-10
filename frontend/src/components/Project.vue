@@ -1,66 +1,68 @@
 <template>
   <div class="projectVue">
     <div class="project__info">
-      <h1 id="name">{{ name }}</h1>
-      <div class="project__info">
-        <v-row class="project__infoDate">
-          <v-col cols="12" sm="6" id="start"> Start: {{ start }} </v-col>
-          <v-col cols="12" sm="6" id="end" v-if="end"> End: {{ end }} </v-col>
-        </v-row>
-        <v-row v-if="git.trim().length > 0">
-          <p id="git"><v-icon> mdi-github</v-icon> {{ git }}</p>
-          <p></p
-        ></v-row>
-        <v-row class="project__infoDescription">
-          <v-col
-            cols="12"
-            class="text-justify font-weight-bold"
-            id="description"
-          >
+      <v-card>
+        <v-card-title primary-title class="justify-center">
+          <div>
+            <h1 class="display-1">{{ name }}</h1>
+          </div>
+          <div v-if="git.trim().length > 0">
+            <v-btn color="primary" icon x-large @click="openGit()">
+              <v-icon> mdi-github</v-icon>
+            </v-btn>
+          </div>
+        </v-card-title>
+        <v-card-subtitle class="pb-0">
+          <div id="start">Start: {{ start }}</div>
+          <div id="end" v-if="end">End: {{ end }}</div>
+        </v-card-subtitle>
+        <v-card-text class="text--primary">
+          <div id="description">
             {{ description }}
-          </v-col>
-        </v-row>
-        <v-row class="progress">
-          <v-col cols="4">
-            <Progress
-              v-bind="{ idProject: $route.params.idProject, component: 'US' }"
-            ></Progress>
-          </v-col>
-          <v-col cols="4">
-            <Progress
-              v-bind="{
-                idProject: $route.params.idProject,
-                component: 'Tasks',
-              }"
-            ></Progress>
-          </v-col>
-          <v-col cols="4">
-            <Progress
-              v-bind="{
-                idProject: $route.params.idProject,
-                component: 'Sprint',
-              }"
-            ></Progress>
-          </v-col>
-        </v-row>
+          </div>
+        </v-card-text>
+      </v-card>
+      <v-row class="progress">
         <v-spacer></v-spacer>
-      </div>
-
-      <template>
-        <v-tabs v-model="tab">
-          <v-tab v-for="item in items" :key="item.tab"> {{ item.tab }}</v-tab>
-        </v-tabs>
-        <v-tabs-items v-model="tab">
-          <v-tab-item v-for="item in items" :key="item.tab">
-            <component
-              :is="item.content"
-              v-bind="{ idProject: $route.params.idProject }"
-            ></component>
-          </v-tab-item>
-        </v-tabs-items>
-      </template>
-      <router-view />
+        <v-col cols="4">
+          <Progress
+            v-bind="{ idProject: $route.params.idProject, component: 'US' }"
+          ></Progress>
+        </v-col>
+        <v-col cols="4">
+          <Progress
+            v-bind="{
+              idProject: $route.params.idProject,
+              component: 'Tasks',
+            }"
+          ></Progress>
+        </v-col>
+        <v-col cols="4">
+          <Progress
+            v-bind="{
+              idProject: $route.params.idProject,
+              component: 'Sprint',
+            }"
+          ></Progress>
+        </v-col>
+      </v-row>
+      <v-spacer></v-spacer>
     </div>
+
+    <template>
+      <v-tabs v-model="tab">
+        <v-tab v-for="item in items" :key="item.tab"> {{ item.tab }}</v-tab>
+      </v-tabs>
+      <v-tabs-items v-model="tab">
+        <v-tab-item v-for="item in items" :key="item.tab">
+          <component
+            :is="item.content"
+            v-bind="{ idProject: $route.params.idProject }"
+          ></component>
+        </v-tab-item>
+      </v-tabs-items>
+    </template>
+
     <div class="burndownchart-btn">
       <v-col cols="12" sm="12">
         <v-btn
@@ -74,8 +76,9 @@
               },
             })
           "
-          >Générer Burndown Chart</v-btn
         >
+          Générer Burndown Chart
+        </v-btn>
       </v-col>
     </div>
   </div>
@@ -139,6 +142,11 @@ export default {
         { tab: "Burndown chart", content: "Burndownchart" },
       ],
     };
+  },
+  methods: {
+    openGit() {
+      window.open(this.git, "_blank");
+    },
   },
   mounted() {
     if (!this.project && this.$route.params.idProject) {
