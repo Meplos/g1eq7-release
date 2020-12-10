@@ -28,7 +28,7 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col cols="12" sm="8">
+        <v-col cols="12" sm="3">
           <v-select
             :items="numberList"
             label="Priority"
@@ -36,15 +36,52 @@
             filled
           />
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" sm="8">
+        <v-col cols="12" sm="3">
           <v-select
             :items="numberList"
             label="Difficulty"
             v-model="difficulty"
             filled
           />
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="12" sm="4">
+          <!-- End date datepicker -->
+          <v-menu
+            ref="menuEnd"
+            v-model="menuEnd"
+            :close-on-content-click="false"
+            :return-value.sync="dateClose"
+            transition="scale-transition"
+            offset-y
+            min-width="290px"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                v-model="dateClose"
+                label="Estimated end date"
+                prepend-icon="mdi-calendar"
+                readonly
+                v-bind="attrs"
+                v-on="on"
+                filled
+              ></v-text-field>
+            </template>
+            <v-date-picker v-model="dateClose" no-title scrollable>
+              <v-spacer></v-spacer>
+              <v-btn text color="primary" @click="menuEnd = false">
+                Cancel
+              </v-btn>
+              <v-btn
+                text
+                color="primary"
+                @click="$refs.menuEnd.save(dateClose)"
+              >
+                OK
+              </v-btn>
+            </v-date-picker>
+          </v-menu>
         </v-col>
       </v-row>
       <v-row>
@@ -94,6 +131,7 @@ export default {
       sprintId: this.us ? this.us.sprintId : null,
       dateClose: this.us ? this.us.dateClose : null,
 
+      menuEnd: false,
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
       numberList: [1, 2, 3, 4, 5],
       usRegExHead: new RegExp("^As a"),
