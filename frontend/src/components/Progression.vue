@@ -42,7 +42,7 @@ export default {
                             } 
                         }
                         console.log('Closed : '+closed);
-                        this.value=(closed/size)*100
+                        this.value=Math.round((closed/size)*100)
                         this.percent=this.value.toString()+"%";
                     }
                     else{
@@ -64,7 +64,7 @@ export default {
                             } 
                         }
                         console.log('Done : '+done);
-                        this.value=(done/size)*100
+                        this.value=Math.round((done/size)*100)
                         this.percent=this.value.toString()+"%";
                     }
                     else{
@@ -88,7 +88,7 @@ export default {
                             } 
                         }
                         console.log('Closed : '+closed);
-                        this.value=(closed/size)*100
+                        this.value=Math.round((closed/size)*100)
                         this.percent=this.value.toString()+"%";
                     }
                     else{
