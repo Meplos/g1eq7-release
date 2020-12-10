@@ -2,7 +2,9 @@
   <div class="kanban__container">
     <h1>Kanban</h1>
     <div class="dark">
-      <v-row class="mr-16 ml-16 justify-space-between">
+      <v-row
+        class="mr-16 ml-16 justify-space-between min-h-screen overflow-x-scroll py-12"
+      >
         <v-col cols="4" v-for="state in stateList" :key="state">
           <h2>{{ state }}</h2>
           <v-sheet
@@ -59,7 +61,7 @@ export default {
       item.state = state;
       if (state == "DONE") {
         item.endDate = new Date();
-        console.log("ffffffff"+item.endDate);
+        console.log("ffffffff" + item.endDate);
       } else {
         item.endDate = null;
       }

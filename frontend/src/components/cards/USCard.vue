@@ -1,6 +1,7 @@
 <template>
   <v-card
     class="usCard__container justify-center"
+    :color="color"
     max-width="230"
     max-height="230"
     draggable
@@ -18,6 +19,12 @@ export default {
     us: Object,
   },
   mounted() {},
+  computed: {
+    color() {
+      const map = { OPEN: "error", PLANNIFIED: "warning", CLOSED: "success" };
+      return map[this.us.state];
+    },
+  },
   methods: {
     startDrag(evt) {
       evt.dataTransfer.dropEffect = "move";

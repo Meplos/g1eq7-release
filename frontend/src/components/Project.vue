@@ -91,6 +91,7 @@ import Progress from "./Progression";
 
 import { serverurl, port } from "../config/backend.config";
 import axios from "axios";
+import Burndownchart from "./Burndownchart.vue";
 export default {
   props: {
     project: Object,
@@ -103,6 +104,7 @@ export default {
     Kanban,
     ReleaseList,
     Progress,
+    Burndownchart,
   },
 
   data() {
@@ -134,6 +136,7 @@ export default {
           content: "Kanban",
         },
         { tab: "Release", content: "ReleaseList" },
+        { tab: "Burndown chart", content: "Burndownchart" },
       ],
     };
   },
