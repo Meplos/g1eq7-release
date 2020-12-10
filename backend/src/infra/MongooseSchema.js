@@ -45,6 +45,7 @@ const usSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Sprint",
   },
+  dateClose: Date
 });
 
 const UserStory = mongoose.model("UserStory", usSchema);
