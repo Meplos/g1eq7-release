@@ -37,7 +37,7 @@
             v-text="project.name"
           />
           <v-card-subtitle>
-            <p v-if="project.end_date" class="text--primary">
+            <p v-if="project.end_date" class="text--primary" id="start_end">
               {{ project.start_date }} - {{ project.end_date }}
             </p>
             <p v-else>{{ project.start_date }}</p>

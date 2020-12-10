@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "qunit"
+    "test": "qunit",
+    "display-test": "node test/displayTests/t2.js && node test/displayTests/t3_1.js && node test/displayTests/t11.js && node test/displayTests/t13.js"
+
   },
   "dependencies": {
     "@vuejs-community/vue-filter-date-format": "^1.6.3",

@@ -41,7 +41,7 @@ fetch("http://localhost:3000/project/create", {
 })
 .then(() => driver.get("http://localhost:8080"))
 .then(() => driver.sleep(2000))
-.then(() => driver.findElements(By.id("projet")))
+.then(() => driver.findElements(By.className("v-btn v-btn--flat v-btn--text theme--dark v-size--default primary--text text--open")))
 .then((projets) => projets[projets.length-1])
 .then((lastProject) => lastProject.click())
 .then(() => driver.sleep(2000))

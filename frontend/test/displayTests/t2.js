@@ -20,7 +20,7 @@ fetch('http://localhost:3000/project')
     driver.get('http://localhost:8080/');
 })
 .then(() => driver.sleep(2000))
-.then(() => driver.findElements(By.className("projectList__item")) )
+.then(() => driver.findElements(By.className("projectCard mx-auto v-card v-sheet v-sheet--shaped theme--dark elevation-22")) )
 .then((projects) => {
     driver.quit();
     if(projects.length==count){
