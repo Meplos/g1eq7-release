@@ -29,13 +29,13 @@
               type:'line',
               label: 'Ideal Task Remaining',
               //backgroundColor: '#f87979',
-              pointBackgroundColor: 'white',
+              pointBackgroundColor: 'green',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
               data: [],
             },{
               label: 'Actual Task Remaining',
-              //backgroundColor: '#A12323',
+              backgroundColor: '#A12323',
               pointBackgroundColor: 'white',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
@@ -78,18 +78,44 @@
             return total;
         },
         getPointsActual(){
+          //let dateAuj = new Date();
+          //let nbD
+          //console.log(dateToday);
+          //initialization tabs de base
           let tab = [];
+          let tabBase = [];
+          for(let y =0;y<=this.nbPoints;y++){
+            tabBase[y] = this.datacollection.datasets[0].data[0];
+            tab[y] = 0;
+          }
+
+          //initialization tab somme difficulty us closed by day
           let dateStartProjet = this.start;
-          let point0 = this.datacollection.datasets[0].data[0];
-          tab[0] = point0;
           for(let i =0;i<=this.usTab.length-1;i++){
             if(this.usTab[i].state == "CLOSED"){
-              let dif = this.getNbDaysBetween(dateStartProjet,this.usTab[i].dateClose);
-              console.log("dif"+dif);
+              let dif = this.getNbDaysBetween(dateStartProjet,this.usTab[i].dateClose)+1;
+              tab[dif] = tab[dif] + this.usTab[i].difficulty;
+              console.log("tabDif"+tab[dif]+ dif);
             }
-            
           }
-          return tab;
+
+          //calcul différence tab et tabBase par jours
+          let tabFinal = [];
+          let point0 = this.datacollection.datasets[0].data[0];
+          tabFinal[0] = point0;
+          for(let z =0;z<=this.nbPoints;z++){
+            tabFinal[z] = tabBase[z] - tab[z];
+          }
+
+          //uniformisation du tabFinal
+          for(let g = 1;g<=tabFinal.length;g++){
+            if(tabFinal[g] == point0){
+              if(tabFinal[g-1] < tabFinal[g]){
+                tabFinal[g] = null;
+              }
+            }
+          }
+          return tabFinal;
         },
         getPointsIdeal(){
             this.datacollection.labels = this.getLabels();
@@ -98,10 +124,8 @@
             let tab = [];
             tab[0] = point1;
             let dif= point1/(this.nbPoints-1);
-            console.log(dif);
             for(let i =1;i<=this.nbPoints;i++){
                 tab[i] = point1-(i*dif);
-                console.log(tab[i]);
             }
             tab[this.nbPoints-1] = point2;
             
