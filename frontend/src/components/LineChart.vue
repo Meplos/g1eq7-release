@@ -27,14 +27,15 @@
           datasets: [
             {
               type:'line',
-              label: 'Ideal Task Remaining',
+              
+              label: 'Ideal Task Remaining (Difficulty US)',
               //backgroundColor: '#f87979',
               pointBackgroundColor: 'green',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
               data: [],
             },{
-              label: 'Actual Task Remaining',
+              label: 'Actual Task Remaining (Difficulty US)',
               backgroundColor: '#A12323',
               pointBackgroundColor: 'white',
               borderWidth: 1,
@@ -47,6 +48,10 @@
             type:'line',
           scales: {
             yAxes: [{
+              scaleLabel:{
+                display: true,
+                labelString: "Difficulty of US"
+              },
               ticks: {
                 beginAtZero: true
               },
@@ -55,6 +60,13 @@
               }
             }],
             xAxes: [ {
+              scaleLabel:{
+                display: true,
+                labelString: "Project's days"
+              },
+              ticks: {
+                beginAtZero: true
+              },
               gridLines: {
                 display: false
               }
@@ -65,7 +77,7 @@
           },
           responsive: true,
           maintainAspectRatio: false
-        }
+        },
       }
     },
     methods: {
@@ -78,13 +90,15 @@
             return total;
         },
         getPointsActual(){
-          //let dateAuj = new Date();
-          //let nbD
-          //console.log(dateToday);
+          
+          //calcul point actuel
+          let dateAuj = new Date();
+          let nbDayStar = this.getNbDaysBetween(this.start,dateAuj );
+
           //initialization tabs de base
           let tab = [];
           let tabBase = [];
-          for(let y =0;y<=this.nbPoints;y++){
+          for(let y =0;y<nbDayStar+1;y++){
             tabBase[y] = this.datacollection.datasets[0].data[0];
             tab[y] = 0;
           }
@@ -95,7 +109,6 @@
             if(this.usTab[i].state == "CLOSED"){
               let dif = this.getNbDaysBetween(dateStartProjet,this.usTab[i].dateClose)+1;
               tab[dif] = tab[dif] + this.usTab[i].difficulty;
-              console.log("tabDif"+tab[dif]+ dif);
             }
           }
 
@@ -104,17 +117,21 @@
           let point0 = this.datacollection.datasets[0].data[0];
           tabFinal[0] = point0;
           for(let z =1;z<=this.nbPoints;z++){
-            tabFinal[z] = tabBase[z-1] - tab[z];
+            tabFinal[z] = tabFinal[z-1] - tab[z];
+            if(tab[z]==0){
+              tabFinal[z] = tabFinal[z-1];
+            }
           }
 
           //uniformisation du tabFinal
-          for(let g = 1;g<=tabFinal.length;g++){
-            if(tabFinal[g] == point0){
-              if(tabFinal[g-1] < tabFinal[g]){
-                tabFinal[g] = null;
+          for(let g = 1;g<=nbDayStar;g++){
+              if(tabFinal[g] == point0){
+                if(tabFinal[g-1] < tabFinal[g]){
+                  tabFinal[g] = tabFinal[g-1];
+                }
               }
-            }
           }
+          
           return tabFinal;
         },
         getPointsIdeal(){
