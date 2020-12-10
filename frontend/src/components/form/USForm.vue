@@ -92,6 +92,7 @@ export default {
       idProject: this.us ? this.us.idProject : this.$route.params.idProject,
       id: this.us ? this.us._id : null,
       sprintId: this.us ? this.us.sprintId : null,
+      dateClose: this.us ? this.us.dateClose : null,
 
       stateList: ["OPEN", "PLANNIFIED", "CLOSED"],
       numberList: [1, 2, 3, 4, 5],
@@ -149,15 +150,43 @@ export default {
     },
 
     createPostData() {
-      return {
-        _id: this.id,
-        description: this.description,
-        priority: this.priority,
-        state: this.state,
-        difficulty: this.difficulty,
-        idProject: this.idProject,
-        sprintId: this.sprintId,
-      };
+      if(this.us.state != "CLOSED" && this.state == "CLOSED"){
+        return {
+          _id: this.id,
+          description: this.description,
+          priority: this.priority,
+          state: this.state,
+          difficulty: this.difficulty,
+          idProject: this.idProject,
+          sprintId: this.sprintId,
+          dateClose: new Date(),
+        };
+      }else{
+        if(this.us.state == "CLOSED" && this.state != "CLOSED"){
+          return {
+          _id: this.id,
+          description: this.description,
+          priority: this.priority,
+          state: this.state,
+          difficulty: this.difficulty,
+          idProject: this.idProject,
+          sprintId: this.sprintId,
+          dateClose: null
+        };
+        }else{
+          return {
+          _id: this.id,
+          description: this.description,
+          priority: this.priority,
+          state: this.state,
+          difficulty: this.difficulty,
+          idProject: this.idProject,
+          sprintId: this.sprintId,
+          dateClose: this.dateClose,
+        };
+        }
+      }
+      
     },
   },
   mounted() {},
