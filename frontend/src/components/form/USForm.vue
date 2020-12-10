@@ -150,42 +150,70 @@ export default {
     },
 
     createPostData() {
-      if(this.us.state != "CLOSED" && this.state == "CLOSED"){
-        return {
-          _id: this.id,
-          description: this.description,
-          priority: this.priority,
-          state: this.state,
-          difficulty: this.difficulty,
-          idProject: this.idProject,
-          sprintId: this.sprintId,
-          dateClose: new Date(),
-        };
-      }else{
-        if(this.us.state == "CLOSED" && this.state != "CLOSED"){
+      if(this.us){
+        if(this.us.state != "CLOSED" && this.state == "CLOSED"){
           return {
-          _id: this.id,
-          description: this.description,
-          priority: this.priority,
-          state: this.state,
-          difficulty: this.difficulty,
-          idProject: this.idProject,
-          sprintId: this.sprintId,
-          dateClose: null
-        };
+            _id: this.id,
+            description: this.description,
+            priority: this.priority,
+            state: this.state,
+            difficulty: this.difficulty,
+            idProject: this.idProject,
+            sprintId: this.sprintId,
+            dateClose: new Date(),
+          };
+        }else{
+          if(this.us.state == "CLOSED" && this.state != "CLOSED"){
+            return {
+            _id: this.id,
+            description: this.description,
+            priority: this.priority,
+            state: this.state,
+            difficulty: this.difficulty,
+            idProject: this.idProject,
+            sprintId: this.sprintId,
+            dateClose: null
+          };
+          }else{
+            return {
+            _id: this.id,
+            description: this.description,
+            priority: this.priority,
+            state: this.state,
+            difficulty: this.difficulty,
+            idProject: this.idProject,
+            sprintId: this.sprintId,
+            dateClose: this.dateClose,
+            };
+          }
+        }
+      }else{
+        if(this.state != "CLOSED"){
+          return {
+            _id: this.id,
+            description: this.description,
+            priority: this.priority,
+            state: this.state,
+            difficulty: this.difficulty,
+            idProject: this.idProject,
+            sprintId: this.sprintId,
+            dateClose: null
+          };
         }else{
           return {
-          _id: this.id,
-          description: this.description,
-          priority: this.priority,
-          state: this.state,
-          difficulty: this.difficulty,
-          idProject: this.idProject,
-          sprintId: this.sprintId,
-          dateClose: this.dateClose,
-        };
+            _id: this.id,
+            description: this.description,
+            priority: this.priority,
+            state: this.state,
+            difficulty: this.difficulty,
+            idProject: this.idProject,
+            sprintId: this.sprintId,
+            dateClose: new Date(),
+          };
         }
+        
       }
+      
       
     },
   },

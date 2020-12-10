@@ -28,14 +28,14 @@
             {
               type:'line',
               label: 'Ideal Task Remaining',
-              backgroundColor: '#f87979',
+              //backgroundColor: '#f87979',
               pointBackgroundColor: 'white',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
               data: [],
             },{
               label: 'Actual Task Remaining',
-              backgroundColor: '#A12323',
+              //backgroundColor: '#A12323',
               pointBackgroundColor: 'white',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
@@ -77,6 +77,20 @@
             
             return total;
         },
+        getPointsActual(){
+          let tab = [];
+          let dateStartProjet = this.start;
+          let point0 = this.datacollection.datasets[0].data[0];
+          tab[0] = point0;
+          for(let i =0;i<=this.usTab.length-1;i++){
+            if(this.usTab[i].state == "CLOSED"){
+              let dif = this.getNbDaysBetween(dateStartProjet,this.usTab[i].dateClose);
+              console.log("dif"+dif);
+            }
+            
+          }
+          return tab;
+        },
         getPointsIdeal(){
             this.datacollection.labels = this.getLabels();
             let point1 = this.getNbComplexTotal(); 
@@ -92,6 +106,22 @@
             tab[this.nbPoints-1] = point2;
             
             return tab;
+        },
+        getNbDaysBetween(start,end){
+          let dateStart = Date.parse(start);
+          let dateEnd = Date.parse(end);
+          let diff = {};
+          let tmp = dateEnd - dateStart;
+          tmp = Math.floor(tmp/1000);
+          diff.sec = tmp % 60;
+          tmp = Math.floor((tmp-diff.sec)/60);
+          diff.min = tmp % 60;
+          tmp = Math.floor((tmp-diff.min)/60);    
+          diff.hour = tmp % 24;                   
+          tmp = Math.floor((tmp-diff.hour)/24); 
+          let difDay = tmp; 
+          console.log("day:"+difDay);
+          return difDay;
         },
         getLabels(){
            //recup labels x
@@ -150,6 +180,7 @@
             this.datacollection.labels = this.getLabels();
             console.log("dddd");
             this.datacollection.datasets[0].data = this.getPointsIdeal();
+            this.datacollection.datasets[1].data = this.getPointsActual();
             console.log("eeeee");
             console.log("sss"+this.getPointsIdeal());
             this.renderChart(this.datacollection, this.options);
