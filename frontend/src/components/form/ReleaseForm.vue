@@ -49,7 +49,11 @@
             filled
             id="allUS"
             label="Add user Stories"
-            :items="$store.state.usOfCurrentProject"
+            :items="
+              $store.state.usOfCurrentProject.filter(
+                (curr) => curr.state === 'CLOSED'
+              )
+            "
             :item-value="'_id'"
             :item-text="'description'"
             max-height="auto"

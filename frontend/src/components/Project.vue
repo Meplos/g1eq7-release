@@ -26,7 +26,10 @@
         <v-spacer></v-spacer>
         <v-col cols="4">
           <Progress
-            v-bind="{ idProject: $route.params.idProject, component: 'US' }"
+            v-bind="{
+              idProject: $route.params.idProject,
+              component: 'Backlog',
+            }"
           ></Progress>
         </v-col>
         <v-col cols="4">
