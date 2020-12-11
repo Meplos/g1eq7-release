@@ -37,6 +37,7 @@ Task :
     dependencies : string list
     devs : string list
     IdProject* : int
+    endProject : Date
 }
 
 Sprint : {

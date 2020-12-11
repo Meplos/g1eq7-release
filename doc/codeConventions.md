@@ -3,6 +3,7 @@
 ## Les commits :
 
 ### Cloisonnement
+
 1. Les commits doivent être cloisonnés par Task.
 2. Les commits doivent porter sur une seule préocupation.
 
@@ -11,24 +12,28 @@ Cela permet d'éviter de modifier des parties indépendantes du code, ce qui ren
 ### Nommage
 
 - Pour le **début** d'une tâche :
-"**<Id tâche>** Start (fonctionnalités implémentées)"
+  "**<Id tâche>** Start (fonctionnalités implémentées)"
+
 ```shell
 git commit -m "NF1 Start Create form"
 ```
 
 - Pour le **suivi** d'une tâche :
-"**<Id tâche>** fonctionnalités implémentées"
+  "**<Id tâche>** fonctionnalités implémentées"
+
 ```shell
 git commit -m "NF1 Add Button"
 ```
 
 - Pour **cloturer** une tâche :
-"**<Id tâche>** Done"
+  "**<Id tâche>** Done"
+
 ```shell
 git commit -m "NF1 Done"
 ```
 
 Une fois que la tâche est **terminée**, si elle nécessite des **modifications**, un commit pourra être effectué sous cette forme:
+
 ```shell
 git commit -m "NF1 Patch (fonctionnalité patchée)"
 ```
@@ -40,6 +45,7 @@ git commit -m "Patch (fonctionnalité patchée) NF1 TU20 NF33"
 ```
 
 Dans le cas ou le commit **ne concerne pas** une **tâche en particulier** (modification des fichiers md, docker, ect...) préciser juste explicitement les modifications apportées.
+
 ```shell
 git commit -m "Modify Task List"
 ```

@@ -1,13 +1,17 @@
 const TaskRepository = require("../../infra/TaskMongoRepository");
 exports.createTask = (req, res) => {
   const newTask = req.body;
-
+  console.log(newTask.dateEnd);
   TaskRepository.createTask(newTask)
-    .then((t) => {
-      newTask._id = t._id;
+    .then((_id) => {
+      console.log(_id);
+      newTask._id = _id;
       res.status("201").send(newTask);
     })
-    .catch(() => res.sendStatus(400));
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(400);
+    });
 };
 
 exports.modifyTask = (req, res) => {

@@ -26,13 +26,3 @@ services:
       - mongodb
     volumes:
       - ./backend:/usr/src/app/backend
-
-  chrome:
-    image: selenium/standalone-chrome
-    volumes:
-      - /dev/shm:/dev/shm
-    ports:
-      - "4444:4444"
-    depends_on:
-      - front
-      - back

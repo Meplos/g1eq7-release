@@ -452,7 +452,7 @@ TI11 : Project.vue existe et est testé
 | TU28     | US23    | 1          | NF28        |                 | TODO |
 | NF29     | US23    | 1          | NF26,T32    |                 | TODO |
 | TU29     | US23    | 1          | NF29        |                 | TODO |
-| NF30     | US25    | 3          | TI11        | Alix            | TODO |
+| NF30     | US25    | 3          | TI11        | Alix            | DONE |
 | TE2E30   | US25    | 2          | NF30        |                 | TODO |
 | NF31     | US25    | 3          | T30,TU17    |                 | TODO |
 | TE2E31   | US25    | 2          | NF31        |                 | TODO |

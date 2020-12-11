@@ -32,7 +32,7 @@ fetch("http://localhost:3000/project/create", {
 })
 .then(() => driver.get("http://localhost:8080"))
 .then(() => driver.sleep(1000))
-.then(() => driver.findElement(By.className("projectCard v-card v-sheet theme--dark elevation-2")))
+.then(() => driver.findElement(By.className("v-btn v-btn--flat v-btn--text theme--dark v-size--default primary--text text--open")))
 .then((project) => project.click())
 .then(() => driver.sleep(1000))
 .then(() => driver.findElement(By.className("mx-2 success v-btn v-btn--contained v-btn--fab v-btn--round theme--dark v-size--default")))

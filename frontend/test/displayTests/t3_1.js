@@ -34,13 +34,13 @@ fetch("http://localhost:3000/project/create", {
   driver.get("http://localhost:8080")
   driver.sleep(2000);
 })
-.then(() =>driver.findElements(By.className("start")))
+.then(() =>driver.findElements(By.id("start_end")))
 .then((projects) => projects[projects.length-1].getText())
-.then((start) => variables.push((start.split(" ")[2])))
-.then(() =>driver.findElements(By.className("end")))
+.then((start) => variables.push((start.split(" ")[0])))
+.then(() =>driver.findElements(By.id("start_end")))
 .then((projects) => projects[projects.length-1].getText())
 .then((end) => variables.push((end.split(" ")[2])))
-.then(() =>driver.findElements(By.className("v-card__title")))
+.then(() =>driver.findElements(By.className("v-card__title name justify-center")))
 .then((projects) => projects[projects.length-1].getText())
 .then((title) => variables.push(title))
 .then(() => {

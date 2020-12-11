@@ -37,7 +37,7 @@ driver.sleep(2000)
     button.click();
     driver.sleep(2000);
 })
-.then(() => driver.findElement(By.className("mr-6 v-btn v-btn--contained theme--dark v-size--default warning")))
+.then(() => driver.findElement(By.className("edit v-btn v-btn--flat v-btn--text theme--dark v-size--default warning--text")))
 .then((button) => {
     button.click();
     driver.sleep(2000);

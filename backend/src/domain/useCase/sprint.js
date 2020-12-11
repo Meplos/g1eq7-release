@@ -27,3 +27,28 @@ exports.addSprint = (req, res) => {
     })
     .catch((err) => console.log(err));
 };
+
+exports.getAllUSFromCurrentSprint = (req, res) => {
+  let idProject = req.params.idProject;
+  SprintRepository.getAllUSFromCurrentSprint(idProject)
+    .then((list) => {
+      console.log("US in actual sprint: " + list);
+      res.status(200).send(list);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(400);
+    });
+};
+
+exports.modifySprint = (req, res) => {
+  const sprint = req.body;
+  SprintRepository.modifySprint(sprint)
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(400);
+    });
+};

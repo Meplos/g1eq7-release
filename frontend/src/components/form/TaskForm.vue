@@ -45,7 +45,7 @@
             filled
             id="dependencies"
             label="Dependencies"
-            :items="taskList"
+            :items="$store.state.taskOfCurrentProject"
             :item-value="'_id'"
             :item-text="'name'"
             max-height="auto"
@@ -60,7 +60,7 @@
             required
             filled
             label="User Story*"
-            :items="usList"
+            :items="$store.state.usOfCurrentProject"
             :item-value="'_id'"
             :item-text="'description'"
             max-height="auto"
@@ -106,7 +106,7 @@
             color="success"
             :disabled="!valid"
             @click="create"
-            >Create projet</v-btn
+            >Create Task</v-btn
           >
           <v-btn color="error" @click="cancel" outlined>Cancel</v-btn>
         </v-col>
@@ -134,6 +134,7 @@ export default {
       state: this.task ? this.task.state : "TODO",
       idProject: this.task ? this.task.idProject : this.$route.params.idProject,
       idUS: this.task ? this.task.idUs : null,
+      dateEnd: this.task ? this.task.dateEnd : null,
 
       usList: [],
       stateList: ["TODO", "DOING", "DONE"],
@@ -154,29 +155,11 @@ export default {
       if (this.time > 0) this.time--;
     },
     getTaskList() {
-      axios
-        .get(
-          `http://${serverurl}:${port}/project/${this.idProject}/task/display/${this.idProject}`
-        )
-        .then((res) => {
-          const tasks = res.data;
-          if (tasks) {
-            this.taskList = tasks;
-          }
-        });
+      this.$store.commit("GET_TASK_OF_PROJECT", this.idProject);
     },
 
     getUsList() {
-      axios
-        .get(
-          `http://${serverurl}:${port}/project/${this.idProject}/us/display/${this.idProject}`
-        )
-        .then((res) => {
-          const us = res.data;
-          if (us) {
-            this.usList = us;
-          }
-        });
+      this.$store.commit("GET_US_OF_PROJECT", this.idProject);
     },
     create() {
       if (this.name.trim().length === 0 || !this.idUS) {
@@ -187,7 +170,12 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/task/create/`,
           this.createPostData()
         )
-        .then(this.$router.back());
+
+        .then(() => {
+          this.$store.commit("GET_TASK_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
+
     },
     modify() {
       axios
@@ -195,7 +183,10 @@ export default {
           `http://${serverurl}:${port}/project/${this.idProject}/task/${this.id}/modify/`,
           this.createPostData()
         )
-        .then(this.$router.back());
+        .then(() => {
+          this.$store.commit("GET_TASK_OF_PROJECT", this.idProject);
+          this.$router.back();
+        });
     },
     cancel() {
       this.$router.back();
@@ -206,11 +197,12 @@ export default {
         name: this.name,
         description: this.description,
         dependencies: this.dependencies,
-        dev: this.devs,
+        dev: this.dev,
         time: this.time,
         state: this.state,
         idProject: this.idProject,
         idUs: this.idUs,
+        dateEnd: this.dateEnd,
       };
     },
   },

@@ -6,6 +6,7 @@ import ProjectForm from "../components/form/ProjectForm.vue";
 import USForm from "../components/form/USForm.vue";
 import TaskForm from "../components/form/TaskForm";
 import SprintForm from "../components/form/SprintForm.vue";
+import ReleaseForm from "../components/form/ReleaseForm.vue";
 import NotFound from "../components/NotFound.vue";
 import Burndownchart from "../components/Burndownchart.vue";
 
@@ -25,10 +26,23 @@ const routes = [
     props: { isEdit: false },
   },
   {
+    path: "/project/:idProject/release/create",
+    name: "CreateRelease",
+    component: ReleaseForm,
+    props: { isEdit: false },
+  },
+  {
+    path: "/project/:idProject/release/:idRelease/modify",
+    name: "ModifyRelease",
+    component: ReleaseForm,
+    props: true,
+  },
+
+  {
     path: "/project/:idProject/burndownchart",
     name: "Burndownchart",
     component: Burndownchart,
-    porps: true,
+    props: true,
   },
   {
     path: "/project/:idProject/us/:idUS/modify",

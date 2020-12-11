@@ -14,7 +14,7 @@ export default {
     startDrag(evt) {
       evt.dataTransfer.dropEffect = "move";
       evt.dataTransfer.effectAllowed = "move";
-      evt.dataTransfer.setData("taskID", this.task.id);
+      evt.dataTransfer.setData("taskID", this.task._id);
     },
   },
 };

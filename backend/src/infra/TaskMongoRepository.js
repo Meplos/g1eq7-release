@@ -9,15 +9,11 @@ async function createTask(task) {
   task.dependencies = dependenciesId;
   task.idUs = mongoose.Types.ObjectId(task.idUs);
   task.idProject = mongoose.Types.ObjectId(task.idProject);
-  console.log(task);
   const newTask = Model.Task(task);
   let _id;
-  await newTask
-    .save()
-    .then((res) => {
-      _id = res._id;
-    })
-    .catch((err) => console.log(err));
+  await newTask.save().then((res) => {
+    _id = res._id;
+  });
   return _id;
 }
 
@@ -42,6 +38,13 @@ async function getTasksOfProject(idProject) {
 }
 
 async function modifyTask(task) {
+  let dependenciesId = [];
+  task.dependencies.forEach((curr) =>
+    dependenciesId.push(mongoose.Types.ObjectId(curr))
+  );
+  task.dependencies = dependenciesId;
+  task.idUs = mongoose.Types.ObjectId(task.idUs);
+  task.idProject = mongoose.Types.ObjectId(task.idProject);
   Model.Task.update({ _id: mongoose.Types.ObjectId(task._id) }, task).exec(
     (err, res) => {
       if (err) throw err;
