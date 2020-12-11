@@ -10,9 +10,9 @@
 
 - Front: Vue
 - Backend: Node
-- BDD: MySQL
+- BDD: MongoDB
 
-## Organisation des fichiers
+## Architecture
 
 ```
 backend
@@ -22,8 +22,20 @@ backend
 |   |    |- Port
 |   |    |- useCase
 |   |- App (node/express)
+|   |    |- routes
+|   |    |- index.js
 |   |- Infra (repo MySQL)
+|- test
+
 frontend (vue)
+|- public
+|- src
+|   |- components (Vue components)
+|   |- router
+|   |- store
+|   |- App.vue
+|   |- main.js
+|- test
 
 ```
 
