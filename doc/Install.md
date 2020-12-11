@@ -1,4 +1,4 @@
-# Installation v1.2.0
+# Installation v1.3.0
 
 ## Via Docker
 

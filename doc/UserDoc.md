@@ -1,8 +1,8 @@
-# User Documentation v1.2.0
+# User Documentation v1.3.0
 
 ## Create a project
 
-Once you're on the home page you can **create  a project**
+Once you're on the home page you can **create a project**
 
 ## Manage your project
 
