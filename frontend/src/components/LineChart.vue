@@ -25,18 +25,19 @@ export default {
         datasets: [
           {
             type: "line",
-
             label: "Ideal Task Remaining (Difficulty US)",
-            //backgroundColor: '#f87979',
-            pointBackgroundColor: "green",
+            fill:false,
+            borderColor: "#bae755",
+            pointBackgroundColor: "#09ff00",
             borderWidth: 1,
             pointBorderColor: "#249EBF",
             data: [],
           },
           {
             label: "Actual Task Remaining (Difficulty US)",
-            backgroundColor: "#A12323",
-            pointBackgroundColor: "white",
+            fill:false,
+            borderColor: "#ff3300",
+            pointBackgroundColor: "red",
             borderWidth: 1,
             pointBorderColor: "#249EBF",
             data: [],
