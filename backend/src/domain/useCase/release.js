@@ -17,7 +17,7 @@ exports.createRelease = (req, res) => {
   console.log(release);
   ReleaseMongoRepository.createRelease(release)
     .then((result) => {
-      release._id = result._id;
+      release._id = result;
       res.status(201).send(release);
     })
     .catch((err) => console.log(err));

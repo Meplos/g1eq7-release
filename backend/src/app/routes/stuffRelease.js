@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     const { idProject } = body;
     const dir = `uploads/${idProject}/`;
     if (!fs.existsSync(dir)) {
-      return fs.mkdirSync(dir);
+      fs.mkdirSync(dir);
     }
     return cb(null, dir);
   },

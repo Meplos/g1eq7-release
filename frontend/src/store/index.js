@@ -61,7 +61,7 @@ const store = new Vuex.Store({
         .then((res) => {
           const releases = res.data;
           if (releases) {
-            state.releaseOfCurrentProject = releases;
+            state.releaseOfCurrentProject = releases.reverse();
           }
         });
     },
