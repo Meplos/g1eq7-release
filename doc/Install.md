@@ -1,4 +1,4 @@
-# Installation
+# Installation v1.2.0
 
 ## Via Docker
 
@@ -40,7 +40,7 @@ foo@bar:~$ npm install
 foo@bar:~$ npm run serve
 ```
 
-## Accès a l'application
+## Acces to the application
 
 You access to the application on **localhost** port **8080**
 ```http
